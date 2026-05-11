@@ -1,0 +1,83 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#9a3412" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="#fffaf5"/>
+  <path d="M880 -110C1072 -82 1218 56 1280 240V640H722C686 492 724 316 824 190C862 140 880 46 880 -110Z" fill="#ffedd5"/>
+  <circle cx="1082" cy="140" r="216" fill="#f97316" opacity="0.08"/>
+  <circle cx="1002" cy="514" r="176" fill="#ea580c" opacity="0.08"/>
+
+  <g transform="translate(76 58)">
+    <g filter="url(#shadow)">
+      <rect x="0" y="12" width="40" height="40" rx="8" fill="url(#orange)" fill-opacity="0.38"/>
+      <rect x="10" y="2" width="40" height="40" rx="8" fill="url(#orange)" fill-opacity="0.68"/>
+      <rect x="20" y="-8" width="40" height="40" rx="8" fill="url(#orange)"/>
+      <path d="M32 5H48M32 12H44M32 19H48" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="84" y="31" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="40" font-weight="850" letter-spacing="0">
+      <tspan fill="#18181b">Hi</tspan><tspan fill="#f97316">API</tspan>
+    </text>
+    <text x="84" y="64" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="19" font-weight="650" fill="#78716c" letter-spacing="0">One API, all AI models</text>
+  </g>
+
+  <g transform="translate(76 170)">
+    <rect x="0" y="0" width="180" height="42" rx="21" fill="#ffffff" stroke="#fed7aa"/>
+    <circle cx="24" cy="21" r="8" fill="#22c55e"/>
+    <text x="45" y="28" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="18" font-weight="800" fill="#9a3412">Official Skills</text>
+  </g>
+
+  <g transform="translate(76 265)">
+    <text x="0" y="0" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="76" font-weight="900" fill="#18181b" letter-spacing="0">HiAPI Skills</text>
+    <text x="0" y="74" font-family="PingFang SC, Hiragino Sans GB, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="42" font-weight="800" fill="#18181b" letter-spacing="0">官方 AI Agent 技能目录</text>
+    <text x="2" y="128" font-family="PingFang SC, Hiragino Sans GB, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="26" font-weight="650" fill="#57534e" letter-spacing="0">官网、MCP、Skill 一起连接图像与视频模型</text>
+  </g>
+
+  <g transform="translate(76 464)" font-family="PingFang SC, Hiragino Sans GB, SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="800">
+    <rect x="0" y="0" width="150" height="50" rx="25" fill="#18181b"/>
+    <text x="29" y="32" fill="#ffffff">GPT Image 2</text>
+    <rect x="166" y="0" width="168" height="50" rx="25" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="194" y="32" fill="#9a3412">Seedance 2.0</text>
+    <rect x="350" y="0" width="194" height="50" rx="25" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="378" y="32" fill="#9a3412">HappyHorse 1.0</text>
+  </g>
+
+  <g transform="translate(76 548)">
+    <rect x="0" y="0" width="392" height="54" rx="27" fill="url(#orange)" filter="url(#shadow)"/>
+    <text x="28" y="35" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="23" font-weight="850" fill="#ffffff" letter-spacing="0">github.com/HiAPIAI/hiapi-skills</text>
+  </g>
+
+  <g transform="translate(756 126)" filter="url(#shadow)">
+    <rect width="420" height="372" rx="34" fill="#ffffff"/>
+    <text x="38" y="60" font-family="SF Pro Display, Helvetica Neue, Arial, PingFang SC, Hiragino Sans GB, sans-serif" font-size="27" font-weight="850" fill="#18181b">Choose a HiAPI Skill</text>
+    <g transform="translate(38 96)">
+      <rect width="344" height="66" rx="18" fill="#fff7ed" stroke="#fed7aa"/>
+      <circle cx="34" cy="33" r="16" fill="url(#orange)"/>
+      <text x="64" y="30" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="820" fill="#18181b">GPT Image 2</text>
+      <text x="64" y="52" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="650" fill="#78716c">Text-to-image</text>
+    </g>
+    <g transform="translate(38 178)">
+      <rect width="344" height="66" rx="18" fill="#ffffff" stroke="#fed7aa"/>
+      <circle cx="34" cy="33" r="16" fill="#18181b"/>
+      <text x="64" y="30" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="820" fill="#18181b">Seedance 2.0 Video</text>
+      <text x="64" y="52" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="650" fill="#78716c">Text-to-video and image-to-video</text>
+    </g>
+    <g transform="translate(38 260)">
+      <rect width="344" height="66" rx="18" fill="#ffffff" stroke="#fed7aa"/>
+      <circle cx="34" cy="33" r="16" fill="#fb923c"/>
+      <text x="64" y="30" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="820" fill="#18181b">HappyHorse 1.0 Video</text>
+      <text x="64" y="52" font-family="SF Pro Display, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="650" fill="#78716c">Quick text-to-video clips</text>
+    </g>
+  </g>
+
+  <g transform="translate(812 534)" font-family="PingFang SC, Hiragino Sans GB, SF Pro Display, Helvetica Neue, Arial, sans-serif">
+    <rect x="0" y="0" width="314" height="56" rx="18" fill="#ffffff" stroke="#fed7aa"/>
+    <text x="22" y="36" font-size="21" font-weight="850" fill="#9a3412">API Key · Remote MCP · Docs</text>
+  </g>
+</svg>
