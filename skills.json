@@ -1,0 +1,96 @@
+{
+  "name": "HiAPI Skills",
+  "description": "Official HiAPI AI Agent skills directory.",
+  "website": {
+    "en": "https://www.hiapi.ai/en",
+    "zh": "https://www.hiapi.ai/zh"
+  },
+  "apiKeys": {
+    "en": "https://www.hiapi.ai/en/register",
+    "zh": "https://www.hiapi.ai/zh/register"
+  },
+  "pricing": {
+    "en": "https://www.hiapi.ai/en/pricing",
+    "zh": "https://www.hiapi.ai/zh/pricing"
+  },
+  "docs": "https://docs.hiapi.ai",
+  "remoteMcp": "https://mcp.hiapi.ai/mcp",
+  "skills": [
+    {
+      "id": "hiapi-gpt-image-2",
+      "name": "HiAPI GPT Image 2",
+      "model": "gpt-image-2",
+      "type": "image",
+      "capabilities": [
+        "text-to-image"
+      ],
+      "bestFor": [
+        "posters",
+        "illustrations",
+        "social media graphics",
+        "product visuals",
+        "cover images"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
+        "manualDirectory": "hiapi-gpt-image-2"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/gpt-image-2",
+        "zh": "https://www.hiapi.ai/zh/models/gpt-image-2"
+      }
+    },
+    {
+      "id": "hiapi-seedance-2-0-video",
+      "name": "HiAPI Seedance 2.0 Video",
+      "model": "seedance-2-0",
+      "type": "video",
+      "capabilities": [
+        "text-to-video",
+        "image-to-video"
+      ],
+      "bestFor": [
+        "cinematic clips",
+        "image animation",
+        "product videos",
+        "social video concepts",
+        "visual storyboards"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
+        "manualDirectory": "hiapi-seedance-2-0-video"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/seedance-2-0",
+        "zh": "https://www.hiapi.ai/zh/models/seedance-2-0"
+      }
+    },
+    {
+      "id": "hiapi-happyhorse-1-0-video",
+      "name": "HiAPI HappyHorse 1.0 Video",
+      "model": "happyhorse-1-0",
+      "type": "video",
+      "capabilities": [
+        "text-to-video"
+      ],
+      "bestFor": [
+        "short videos",
+        "lightweight video drafts",
+        "social media clips",
+        "ad concepts",
+        "quick video prototypes"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
+        "manualDirectory": "hiapi-happyhorse-1-0-video"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/happyhorse-1-0",
+        "zh": "https://www.hiapi.ai/zh/models/happyhorse-1-0"
+      }
+    }
+  ]
+}

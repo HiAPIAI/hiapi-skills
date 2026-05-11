@@ -1,0 +1,25 @@
+{
+  "name": "hiapi-skills",
+  "version": "0.1.0",
+  "description": "Official HiAPI AI Agent skills directory",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/validate.mjs"
+  },
+  "keywords": [
+    "hiapi",
+    "ai-agent",
+    "skills",
+    "mcp",
+    "openclaw",
+    "claude-code",
+    "codex",
+    "image-generation",
+    "video-generation"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
