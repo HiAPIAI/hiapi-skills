@@ -1,10 +1,10 @@
 # HiAPI Skills
 
-Official AI Agent skills and public entry map for HiAPI.
+Official HiAPI skill directory for AI Agents.
 
 **HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
 
-[Get API Key](https://www.hiapi.ai/en/register) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
 
 ---
 
@@ -14,7 +14,7 @@ Official AI Agent skills and public entry map for HiAPI.
 
 ## What Is This?
 
-This is the official directory of HiAPI skills for OpenClaw, Claude Code, Codex, OpenCode, Cursor-style agent workflows, and other tools that can read local skills. It is also the public map for choosing the right HiAPI entry point.
+This is the official directory of HiAPI skills for OpenClaw, Claude Code, Codex, OpenCode, Cursor-style agent workflows, and other tools that can read local skills. It helps you choose the right HiAPI entry point before installing a specific skill.
 
 HiAPI is an AI API platform built for developers: one API, all AI models. These skills package common image and video generation workflows so an AI Agent can call a focused model without guessing endpoints or parameters.
 
@@ -27,11 +27,11 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Entry | Link | Use it when... |
 | --- | --- | --- |
 | Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | You want output-backed creative recipes before generating images. |
-| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want a focused installable workflow for one model. |
+| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
 
-The public surface is API-first: prompt galleries should lead to runnable HiAPI requests, skills should call real model endpoints, and MCP should help agents discover the broader toolset.
+These entry points solve different jobs: prompt galleries show proven visual examples, single-model skills call real HiAPI model endpoints, and Remote MCP helps agents discover the broader HiAPI toolset.
 
 ---
 
@@ -45,9 +45,9 @@ The public surface is API-first: prompt galleries should lead to runnable HiAPI 
 
 ---
 
-## Which One Should I Install?
+## Choose an Entry
 
-| I want to... | Install |
+| I want to... | Open |
 | --- | --- |
 | Find a tested prompt and output example first | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
@@ -59,13 +59,20 @@ Skills are best when you want a stable, focused workflow. Remote MCP is better w
 
 ---
 
-## Quick Install
+## Install One Skill
+
+Pick the repository for the model you need. Install all three only if you want all three skills available in your agent.
 
 ### OpenClaw
 
 ```bash
+# GPT Image 2
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+
+# Seedance 2.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
+
+# HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 ```
 
@@ -74,31 +81,31 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 ```
 
-Restart Codex after copying skills.
+Restart Codex after installing skills.
 
 ### Claude Code
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "$HOME/.claude/skills/hiapi-gpt-image-2"
+rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 ```
 
 ### Any Agent With A Skills Folder
@@ -107,8 +114,13 @@ cp -R /tmp/hiapi-happyhorse-1-0-video-skill "$HOME/.claude/skills/hiapi-happyhor
 export AGENT_SKILLS_DIR="/path/to/your/agent/skills"
 mkdir -p "$AGENT_SKILLS_DIR"
 
+rm -rf "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 ```
 
@@ -116,9 +128,9 @@ git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGEN
 
 ## Get API Key
 
-1. Open [HiAPI Register](https://www.hiapi.ai/en/register).
+1. Open [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys).
 2. Create or sign in to your HiAPI account.
-3. Create an API key.
+3. Create or copy an API key.
 4. Set it in the terminal where your agent runs:
 
 ```bash
@@ -165,8 +177,8 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 
 | Problem | Next Step |
 | --- | --- |
-| Missing `HIAPI_API_KEY` | Create or copy a key at [HiAPI Register](https://www.hiapi.ai/en/register), then export `HIAPI_API_KEY`. |
-| Invalid key or unauthorized request | Check the key or create a new one at [HiAPI Register](https://www.hiapi.ai/en/register). |
+| Missing `HIAPI_API_KEY` | Create or copy a key at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys), then export `HIAPI_API_KEY`. |
+| Invalid key or unauthorized request | Check the key or create a new one at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys). |
 | Insufficient balance, quota, or payment status | Check your account in the [HiAPI Dashboard](https://www.hiapi.ai/en/dashboard) and review [Pricing](https://www.hiapi.ai/en/pricing). |
 | Rate limited | Wait and retry, or reduce concurrent generations. |
 | Unsure which model to use | Start with the table above, or follow the [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) so your agent can inspect available tools. |

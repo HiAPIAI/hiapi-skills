@@ -1,13 +1,13 @@
 {
   "name": "HiAPI Skills",
-  "description": "Official HiAPI AI Agent skills directory.",
+  "description": "Official HiAPI skill directory for choosing a focused model workflow.",
   "website": {
     "en": "https://www.hiapi.ai/en",
     "zh": "https://www.hiapi.ai/zh"
   },
   "apiKeys": {
-    "en": "https://www.hiapi.ai/en/register",
-    "zh": "https://www.hiapi.ai/zh/register"
+    "en": "https://www.hiapi.ai/en/dashboard/api-keys",
+    "zh": "https://www.hiapi.ai/zh/dashboard/api-keys"
   },
   "pricing": {
     "en": "https://www.hiapi.ai/en/pricing",
@@ -26,7 +26,7 @@
       "id": "agent-skills",
       "name": "Agent Skills",
       "url": "https://github.com/HiAPIAI/hiapi-skills",
-      "useWhen": "Install a focused single-model workflow into an AI Agent."
+      "useWhen": "Browse the available HiAPI skills and choose the one your agent needs."
     },
     {
       "id": "remote-mcp",
@@ -60,6 +60,8 @@
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-gpt-image-2\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git \"$HOME/.claude/skills/hiapi-gpt-image-2\"",
         "manualDirectory": "hiapi-gpt-image-2"
       },
       "modelPage": {
@@ -86,6 +88,8 @@
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video\" && git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-seedance-2-0-video\" && git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git \"$HOME/.claude/skills/hiapi-seedance-2-0-video\"",
         "manualDirectory": "hiapi-seedance-2-0-video"
       },
       "modelPage": {
@@ -111,6 +115,8 @@
       "repository": "https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video\" && git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-happyhorse-1-0-video\" && git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git \"$HOME/.claude/skills/hiapi-happyhorse-1-0-video\"",
         "manualDirectory": "hiapi-happyhorse-1-0-video"
       },
       "modelPage": {

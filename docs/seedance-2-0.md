@@ -37,4 +37,5 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git
 
 - English model page: https://www.hiapi.ai/en/models/seedance-2-0
 - Chinese model page: https://www.hiapi.ai/zh/models/seedance-2-0
-- API key: https://www.hiapi.ai/en/register
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys

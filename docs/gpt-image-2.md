@@ -37,4 +37,5 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git
 
 - English model page: https://www.hiapi.ai/en/models/gpt-image-2
 - Chinese model page: https://www.hiapi.ai/zh/models/gpt-image-2
-- API key: https://www.hiapi.ai/en/register
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
