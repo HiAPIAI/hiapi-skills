@@ -14,6 +14,13 @@ Use this skill when the user wants text-to-image generation through HiAPI.
 - Product visuals
 - Cover images
 
+## Related Public Entries
+
+- Prompt gallery: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
+- Skills directory: https://github.com/HiAPIAI/hiapi-skills
+- Remote MCP: https://mcp.hiapi.ai/mcp
+- API docs: https://docs.hiapi.ai
+
 ## Install
 
 ```bash

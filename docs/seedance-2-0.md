@@ -14,6 +14,13 @@ Use this skill when the user wants text-to-video generation or image-to-video an
 - Social video concepts
 - Visual storyboards
 
+## Related Public Entries
+
+- Skills directory: https://github.com/HiAPIAI/hiapi-skills
+- Remote MCP: https://mcp.hiapi.ai/mcp
+- API docs: https://docs.hiapi.ai
+- GPT Image 2 prompt gallery for still-image starting points: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
+
 ## Install
 
 ```bash
