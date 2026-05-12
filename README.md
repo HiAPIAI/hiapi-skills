@@ -1,10 +1,10 @@
 # HiAPI Skills
 
-Official AI Agent skills for HiAPI.
+Official AI Agent skills and public entry map for HiAPI.
 
 **HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
 
-[Get API Key](https://www.hiapi.ai/en/register) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/register) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
 
 ---
 
@@ -14,11 +14,24 @@ Official AI Agent skills for HiAPI.
 
 ## What Is This?
 
-This is the official directory of HiAPI skills for OpenClaw, Claude Code, Codex, OpenCode, Cursor-style agent workflows, and other tools that can read local skills.
+This is the official directory of HiAPI skills for OpenClaw, Claude Code, Codex, OpenCode, Cursor-style agent workflows, and other tools that can read local skills. It is also the public map for choosing the right HiAPI entry point.
 
 HiAPI is an AI API platform built for developers: one API, all AI models. These skills package common image and video generation workflows so an AI Agent can call a focused model without guessing endpoints or parameters.
 
 Use this repository when you want to choose a HiAPI skill. Install the individual skill repository when you are ready to generate images or videos.
+
+---
+
+## Public Entry Map
+
+| Entry | Link | Use it when... |
+| --- | --- | --- |
+| Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | You want output-backed creative recipes before generating images. |
+| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want a focused installable workflow for one model. |
+| Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
+| API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
+
+The public surface is API-first: prompt galleries should lead to runnable HiAPI requests, skills should call real model endpoints, and MCP should help agents discover the broader toolset.
 
 ---
 
@@ -36,6 +49,7 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 
 | I want to... | Install |
 | --- | --- |
+| Find a tested prompt and output example first | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -134,6 +148,10 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 Use HIAPI_API_KEY for authentication. If the key is missing, invalid, rate-limited, or the account has insufficient balance, show the user the next step and link to HiAPI.
 ```
+
+## Prompt Gallery Workflow
+
+Use [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) when the user needs inspiration, style references, or a prompt starting point. Each case includes a result image, source attribution, aspect ratio, and a HiAPI Draw link. After the user chooses a case, use the relevant skill or direct API request to generate a new result with their own subject, product, text, or scene.
 
 ---
 

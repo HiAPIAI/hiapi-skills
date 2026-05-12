@@ -14,6 +14,13 @@ Use this skill when the user wants lightweight text-to-video generation through 
 - Ad concepts
 - Quick video prototypes
 
+## Related Public Entries
+
+- Skills directory: https://github.com/HiAPIAI/hiapi-skills
+- Remote MCP: https://mcp.hiapi.ai/mcp
+- API docs: https://docs.hiapi.ai
+- Seedance 2.0 image-to-video skill: https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
+
 ## Install
 
 ```bash

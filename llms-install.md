@@ -4,6 +4,15 @@ This file is for AI Agents. Use it when the user asks to install, choose, or use
 
 ## Start Here
 
+HiAPI has four public entry points:
+
+| User intent | Entry | Link |
+| --- | --- | --- |
+| Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
+| Install a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
+| Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
+| Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
+
 HiAPI has three public single-model skills:
 
 | User intent | Skill repository | Local directory |
@@ -99,3 +108,13 @@ Use these user-facing messages:
 ## Public Index
 
 Read `skills.json` for a machine-readable list of HiAPI skills, repositories, model pages, install commands, and use cases.
+
+## Prompt Gallery Workflow
+
+If the user asks for prompt ideas, style references, image examples, or a starting point before generation, read:
+
+```text
+https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
+```
+
+Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.ai/v1/chat/completions` request.

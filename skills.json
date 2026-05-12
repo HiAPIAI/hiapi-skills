@@ -15,6 +15,32 @@
   },
   "docs": "https://docs.hiapi.ai",
   "remoteMcp": "https://mcp.hiapi.ai/mcp",
+  "publicEntries": [
+    {
+      "id": "prompt-galleries",
+      "name": "Prompt Galleries",
+      "url": "https://github.com/HiAPIAI/awesome-gpt-image-2-prompts",
+      "useWhen": "Browse tested prompt recipes with output images before generating."
+    },
+    {
+      "id": "agent-skills",
+      "name": "Agent Skills",
+      "url": "https://github.com/HiAPIAI/hiapi-skills",
+      "useWhen": "Install a focused single-model workflow into an AI Agent."
+    },
+    {
+      "id": "remote-mcp",
+      "name": "Remote MCP",
+      "url": "https://mcp.hiapi.ai/mcp",
+      "useWhen": "Let MCP-compatible clients discover and call HiAPI tools with a user API key."
+    },
+    {
+      "id": "api-cookbook",
+      "name": "API Cookbook",
+      "url": "https://docs.hiapi.ai",
+      "useWhen": "Copy direct API request shapes, model parameters, and integration guides."
+    }
+  ],
   "skills": [
     {
       "id": "hiapi-gpt-image-2",

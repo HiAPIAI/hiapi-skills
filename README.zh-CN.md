@@ -1,10 +1,10 @@
 # HiAPI Skills
 
-HiAPI 官方 AI Agent 技能目录。
+HiAPI 官方 AI Agent 技能目录和公开入口地图。
 
 **HiAPI Skills • 安装 • API Key • [HiAPI](https://www.hiapi.ai/zh)**
 
-[免费获取 API Key](https://www.hiapi.ai/zh/register) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
+[免费获取 API Key](https://www.hiapi.ai/zh/register) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
 ---
 
@@ -14,11 +14,24 @@ HiAPI 官方 AI Agent 技能目录。
 
 ## 这是什么？
 
-这是 HiAPI 官方 AI Agent 技能目录，适用于 OpenClaw、Claude Code、Codex、OpenCode、Cursor 类 Agent 工作流，以及其他可以读取本地 skill 的工具。
+这是 HiAPI 官方 AI Agent 技能目录，适用于 OpenClaw、Claude Code、Codex、OpenCode、Cursor 类 Agent 工作流，以及其他可以读取本地 skill 的工具。它也是 HiAPI 公开仓库的入口地图。
 
 HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。这些 skill 把常用的图像和视频生成工作流封装好，让 AI Agent 不需要猜接口和参数，就能调用一个明确的模型完成任务。
 
 当你想选择 HiAPI skill 时，先看这个仓库。准备开始生成图片或视频时，再安装对应的单模型 skill 仓库。
+
+---
+
+## 公开入口地图
+
+| 入口 | 链接 | 什么时候用 |
+| --- | --- | --- |
+| Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | 想先看真实效果图和创意配方，再生成图片。 |
+| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想给 AI Agent 安装一个稳定的单模型工作流。 |
+| Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
+| API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
+
+HiAPI 的公开面要保持 API-first：提示词画廊应该导向可运行的 HiAPI 请求，skills 应该调用真实模型端点，MCP 应该让 Agent 发现更完整的工具集。
 
 ---
 
@@ -36,6 +49,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 | 我想要... | 安装 |
 | --- | --- |
+| 先找一个有真实效果图的提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -134,6 +148,10 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 使用 HIAPI_API_KEY 鉴权。如果 Key 缺失、无效、被限流，或账号余额不足，请明确告诉用户下一步，并链接到 HiAPI。
 ```
+
+## Prompt Gallery 工作流
+
+当用户需要灵感、风格参考或提示词起点时，先看 [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)。每个案例都有结果图、来源署名、画面比例和 HiAPI Draw 链接。用户选中案例后，再用对应 skill 或直接 API 请求，把人物、产品、文案、场景替换成自己的内容来生成。
 
 ---
 

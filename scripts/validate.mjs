@@ -14,6 +14,20 @@ const requiredSkillIds = [
   "hiapi-happyhorse-1-0-video",
 ];
 
+const requiredPublicLinks = [
+  "https://github.com/HiAPIAI/awesome-gpt-image-2-prompts",
+  "https://github.com/HiAPIAI/hiapi-skills",
+  "https://mcp.hiapi.ai/mcp",
+  "https://docs.hiapi.ai",
+];
+
+const requiredPositioning = [
+  "Prompt Galleries",
+  "Agent Skills",
+  "Remote MCP",
+  "API Cookbook",
+];
+
 async function main() {
   for (const file of requiredFiles) {
     const content = await readFile(file, "utf8");
@@ -45,12 +59,31 @@ async function main() {
 
   const readme = await readFile("README.md", "utf8");
   const readmeZh = await readFile("README.zh-CN.md", "utf8");
+  const llmsInstall = await readFile("llms-install.md", "utf8");
   for (const skill of index.skills) {
     if (!readme.includes(skill.repository)) {
       throw new Error(`README.md missing ${skill.repository}`);
     }
     if (!readmeZh.includes(skill.repository)) {
       throw new Error(`README.zh-CN.md missing ${skill.repository}`);
+    }
+  }
+
+  for (const link of requiredPublicLinks) {
+    if (!readme.includes(link)) {
+      throw new Error(`README.md missing public link: ${link}`);
+    }
+    if (!readmeZh.includes(link)) {
+      throw new Error(`README.zh-CN.md missing public link: ${link}`);
+    }
+    if (!llmsInstall.includes(link)) {
+      throw new Error(`llms-install.md missing public link: ${link}`);
+    }
+  }
+
+  for (const phrase of requiredPositioning) {
+    if (!readme.includes(phrase)) {
+      throw new Error(`README.md missing positioning phrase: ${phrase}`);
     }
   }
 
