@@ -1,10 +1,10 @@
 # HiAPI Skills
 
-HiAPI 官方 AI Agent 技能目录和公开入口地图。
+HiAPI 官方 AI Agent 技能目录。
 
 **HiAPI Skills • 安装 • API Key • [HiAPI](https://www.hiapi.ai/zh)**
 
-[免费获取 API Key](https://www.hiapi.ai/zh/register) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
+[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
 ---
 
@@ -14,7 +14,7 @@ HiAPI 官方 AI Agent 技能目录和公开入口地图。
 
 ## 这是什么？
 
-这是 HiAPI 官方 AI Agent 技能目录，适用于 OpenClaw、Claude Code、Codex、OpenCode、Cursor 类 Agent 工作流，以及其他可以读取本地 skill 的工具。它也是 HiAPI 公开仓库的入口地图。
+这是 HiAPI 官方 AI Agent 技能目录，适用于 OpenClaw、Claude Code、Codex、OpenCode、Cursor 类 Agent 工作流，以及其他可以读取本地 skill 的工具。它帮助你先选对 HiAPI 入口，再安装具体的单模型 skill。
 
 HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。这些 skill 把常用的图像和视频生成工作流封装好，让 AI Agent 不需要猜接口和参数，就能调用一个明确的模型完成任务。
 
@@ -27,11 +27,11 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 入口 | 链接 | 什么时候用 |
 | --- | --- | --- |
 | Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | 想先看真实效果图和创意配方，再生成图片。 |
-| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想给 AI Agent 安装一个稳定的单模型工作流。 |
+| Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想浏览可用的 HiAPI skills，并选择一个明确的单模型工作流。 |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
 
-HiAPI 的公开面要保持 API-first：提示词画廊应该导向可运行的 HiAPI 请求，skills 应该调用真实模型端点，MCP 应该让 Agent 发现更完整的工具集。
+这些入口各自解决不同问题：Prompt Gallery 用来先看真实案例，单模型 skill 用来固定调用真实 HiAPI 模型端点，Remote MCP 用来让 Agent 发现更完整的 HiAPI 工具集。
 
 ---
 
@@ -45,9 +45,9 @@ HiAPI 的公开面要保持 API-first：提示词画廊应该导向可运行的 
 
 ---
 
-## 我该安装哪个？
+## 先选哪个入口？
 
-| 我想要... | 安装 |
+| 我想要... | 打开 |
 | --- | --- |
 | 先找一个有真实效果图的提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
@@ -59,13 +59,20 @@ HiAPI 的公开面要保持 API-first：提示词画廊应该导向可运行的 
 
 ---
 
-## 快速安装
+## 安装一个 Skill
+
+选择你需要的模型仓库即可。只有当你希望 Agent 同时具备三个能力时，才需要把三个 skill 都装上。
 
 ### OpenClaw
 
 ```bash
+# GPT Image 2
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+
+# Seedance 2.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
+
+# HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 ```
 
@@ -74,31 +81,31 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 ```
 
-复制后重启 Codex。
+安装后重启 Codex。
 
 ### Claude Code
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "$HOME/.claude/skills/hiapi-gpt-image-2"
+rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 ```
 
 ### 任意支持技能目录的 Agent
@@ -107,8 +114,13 @@ cp -R /tmp/hiapi-happyhorse-1-0-video-skill "$HOME/.claude/skills/hiapi-happyhor
 export AGENT_SKILLS_DIR="/path/to/your/agent/skills"
 mkdir -p "$AGENT_SKILLS_DIR"
 
+rm -rf "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 ```
 
@@ -116,9 +128,9 @@ git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGEN
 
 ## 获取 API Key
 
-1. 打开 [HiAPI 注册页](https://www.hiapi.ai/zh/register)。
+1. 打开 [HiAPI API Keys](https://www.hiapi.ai/zh/dashboard/api-keys)。
 2. 登录或注册 HiAPI 账号。
-3. 创建 API Key。
+3. 创建或复制 API Key。
 4. 在运行 Agent 的终端设置：
 
 ```bash
@@ -165,8 +177,8 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 | 问题 | 下一步 |
 | --- | --- |
-| 缺少 `HIAPI_API_KEY` | 到 [HiAPI 注册页](https://www.hiapi.ai/zh/register) 创建或复制 Key，然后设置 `HIAPI_API_KEY`。 |
-| Key 无效或鉴权失败 | 检查 Key，或到 [HiAPI 注册页](https://www.hiapi.ai/zh/register) 重新创建。 |
+| 缺少 `HIAPI_API_KEY` | 到 [HiAPI API Keys](https://www.hiapi.ai/zh/dashboard/api-keys) 创建或复制 Key，然后设置 `HIAPI_API_KEY`。 |
+| Key 无效或鉴权失败 | 检查 Key，或到 [HiAPI API Keys](https://www.hiapi.ai/zh/dashboard/api-keys) 重新创建。 |
 | 余额、额度或支付状态不足 | 到 [HiAPI Dashboard](https://www.hiapi.ai/zh/dashboard) 检查账号状态，并查看 [价格页](https://www.hiapi.ai/zh/pricing)。 |
 | 请求被限流 | 稍后重试，或减少并发生成请求。 |
 | 不确定该用哪个模型 | 先看上面的选择表，或查看 [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/)，让 Agent 查看可用工具。 |

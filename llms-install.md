@@ -2,6 +2,8 @@
 
 This file is for AI Agents. Use it when the user asks to install, choose, or use a HiAPI skill.
 
+This repository is a directory, not a skill package itself. Choose one skill repository below, then install that repository into the user's agent runtime.
+
 ## Start Here
 
 HiAPI has four public entry points:
@@ -9,7 +11,7 @@ HiAPI has four public entry points:
 | User intent | Entry | Link |
 | --- | --- | --- |
 | Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
-| Install a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
+| Choose a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
 | Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
 | Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
 
@@ -38,8 +40,8 @@ export HIAPI_BASE_URL="https://api.hiapi.ai"
 
 If the user does not have a key:
 
-- English: https://www.hiapi.ai/en/register
-- Chinese: https://www.hiapi.ai/zh/register
+- English: https://www.hiapi.ai/en/dashboard/api-keys
+- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys
 
 Do not print or commit API keys.
 
@@ -48,31 +50,31 @@ Do not print or commit API keys.
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 ```
 
-Restart Codex after copying skills.
+Restart Codex after installing skills.
 
 ## Install Into Claude Code
 
 ```bash
 mkdir -p "$HOME/.claude/skills"
 
-git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git /tmp/hiapi-gpt-image-2-skill
-cp -R /tmp/hiapi-gpt-image-2-skill "$HOME/.claude/skills/hiapi-gpt-image-2"
+rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
-git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git /tmp/hiapi-seedance-2-0-video-skill
-cp -R /tmp/hiapi-seedance-2-0-video-skill "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
-git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git /tmp/hiapi-happyhorse-1-0-video-skill
-cp -R /tmp/hiapi-happyhorse-1-0-video-skill "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 ```
 
 ## OpenClaw
@@ -98,8 +100,8 @@ Use these user-facing messages:
 
 | Condition | Message |
 | --- | --- |
-| Missing key | Set `HIAPI_API_KEY` first. Create one at https://www.hiapi.ai/en/register or https://www.hiapi.ai/zh/register. |
-| Invalid key | HiAPI rejected the API key. Check it or create a new key in HiAPI. |
+| Missing key | Set `HIAPI_API_KEY` first. Create or copy one at https://www.hiapi.ai/en/dashboard/api-keys or https://www.hiapi.ai/zh/dashboard/api-keys. |
+| Invalid key | HiAPI rejected the API key. Check it or create a new key in HiAPI API Keys. |
 | Insufficient balance or quota | Your HiAPI balance or quota may be insufficient. Check https://www.hiapi.ai/en/dashboard or https://www.hiapi.ai/zh/dashboard. |
 | Rate limit | The request was rate limited. Wait and retry, or reduce concurrent generations. |
 | Unsupported parameter | Check the target skill README and `SKILL.md` for supported duration, size, aspect ratio, resolution, and input type. |
