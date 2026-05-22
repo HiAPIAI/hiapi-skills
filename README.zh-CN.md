@@ -4,7 +4,7 @@ HiAPI 官方 AI Agent 技能目录。
 
 **HiAPI Skills • 安装 • API Key • [HiAPI](https://www.hiapi.ai/zh)**
 
-[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
+[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.0 提示词集](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
 ---
 
@@ -26,7 +26,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 | 入口 | 链接 | 什么时候用 |
 | --- | --- | --- |
-| Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | 想先看真实效果图和创意配方，再生成图片。 |
+| 图像 Prompt Gallery | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | 想先看 GPT Image 2 真实效果图和创意配方，再生成图片。 |
+| 视频 Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | 想先看 Seedance 2.0 真实视频配方，再做文生视频或图生视频。 |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想浏览可用的 HiAPI skills，并选择一个明确的单模型工作流。 |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
@@ -49,7 +50,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 | 我想要... | 打开 |
 | --- | --- |
-| 先找一个有真实效果图的提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
+| 先找一个有真实效果图的图像提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
+| 先找一个有真实效果的视频提示词参考 | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -59,9 +61,44 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 ---
 
+## MCP vs Skill
+
+两种入口用的是同一个 HiAPI 账号、同一把 `HIAPI_API_KEY`。区别在于"Agent 怎么跑"和"你想要多稳的工作流"。
+
+| 维度 | 单模型 Skill | Remote MCP |
+| --- | --- | --- |
+| 是什么 | 本地 skill 目录，被 Agent 加载（Codex、Claude Code、OpenClaw 等） | 托管 MCP 端点：`https://mcp.hiapi.ai/mcp` |
+| 安装方式 | `git clone` 或 `openclaw skills add` 到 Agent 的 skills 目录 | 在 Agent 的 MCP 配置里加一段 JSON，不用 clone |
+| 网络路径 | 用户本机 → `api.hiapi.ai` 直连 | Agent → `mcp.hiapi.ai`（托管 MCP）→ `api.hiapi.ai` |
+| 适合 | 稳定、聚焦、单一模型的工作流——只生图，或只生视频 | 聊天 Agent 在一次会话里需要发现并调用多个 HiAPI 工具 |
+| 模型范围 | 一个 skill 对应一个模型（`gpt-image-2`、`seedance-2-0`、`happyhorse-1-0`） | 暴露的所有 MCP 工具：`generate_image`、`generate_video`、`list_models` 等 |
+| 更新方式 | 仓库有新版本时你自己 pull | 托管模式，能力服务端更新 |
+| 客户端要求 | 任意能读取本地 skills 目录的 Agent | 客户端必须支持远程 MCP URL 和自定义 header（`Authorization: Bearer …`） |
+| 图片上传 | skill 脚本支持本地文件路径 | URL 上传——本地文件上传正在扩展中 |
+| 什么时候选它 | 模型和用途固定，要零配置漂移 | 事先不知道 Agent 会用哪个工具 |
+
+如果两个都合适，先装单模型 skill——运动部件最少。等需要在聊天里覆盖更多工具时再加 Remote MCP。
+
+---
+
 ## 安装一个 Skill
 
 选择你需要的模型仓库即可。只有当你希望 Agent 同时具备三个能力时，才需要把三个 skill 都装上。
+
+### 一行命令（推荐）
+
+```bash
+# GPT Image 2
+npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
+
+# Seedance 2.0 Video
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
+
+# HappyHorse 1.0 Video
+npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
+```
+
+每个安装脚本会自动检测 Codex（`~/.codex/skills`）和 Claude Code（`~/.claude/skills`）。需要指定就传 `--codex`、`--claude`、`--target=/path`，或设置 `AGENT_SKILLS_DIR` 环境变量。要求 Node 18+ 和系统 `git`。
 
 ### OpenClaw
 
@@ -191,6 +228,7 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
+- [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)
 
 ---
 
