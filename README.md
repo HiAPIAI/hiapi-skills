@@ -4,7 +4,7 @@ Official HiAPI skill directory for AI Agents.
 
 **HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
 
-[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [Prompt Gallery](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
 
 ---
 
@@ -26,7 +26,8 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 
 | Entry | Link | Use it when... |
 | --- | --- | --- |
-| Prompt Galleries | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | You want output-backed creative recipes before generating images. |
+| Image Prompt Gallery | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | You want output-backed GPT Image 2 recipes before generating images. |
+| Video Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | You want output-backed Seedance 2.0 recipes for text-to-video or image-to-video. |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
@@ -49,7 +50,8 @@ These entry points solve different jobs: prompt galleries show proven visual exa
 
 | I want to... | Open |
 | --- | --- |
-| Find a tested prompt and output example first | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
+| Find a tested image prompt and output example | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
+| Find a tested video prompt and output example | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -59,9 +61,44 @@ Skills are best when you want a stable, focused workflow. Remote MCP is better w
 
 ---
 
+## MCP vs Skill
+
+Both routes use the same HiAPI account and the same `HIAPI_API_KEY`. Pick by how your agent runs and how stable you want the workflow.
+
+| Dimension | Single-Model Skill | Remote MCP |
+| --- | --- | --- |
+| What it is | A local skill folder loaded by your agent (Codex, Claude Code, OpenClaw, …) | A hosted MCP endpoint at `https://mcp.hiapi.ai/mcp` |
+| Install path | `git clone` or `openclaw skills add` into the agent's skills directory | Add one JSON block to the agent's MCP config — no clone required |
+| Network | Direct HTTPS to `api.hiapi.ai` from the user's machine | Agent → `mcp.hiapi.ai` (hosted MCP) → `api.hiapi.ai` |
+| Best for | Stable, focused, single-model workflows — image-only or video-only | Chat agents that need to discover and call multiple HiAPI tools in one session |
+| Model surface | One model per skill (`gpt-image-2`, `seedance-2-0`, `happyhorse-1-0`) | All MCP-exposed tools: `generate_image`, `generate_video`, `list_models`, … |
+| Updates | You pull from the repo when there's a new version | Hosted — capabilities update server-side |
+| Required client support | Any agent that can read a local skills folder | Client must support remote MCP URLs and custom headers (`Authorization: Bearer …`) |
+| Image upload | Local file paths supported by the skill scripts | Upload via URL — local-file upload is being expanded |
+| Use it when | The model and use case are fixed and you want zero configuration drift | You don't know in advance which tool the agent will need |
+
+If both fit, install a single-model skill first — it has the smallest moving parts. Add Remote MCP later when you need a wider tool surface in chat.
+
+---
+
 ## Install One Skill
 
 Pick the repository for the model you need. Install all three only if you want all three skills available in your agent.
+
+### One Command (Recommended)
+
+```bash
+# GPT Image 2
+npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
+
+# Seedance 2.0 Video
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
+
+# HappyHorse 1.0 Video
+npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
+```
+
+Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claude/skills`). Pass `--codex`, `--claude`, `--target=/path`, or set `AGENT_SKILLS_DIR` to override. Requires Node 18+ and `git` on PATH.
 
 ### OpenClaw
 
@@ -191,6 +228,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
+- [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)
 
 ---
 
