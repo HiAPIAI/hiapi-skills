@@ -6,6 +6,8 @@ HiAPI 官方 AI Agent 技能目录。
 
 [获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.0 提示词集](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
+
 ---
 
 > AI Agent? 直接看 [llms-install.md](llms-install.md)。它会告诉你的 Agent 该安装哪个 skill、如何设置 `HIAPI_API_KEY`，以及 Key、余额、限流或模型请求失败时应该怎么提示用户。
