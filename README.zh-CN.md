@@ -34,7 +34,12 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
 
-这些入口各自解决不同问题：Prompt Gallery 用来先看真实案例，单模型 skill 用来固定调用真实 HiAPI 模型端点，Remote MCP 用来让 Agent 发现更完整的 HiAPI 工具集。
+这些入口各自解决不同问题：
+
+- **Prompt Galleries** — 已经验证过的提示词配方，先看真实案例和效果，再调用 API。
+- **Agent Skills** — 给 Agent 用的单模型工作流，外加一个纯提示词的 director，把简报变成可直接生成的视频提示词。
+- **Remote MCP** — 托管的 MCP 端点，客户端用请求头携带 HiAPI API Key 即可调用 HiAPI 工具。
+- **API Cookbook** — OpenAI 兼容 API 的直调示例和模型参数说明。
 
 ---
 
