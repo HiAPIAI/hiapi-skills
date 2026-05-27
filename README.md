@@ -34,7 +34,12 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
 
-These entry points solve different jobs: prompt galleries show proven visual examples, single-model skills call real HiAPI model endpoints, and Remote MCP helps agents discover the broader HiAPI toolset.
+These entry points solve different jobs:
+
+- **Prompt Galleries** — output-backed recipes for creators and developers who want a working starting point before calling an API.
+- **Agent Skills** — installable single-model workflows for agents that need a stable model-specific tool, plus a prompt-only director that turns briefs into runnable video prompts.
+- **Remote MCP** — a hosted MCP endpoint for clients that can pass a HiAPI API key in request headers.
+- **API Cookbook** — docs and examples for direct OpenAI-compatible API integration.
 
 ---
 
