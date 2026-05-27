@@ -123,6 +123,34 @@
         "en": "https://www.hiapi.ai/en/models/happyhorse-1-0",
         "zh": "https://www.hiapi.ai/zh/models/happyhorse-1-0"
       }
+    },
+    {
+      "id": "hiapi-video-prompt-generator",
+      "name": "HiAPI Video Prompt Generator",
+      "model": null,
+      "type": "prompt",
+      "capabilities": [
+        "video-prompt-direction",
+        "scene-by-scene-planning",
+        "source-extraction"
+      ],
+      "bestFor": [
+        "directing one-line briefs into runnable video prompts",
+        "turning links or research topics into scene-by-scene plans",
+        "producing prompts that Seedance 2.0 or HappyHorse 1.0 can render directly",
+        "preparing strong prompts before generation"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator\" && git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-video-prompt-generator\" && git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git \"$HOME/.claude/skills/hiapi-video-prompt-generator\"",
+        "manualDirectory": "hiapi-video-prompt-generator"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill"
+      }
     }
   ]
 }
