@@ -36,7 +36,7 @@ git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git
 ## Links
 
 - Repository: https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- Downstream renderer (Seedance 2.0): https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
+- Downstream renderer (HappyHorse 1.0): https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
-Note: The director itself does not call any HiAPI endpoint. The `HIAPI_API_KEY` is only required by the downstream render skill that will run the generated prompt.
+This skill does not call any HiAPI endpoint and does not require `HIAPI_API_KEY`. The key is only needed by the downstream render skill that will run the generated prompt — see those skills' docs for key setup.
