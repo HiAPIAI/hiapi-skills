@@ -45,6 +45,7 @@ These entry points solve different jobs: prompt galleries show proven visual exa
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2-0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | HappyHorse 1.0 Video | Lightweight text-to-video drafts, short social clips, ad concepts | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| Video Prompt Generator | Direct briefs, links, and topics into scene-by-scene Seedance/HappyHorse prompts before generating | — (prompt-only) | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 
 ---
 
@@ -57,6 +58,7 @@ These entry points solve different jobs: prompt galleries show proven visual exa
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
 
 Skills are best when you want a stable, focused workflow. Remote MCP is better when you want a chat agent to discover and call multiple HiAPI tools. The MCP endpoint is `https://mcp.hiapi.ai/mcp`.
@@ -98,6 +100,9 @@ npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 
 # HappyHorse 1.0 Video
 npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
+
+# Video Prompt Generator (prompt-only, no API key needed)
+npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 ```
 
 Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claude/skills`). Pass `--codex`, `--claude`, `--target=/path`, or set `AGENT_SKILLS_DIR` to override. Requires Node 18+ and `git` on PATH.
@@ -113,6 +118,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
 # HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
+
+# Video Prompt Generator
+openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 ```
 
 ### Codex
@@ -128,6 +136,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX
 
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 ```
 
 Restart Codex after installing skills.
@@ -145,6 +156,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.
 
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+
+rm -rf "$HOME/.claude/skills/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HOME/.claude/skills/hiapi-video-prompt-generator"
 ```
 
 ### Any Agent With A Skills Folder
@@ -161,6 +175,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
 ```
 
 ---

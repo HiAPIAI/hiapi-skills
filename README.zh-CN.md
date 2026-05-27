@@ -45,6 +45,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | GPT Image 2 | 海报、插画、社媒图、产品图、封面图 | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2-0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | HappyHorse 1.0 Video | 轻量文生视频草稿、短视频、广告概念 | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| Video Prompt Generator | 把简报、链接、调研主题写成分镜级的 Seedance/HappyHorse 提示词，生成前用 | —（纯提示词，不调模型） | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 
 ---
 
@@ -57,6 +58,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
 
 如果你要一个稳定、明确、单模型的工作流，用 skill 更合适。如果你希望聊天 Agent 能发现和调用更多 HiAPI 工具，用 Remote MCP 更合适。MCP 端点是 `https://mcp.hiapi.ai/mcp`。
@@ -98,6 +100,9 @@ npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 
 # HappyHorse 1.0 Video
 npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
+
+# Video Prompt Generator（纯提示词，不需要 API Key）
+npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 ```
 
 每个安装脚本会自动检测 Codex（`~/.codex/skills`）和 Claude Code（`~/.claude/skills`）。需要指定就传 `--codex`、`--claude`、`--target=/path`，或设置 `AGENT_SKILLS_DIR` 环境变量。要求 Node 18+ 和系统 `git`。
@@ -113,6 +118,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
 # HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
+
+# Video Prompt Generator
+openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 ```
 
 ### Codex
@@ -128,6 +136,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX
 
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
+
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 ```
 
 安装后重启 Codex。
@@ -145,6 +156,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.
 
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
+
+rm -rf "$HOME/.claude/skills/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HOME/.claude/skills/hiapi-video-prompt-generator"
 ```
 
 ### 任意支持技能目录的 Agent
@@ -161,6 +175,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
+git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
 ```
 
 ---
