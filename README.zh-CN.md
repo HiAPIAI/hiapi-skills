@@ -37,7 +37,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 这些入口各自解决不同问题：
 
 - **Prompt Galleries** — 已经验证过的提示词配方，先看真实案例和效果，再调用 API。
-- **Agent Skills** — 给 Agent 用的单模型工作流，外加一个纯提示词的 director，把简报变成可直接生成的视频提示词。
+- **Agent Skills** — 给 Agent 用的单模型工作流，外加一个纯提示词的 Video Prompt Generator skill，把简报变成可直接生成的视频提示词。
 - **Remote MCP** — 托管的 MCP 端点，客户端用请求头携带 HiAPI API Key 即可调用 HiAPI 工具。
 - **API Cookbook** — OpenAI 兼容 API 的直调示例和模型参数说明。
 
