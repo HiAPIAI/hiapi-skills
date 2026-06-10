@@ -32,6 +32,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 视频 Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | 想先看 Seedance 2.0 真实视频配方，再做文生视频或图生视频。 |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想浏览可用的 HiAPI skills，并选择一个明确的单模型工作流。 |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
+| 异步任务 API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/zh/api-reference/) | 正在构建后端服务，需要 `POST /v1/tasks`、轮询、签名回调和任务历史。 |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
 
 这些入口各自解决不同问题：
@@ -39,7 +40,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 - **Prompt Galleries** — 已经验证过的提示词配方，先看真实案例和效果，再调用 API。
 - **Agent Skills** — 给 Agent 用的单模型工作流，外加一个纯提示词的 Video Prompt Generator skill，把简报变成可直接生成的视频提示词。
 - **Remote MCP** — 托管的 MCP 端点，客户端用请求头携带 HiAPI API Key 即可调用 HiAPI 工具。
-- **API Cookbook** — OpenAI 兼容 API 的直调示例和模型参数说明。
+- **异步任务 API** — 产品级服务端集成的 `/v1/tasks` 稳定契约，覆盖队列、轮询、签名回调和任务历史。
+- **API Cookbook** — API 直调示例和模型参数说明。
 
 ---
 
@@ -65,8 +67,11 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
+| 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://docs.hiapi.ai/zh/api-reference/) |
 
 如果你要一个稳定、明确、单模型的工作流，用 skill 更合适。如果你希望聊天 Agent 能发现和调用更多 HiAPI 工具，用 Remote MCP 更合适。MCP 端点是 `https://mcp.hiapi.ai/mcp`。
+
+如果是在写应用代码，直接调用 `/v1/tasks`：用 `POST https://api.hiapi.ai/v1/tasks` 提交任务，用 `GET https://api.hiapi.ai/v1/tasks/{taskId}` 查询状态，或注册 `callback.url` 接收带 `X-HiAPI-Timestamp` 和 `X-HiAPI-Signature` 的终态回调。
 
 ---
 
@@ -87,6 +92,16 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 什么时候选它 | 模型和用途固定，要零配置漂移 | 事先不知道 Agent 会用哪个工具 |
 
 如果两个都合适，先装单模型 skill——运动部件最少。等需要在聊天里覆盖更多工具时再加 Remote MCP。
+
+## Skills、Remote MCP 与 /v1/tasks
+
+| 路线 | 什么时候选 | 主要接口 |
+| --- | --- | --- |
+| Skills | 用户明确要用某个模型，或需要稳定的本地工作流。 | 本地 skill 脚本 + `HIAPI_API_KEY` |
+| Remote MCP | 用户希望 Agent 在聊天里发现模型和工具。 | `https://mcp.hiapi.ai/mcp` |
+| 直接 `/v1/tasks` | 正在构建产品代码、队列、自动化或服务端回调。 | `POST /v1/tasks`、`GET /v1/tasks/{taskId}`、`GET /v1/tasks` |
+
+异步任务状态流转为 `queued` -> `handling` -> `archiving` -> `success` 或 `fail`。成功任务返回包含 `url`、`type`、`expireAt` 的 `output[]` 产物；失败任务返回 `error.code`，包括 `INVALID_REQUEST`、`MODEL_UNAVAILABLE`、`TASK_FAILED`、`TASK_TIMEOUT` 和 `STORAGE_UNAVAILABLE`。
 
 ---
 

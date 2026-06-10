@@ -40,3 +40,8 @@ git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git
 - Downstream renderer (HappyHorse 1.0): https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 This skill does not call any HiAPI endpoint and does not require `HIAPI_API_KEY`. The key is only needed by the downstream render skill that will run the generated prompt — see those skills' docs for key setup.
+
+API key pages for downstream render skills:
+
+- English: https://www.hiapi.ai/en/dashboard/api-keys
+- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys

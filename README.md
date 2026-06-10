@@ -32,6 +32,7 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Video Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | You want output-backed Seedance 2.0 recipes for text-to-video or image-to-video. |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
+| Async Tasks API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/api-reference/) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
 | API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
 
 These entry points solve different jobs:
@@ -39,7 +40,8 @@ These entry points solve different jobs:
 - **Prompt Galleries** — output-backed recipes for creators and developers who want a working starting point before calling an API.
 - **Agent Skills** — installable single-model workflows for agents that need a stable model-specific tool, plus a prompt-only director that turns briefs into runnable video prompts.
 - **Remote MCP** — a hosted MCP endpoint for clients that can pass a HiAPI API key in request headers.
-- **API Cookbook** — docs and examples for direct OpenAI-compatible API integration.
+- **Async Tasks API** — the durable `/v1/tasks` contract for product integrations, queues, polling, signed callbacks, and task history.
+- **API Cookbook** — docs and examples for direct API integration.
 
 ---
 
@@ -65,8 +67,11 @@ These entry points solve different jobs:
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
+| Build a server-side integration with webhooks and task history | [Async Tasks API](https://docs.hiapi.ai/api-reference/) |
 
 Skills are best when you want a stable, focused workflow. Remote MCP is better when you want a chat agent to discover and call multiple HiAPI tools. The MCP endpoint is `https://mcp.hiapi.ai/mcp`.
+
+For application code, use the direct `/v1/tasks` API: submit with `POST https://api.hiapi.ai/v1/tasks`, poll `GET https://api.hiapi.ai/v1/tasks/{taskId}`, or register `callback.url` to receive terminal-state webhooks signed by `X-HiAPI-Timestamp` and `X-HiAPI-Signature`.
 
 ---
 
@@ -87,6 +92,16 @@ Both routes use the same HiAPI account and the same `HIAPI_API_KEY`. Pick by how
 | Use it when | The model and use case are fixed and you want zero configuration drift | You don't know in advance which tool the agent will need |
 
 If both fit, install a single-model skill first — it has the smallest moving parts. Add Remote MCP later when you need a wider tool surface in chat.
+
+## Skills vs Remote MCP vs /v1/tasks
+
+| Route | Choose it when | Primary interface |
+| --- | --- | --- |
+| Skills | The user asked for one known model or a repeatable local workflow. | Local skill scripts plus `HIAPI_API_KEY` |
+| Remote MCP | The user wants an agent to discover models and tools in chat. | `https://mcp.hiapi.ai/mcp` |
+| Direct `/v1/tasks` | You are building product code, queues, automations, or server-side callbacks. | `POST /v1/tasks`, `GET /v1/tasks/{taskId}`, `GET /v1/tasks` |
+
+The async task lifecycle is `queued` -> `handling` -> `archiving` -> `success` or `fail`. Successful tasks return `output[]` assets with `url`, `type`, and `expireAt`. Failed tasks return `error.code`, including `INVALID_REQUEST`, `MODEL_UNAVAILABLE`, `TASK_FAILED`, `TASK_TIMEOUT`, and `STORAGE_UNAVAILABLE`.
 
 ---
 

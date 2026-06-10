@@ -39,8 +39,20 @@
       "name": "API Cookbook",
       "url": "https://docs.hiapi.ai",
       "useWhen": "Copy direct API request shapes, model parameters, and integration guides."
+    },
+    {
+      "id": "async-tasks-api",
+      "name": "Async Tasks API",
+      "url": "https://docs.hiapi.ai/api-reference/",
+      "useWhen": "Build server-side integrations that need POST /v1/tasks, status polling, HMAC-signed callbacks, and task history."
     }
   ],
+  "integrationGuidance": {
+    "skills": "Use local Skills for focused single-model workflows in agent runtimes.",
+    "remoteMcp": "Use Remote MCP when a compatible chat client should discover and call multiple HiAPI tools.",
+    "asyncTasksApi": "Use /v1/tasks for product code, backend queues, webhook callbacks, polling, and durable task history.",
+    "asyncTaskSignature": "Callbacks use X-HiAPI-Timestamp and X-HiAPI-Signature = hex(HMAC-SHA256(secret, timestamp + \".\" + rawBody))."
+  },
   "skills": [
     {
       "id": "hiapi-gpt-image-2",
@@ -58,6 +70,14 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
+      "version": "0.1.1",
+      "updatePolicy": {
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.1",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
+        "notice": "A newer HiAPI GPT Image 2 skill is available.",
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is no longer compatible with the current HiAPI API."
+      },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
         "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2\"",
@@ -86,6 +106,14 @@
         "visual storyboards"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
+      "version": "0.1.1",
+      "updatePolicy": {
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.1",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y",
+        "notice": "A newer HiAPI Seedance 2.0 Video skill is available.",
+        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is no longer compatible with the current HiAPI API."
+      },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
         "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video\" && git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video\"",
@@ -113,6 +141,14 @@
         "quick video prototypes"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
+      "version": "0.1.1",
+      "updatePolicy": {
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.1",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y",
+        "notice": "A newer HiAPI HappyHorse 1.0 Video skill is available.",
+        "requiredNotice": "This HiAPI HappyHorse 1.0 Video skill version is no longer compatible with the current HiAPI API."
+      },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
         "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video\" && git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video\"",
@@ -141,6 +177,14 @@
         "preparing strong prompts before generation"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
+      "version": "0.1.1",
+      "updatePolicy": {
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.1",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y",
+        "notice": "A newer HiAPI Video Prompt Generator skill is available.",
+        "requiredNotice": "This HiAPI Video Prompt Generator skill version is no longer compatible with the current HiAPI prompt workflow."
+      },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
         "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator\" && git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator\"",
