@@ -60,7 +60,8 @@
       "model": "gpt-image-2",
       "type": "image",
       "capabilities": [
-        "text-to-image"
+        "text-to-image",
+        "image-to-image"
       ],
       "bestFor": [
         "posters",
@@ -70,13 +71,13 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
-      "version": "0.1.1",
+      "version": "0.1.3",
       "updatePolicy": {
-        "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.1",
+        "latestVersion": "0.1.3",
+        "minimumVersion": "0.1.3",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
         "notice": "A newer HiAPI GPT Image 2 skill is available.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is no longer compatible with the current HiAPI API."
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is missing current GPT Image 2 image-to-image support or may hide the real task failure reason. Update before creating more image tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
@@ -106,13 +107,13 @@
         "visual storyboards"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "updatePolicy": {
-        "latestVersion": "0.1.2",
-        "minimumVersion": "0.1.2",
+        "latestVersion": "0.1.3",
+        "minimumVersion": "0.1.3",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y",
         "notice": "A newer HiAPI Seedance 2.0 Video skill is available.",
-        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is missing current Seedance media-mode and reference-material validation. Update before creating more Seedance tasks."
+        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is missing current media validation or may hide the real task failure reason. Update before creating more Seedance tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
@@ -141,13 +142,13 @@
         "quick video prototypes"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "updatePolicy": {
-        "latestVersion": "0.1.2",
-        "minimumVersion": "0.1.2",
+        "latestVersion": "0.1.3",
+        "minimumVersion": "0.1.3",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y",
         "notice": "A newer HiAPI HappyHorse 1.0 Video skill is available.",
-        "requiredNotice": "This HiAPI HappyHorse 1.0 Video skill version is missing current duration and seed validation. Update before creating more HappyHorse tasks."
+        "requiredNotice": "This HiAPI HappyHorse 1.0 Video skill version is missing current duration/seed validation or may hide the real task failure reason. Update before creating more HappyHorse tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
