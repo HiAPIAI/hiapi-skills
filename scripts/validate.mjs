@@ -12,6 +12,7 @@ const requiredSkillIds = [
   "hiapi-gpt-image-2",
   "hiapi-seedance-2-0-video",
   "hiapi-happyhorse-1-0-video",
+  "hiapi-video-prompt-generator",
 ];
 
 const requiredPublicLinks = [
@@ -25,6 +26,7 @@ const requiredPositioning = [
   "Prompt Galleries",
   "Agent Skills",
   "Remote MCP",
+  "Async Tasks API",
   "API Cookbook",
 ];
 
@@ -32,6 +34,7 @@ const requiredPublicEntryIds = [
   "prompt-galleries",
   "agent-skills",
   "remote-mcp",
+  "async-tasks-api",
   "api-cookbook",
 ];
 
@@ -39,6 +42,7 @@ const requiredDocs = [
   "docs/gpt-image-2.md",
   "docs/seedance-2-0.md",
   "docs/happyhorse-1-0.md",
+  "docs/video-prompt-generator.md",
 ];
 
 const bannedReadmePhrases = [
@@ -103,6 +107,23 @@ async function main() {
     assertUrl(skill.repository, `${skill.id}.repository`);
     assertUrl(skill.modelPage.en, `${skill.id}.modelPage.en`);
     assertUrl(skill.modelPage.zh, `${skill.id}.modelPage.zh`);
+    if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.version || "")) {
+      throw new Error(`${skill.id}.version must be a semver-like string`);
+    }
+    if (!skill.updatePolicy || typeof skill.updatePolicy !== "object") {
+      throw new Error(`${skill.id}.updatePolicy is required`);
+    }
+    for (const field of ["latestVersion", "minimumVersion"]) {
+      if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.updatePolicy[field] || "")) {
+        throw new Error(`${skill.id}.updatePolicy.${field} must be a semver-like string`);
+      }
+    }
+    if (!skill.updatePolicy.updateCommand?.includes(skill.repository.replace("https://github.com/", "github:"))) {
+      throw new Error(`${skill.id}.updatePolicy.updateCommand must reference its GitHub repository`);
+    }
+    if (!skill.updatePolicy.notice || !skill.updatePolicy.requiredNotice) {
+      throw new Error(`${skill.id}.updatePolicy must include notice and requiredNotice`);
+    }
     if (!skill.install?.openclaw?.includes(skill.repository)) {
       throw new Error(`${skill.id}.install.openclaw must reference its repository`);
     }

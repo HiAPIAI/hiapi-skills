@@ -13,6 +13,7 @@ HiAPI has four public entry points:
 | Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
 | Choose a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
 | Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
+| Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://docs.hiapi.ai/api-reference/ |
 | Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
 
 HiAPI has three single-model generation skills plus one prompt-only director skill:
@@ -29,6 +30,18 @@ Use Remote MCP when the user wants broader model discovery or chat-access to mor
 ```text
 https://mcp.hiapi.ai/mcp
 ```
+
+Use the direct `/v1/tasks` API when the user is building product code or a backend service. The core flow is:
+
+```text
+POST https://api.hiapi.ai/v1/tasks
+GET  https://api.hiapi.ai/v1/tasks/{taskId}
+GET  https://api.hiapi.ai/v1/tasks
+```
+
+Request shape: `{ "model": "...", "input": { ... }, "callback": { "url": "https://...", "when": "final" } }`.
+
+Task statuses: `queued`, `handling`, `archiving`, `success`, `fail`. Callback verification uses `X-HiAPI-Timestamp` and `X-HiAPI-Signature = hex(HMAC-SHA256(secret, timestamp + "." + rawBody))`. Error codes include `INVALID_REQUEST`, `MODEL_UNAVAILABLE`, `TASK_FAILED`, `TASK_TIMEOUT`, and `STORAGE_UNAVAILABLE`.
 
 ## Authentication
 
@@ -116,6 +129,7 @@ Use these user-facing messages:
 | Rate limit | The request was rate limited. Wait and retry, or reduce concurrent generations. |
 | Unsupported parameter | Check the target skill README and `SKILL.md` for supported duration, size, aspect ratio, resolution, and input type. |
 | Model mismatch | Use the single-model skill that matches the requested model, or use HiAPI Remote MCP for broader model access. |
+| Async task storage failure | If `/v1/tasks` returns `STORAGE_UNAVAILABLE`, retry the task and contact HiAPI support if it persists. |
 
 ## Public Index
 
@@ -129,4 +143,4 @@ If the user asks for prompt ideas, style references, image examples, or a starti
 https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 ```
 
-Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.ai/v1/chat/completions` request.
+Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.ai/v1/tasks` request.
