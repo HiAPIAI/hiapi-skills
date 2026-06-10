@@ -106,13 +106,13 @@
         "visual storyboards"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "updatePolicy": {
-        "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.1",
+        "latestVersion": "0.1.2",
+        "minimumVersion": "0.1.2",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y",
         "notice": "A newer HiAPI Seedance 2.0 Video skill is available.",
-        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is no longer compatible with the current HiAPI API."
+        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is missing current Seedance media-mode and reference-material validation. Update before creating more Seedance tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
@@ -141,13 +141,13 @@
         "quick video prototypes"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "updatePolicy": {
-        "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.1",
+        "latestVersion": "0.1.2",
+        "minimumVersion": "0.1.2",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y",
         "notice": "A newer HiAPI HappyHorse 1.0 Video skill is available.",
-        "requiredNotice": "This HiAPI HappyHorse 1.0 Video skill version is no longer compatible with the current HiAPI API."
+        "requiredNotice": "This HiAPI HappyHorse 1.0 Video skill version is missing current duration and seed validation. Update before creating more HappyHorse tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill",
@@ -177,13 +177,13 @@
         "preparing strong prompts before generation"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "updatePolicy": {
-        "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.1",
+        "latestVersion": "0.1.2",
+        "minimumVersion": "0.1.2",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y",
         "notice": "A newer HiAPI Video Prompt Generator skill is available.",
-        "requiredNotice": "This HiAPI Video Prompt Generator skill version is no longer compatible with the current HiAPI prompt workflow."
+        "requiredNotice": "This HiAPI Video Prompt Generator skill version is missing current Seedance and HappyHorse parameter constraints. Update before preparing more runnable video prompts."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
