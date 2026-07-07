@@ -107,13 +107,13 @@
         "visual storyboards"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "updatePolicy": {
-        "latestVersion": "0.1.6",
-        "minimumVersion": "0.1.3",
+        "latestVersion": "0.1.7",
+        "minimumVersion": "0.1.7",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y",
-        "notice": "A newer HiAPI Seedance 2.0 Video skill (0.1.6) is available. It adds 4k resolution support, an optional --storage persistent flag for HiAPI Output Storage, and documents production callbacks.",
-        "requiredNotice": "This HiAPI Seedance 2.0 Video skill version is missing current media validation or may hide the real task failure reason. Update before creating more Seedance tasks."
+        "notice": "HiAPI Seedance 2.0 Video skill 0.1.7 is available: the API model value now uses the official name seedance-2.0, unlocking 4k resolution generation.",
+        "requiredNotice": "This skill version calls the legacy model name seedance-2-0, which rejects 4k resolution and will be retired. Version 0.1.7 switches to the official seedance-2.0 model with full 4k support. Please update before creating more Seedance tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
