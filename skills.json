@@ -91,6 +91,42 @@
       }
     },
     {
+      "id": "hiapi-seedream-5-0-pro",
+      "name": "HiAPI Seedream 5.0 Pro",
+      "model": "seedream-5.0-pro",
+      "type": "image",
+      "capabilities": [
+        "text-to-image",
+        "image-to-image"
+      ],
+      "bestFor": [
+        "in-image text and signage",
+        "brush calligraphy posters",
+        "photorealistic portraits",
+        "consistency-preserving edits",
+        "multi-reference composites"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill",
+      "version": "0.1.0",
+      "updatePolicy": {
+        "latestVersion": "0.1.0",
+        "minimumVersion": "0.1.0",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y",
+        "notice": "",
+        "requiredNotice": ""
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro\" && git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-seedream-5-0-pro\" && git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git \"$HOME/.claude/skills/hiapi-seedream-5-0-pro\"",
+        "manualDirectory": "hiapi-seedream-5-0-pro"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/seedream-5.0-pro-text-to-image",
+        "zh": "https://www.hiapi.ai/zh/models/seedream-5.0-pro-text-to-image"
+      }
+    },
+    {
       "id": "hiapi-seedance-2-0-video",
       "name": "HiAPI Seedance 2.0 Video",
       "model": "seedance-2-0",
