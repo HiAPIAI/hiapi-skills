@@ -10,6 +10,7 @@ const requiredFiles = [
 
 const requiredSkillIds = [
   "hiapi-gpt-image-2",
+  "hiapi-seedream-5-0-pro",
   "hiapi-seedance-2-0-video",
   "hiapi-happyhorse-1-0-video",
   "hiapi-video-prompt-generator",

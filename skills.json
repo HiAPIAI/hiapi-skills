@@ -107,13 +107,13 @@
         "multi-reference composites"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "updatePolicy": {
-        "latestVersion": "0.1.0",
-        "minimumVersion": "0.1.0",
+        "latestVersion": "0.2.0",
+        "minimumVersion": "0.2.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y",
-        "notice": "",
-        "requiredNotice": ""
+        "notice": "HiAPI Seedream 5.0 Pro skill 0.2.0 is available. It replaces resolution with quality (basic/high), aligns both image modes to the current aspect ratios, and adds production callback support.",
+        "requiredNotice": "This Seedream 5.0 Pro skill version sends the retired resolution or match_input_image inputs and is incompatible with the current API. Update to 0.2.0 before creating more image tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill",
