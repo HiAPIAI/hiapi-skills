@@ -2,9 +2,15 @@
 
 Repository: https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
-Model: `seedance-2-0`
+API model: `seedance-2.0`
+
+Skill directory: `hiapi-seedance-2-0-video`
+
+Current release: `0.1.8`. Version `0.1.7` documented the canonical API model but still shipped an older runtime model and version; update before creating new tasks.
 
 Use this skill when the user wants text-to-video generation or image-to-video animation through HiAPI.
+
+The CLI defaults to a 120-minute polling window and accepts `--timeout-minutes <1-120>` for a shorter local wait. Timing out does not cancel the remote task.
 
 ## Best For
 

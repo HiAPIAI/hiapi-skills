@@ -51,9 +51,10 @@ These entry points solve different jobs:
 | --- | --- | --- | --- |
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
-| Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2-0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | HappyHorse 1.0 Video | Lightweight text-to-video drafts, short social clips, ad concepts | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | Direct briefs, links, and topics into scene-by-scene Seedance/HappyHorse prompts before generating | — (prompt-only) | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
+| Realistic Video Prompting | Phone, DV, VHS, Super 8, GoPro, CCTV, documentary, anti-AI preflight, and model-agnostic handoff | — (prompt layer for any video model) | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
 
 ---
 
@@ -67,6 +68,8 @@ These entry points solve different jobs:
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
+| Make a phone/DV/VHS/documentary prompt less AI-looking, then route it to any selected video model | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| Install the realistic prompt and Seedance skills together | [HiAPI Realistic Video Workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
 | Build a server-side integration with webhooks and task history | [Async Tasks API](https://docs.hiapi.ai/api-reference/) |
 
@@ -86,7 +89,7 @@ Both routes use the same HiAPI account and the same `HIAPI_API_KEY`. Pick by how
 | Install path | `git clone` or `openclaw skills add` into the agent's skills directory | Add one JSON block to the agent's MCP config — no clone required |
 | Network | Direct HTTPS to `api.hiapi.ai` from the user's machine | Agent → `mcp.hiapi.ai` (hosted MCP) → `api.hiapi.ai` |
 | Best for | Stable, focused, single-model workflows — image-only or video-only | Chat agents that need to discover and call multiple HiAPI tools in one session |
-| Model surface | One model per skill (`gpt-image-2`, `seedance-2-0`, `happyhorse-1-0`) | All MCP-exposed tools: `generate_image`, `generate_video`, `list_models`, … |
+| Model surface | One model per generation skill (`gpt-image-2`, `seedance-2.0`, `happyhorse-1-0`), plus prompt-only skills | All MCP-exposed tools: `generate_image`, `generate_video`, `list_models`, … |
 | Updates | You pull from the repo when there's a new version | Hosted — capabilities update server-side |
 | Required client support | Any agent that can read a local skills folder | Client must support remote MCP URLs and custom headers (`Authorization: Bearer …`) |
 | Image upload | Local file paths supported by the skill scripts | Upload via URL — local-file upload is being expanded |
@@ -108,7 +111,7 @@ The async task lifecycle is `queued` -> `handling` -> `archiving` -> `success` o
 
 ## Install One Skill
 
-Pick the repository for the model you need. Install all three only if you want all three skills available in your agent.
+Pick the repository for the workflow you need. Prompt-only skills do not require an API key.
 
 ### One Command (Recommended)
 
@@ -124,6 +127,12 @@ npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
 
 # Video Prompt Generator (prompt-only, no API key needed)
 npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
+
+# Realistic Video Prompting (prompt-only by default)
+npx -y github:HiAPIAI/realistic-video-prompting -y
+
+# Optional Seedance shortcut: installs Realistic Video Prompting + Seedance 2.0
+npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
 ```
 
 Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claude/skills`). Pass `--codex`, `--claude`, `--target=/path`, or set `AGENT_SKILLS_DIR` to override. Requires Node 18+ and `git` on PATH.
@@ -142,6 +151,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 # Video Prompt Generator
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
+
+# Realistic Video Prompting
+openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
 ### Codex

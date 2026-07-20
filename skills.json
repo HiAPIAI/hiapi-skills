@@ -53,6 +53,20 @@
     "asyncTasksApi": "Use /v1/tasks for product code, backend queues, webhook callbacks, polling, and durable task history.",
     "asyncTaskSignature": "Callbacks use X-HiAPI-Timestamp and X-HiAPI-Signature = hex(HMAC-SHA256(secret, timestamp + \".\" + rawBody))."
   },
+  "bundles": [
+    {
+      "id": "hiapi-realistic-video-workflow",
+      "name": "HiAPI Realistic Video Workflow",
+      "repository": "https://github.com/HiAPIAI/hiapi-realistic-video-workflow",
+      "version": "1.0.0",
+      "installs": [
+        "realistic-video-prompting",
+        "hiapi-seedance-2-0-video"
+      ],
+      "installCommand": "npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y",
+      "useWhen": "Install realistic prompt design and HiAPI Seedance 2.0 generation together while keeping both skills independently routable."
+    }
+  ],
   "skills": [
     {
       "id": "hiapi-gpt-image-2",
@@ -129,7 +143,7 @@
     {
       "id": "hiapi-seedance-2-0-video",
       "name": "HiAPI Seedance 2.0 Video",
-      "model": "seedance-2-0",
+      "model": "seedance-2.0",
       "type": "video",
       "capabilities": [
         "text-to-video",
@@ -143,13 +157,13 @@
         "visual storyboards"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
-      "version": "0.1.7",
+      "version": "0.1.8",
       "updatePolicy": {
-        "latestVersion": "0.1.7",
-        "minimumVersion": "0.1.7",
+        "latestVersion": "0.1.8",
+        "minimumVersion": "0.1.8",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y",
-        "notice": "HiAPI Seedance 2.0 Video skill 0.1.7 is available: the API model value now uses the official name seedance-2.0, unlocking 4k resolution generation.",
-        "requiredNotice": "This skill version calls the legacy model name seedance-2-0, which rejects 4k resolution and will be retired. Version 0.1.7 switches to the official seedance-2.0 model with full 4k support. Please update before creating more Seedance tasks."
+        "notice": "HiAPI Seedance 2.0 Video skill 0.1.8 is available. It completes the canonical seedance-2.0 runtime migration, aligns runtime/package versions, extends polling, and fixes data URI and mixed-output handling.",
+        "requiredNotice": "Version 0.1.7 documented the canonical model but shipped an older runtime model and version, which can cause rejected requests or a repeated required-update loop. Update to 0.1.8 before creating more Seedance tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill",
@@ -160,6 +174,43 @@
       "modelPage": {
         "en": "https://www.hiapi.ai/en/models/seedance-2-0",
         "zh": "https://www.hiapi.ai/zh/models/seedance-2-0"
+      }
+    },
+    {
+      "id": "realistic-video-prompting",
+      "name": "Realistic Video Prompting",
+      "model": null,
+      "type": "prompt",
+      "capabilities": [
+        "realistic-video-prompting",
+        "anti-ai-prompt-review",
+        "video-model-handoff"
+      ],
+      "bestFor": [
+        "phone and handheld footage",
+        "DV, VHS, Super 8, GoPro, CCTV, and webcam aesthetics",
+        "documentary and found-footage realism",
+        "prompt-only realism audits",
+        "reviewed handoff to any video-model executor"
+      ],
+      "repository": "https://github.com/HiAPIAI/realistic-video-prompting",
+      "version": "1.2.0",
+      "updatePolicy": {
+        "latestVersion": "1.2.0",
+        "minimumVersion": "1.2.0",
+        "updateCommand": "npx -y github:HiAPIAI/realistic-video-prompting -y",
+        "notice": "Realistic Video Prompting 1.2.0 adds narrow realism routing, automatic preflight, prompt-only safety, explicit executor selection, and model-agnostic handoff packages.",
+        "requiredNotice": "Versions below 1.2.0 do not provide the current narrow routing, automatic preflight, or explicit model handoff contract. Update before enabling automatic render workflows."
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/realistic-video-prompting\" && git clone https://github.com/HiAPIAI/realistic-video-prompting.git \"${CODEX_HOME:-$HOME/.codex}/skills/realistic-video-prompting\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/realistic-video-prompting\" && git clone https://github.com/HiAPIAI/realistic-video-prompting.git \"$HOME/.claude/skills/realistic-video-prompting\"",
+        "manualDirectory": "realistic-video-prompting"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/realistic-video-prompting",
+        "zh": "https://github.com/HiAPIAI/realistic-video-prompting"
       }
     },
     {
