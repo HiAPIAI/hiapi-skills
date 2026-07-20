@@ -14,6 +14,7 @@ const requiredSkillIds = [
   "hiapi-seedance-2-0-video",
   "hiapi-happyhorse-1-0-video",
   "hiapi-video-prompt-generator",
+  "realistic-video-prompting",
 ];
 
 const requiredPublicLinks = [
@@ -44,6 +45,7 @@ const requiredDocs = [
   "docs/seedance-2-0.md",
   "docs/happyhorse-1-0.md",
   "docs/video-prompt-generator.md",
+  "docs/realistic-video-workflow.md",
 ];
 
 const bannedReadmePhrases = [
@@ -65,6 +67,9 @@ async function main() {
   }
   if (!Array.isArray(index.publicEntries)) {
     throw new Error("skills.json must contain a publicEntries array");
+  }
+  if (!Array.isArray(index.bundles)) {
+    throw new Error("skills.json must contain a bundles array");
   }
   assertUrl(index.website?.en, "website.en");
   assertUrl(index.website?.zh, "website.zh");
@@ -88,6 +93,18 @@ async function main() {
     if (!ids.has(id)) {
       throw new Error(`Missing skill id: ${id}`);
     }
+  }
+
+  const seedanceSkill = index.skills.find((skill) => skill.id === "hiapi-seedance-2-0-video");
+  if (seedanceSkill?.model !== "seedance-2.0") {
+    throw new Error("hiapi-seedance-2-0-video.model must use the canonical API id seedance-2.0");
+  }
+  if (
+    seedanceSkill?.version !== "0.1.8"
+    || seedanceSkill?.updatePolicy?.latestVersion !== "0.1.8"
+    || seedanceSkill?.updatePolicy?.minimumVersion !== "0.1.8"
+  ) {
+    throw new Error("hiapi-seedance-2-0-video version policy must require 0.1.8");
   }
 
   const publicEntryIds = new Set(index.publicEntries.map((entry) => entry.id));
@@ -136,6 +153,20 @@ async function main() {
     }
   }
 
+  const realisticBundle = index.bundles.find((bundle) => bundle.id === "hiapi-realistic-video-workflow");
+  if (!realisticBundle) {
+    throw new Error("Missing bundle id: hiapi-realistic-video-workflow");
+  }
+  assertUrl(realisticBundle.repository, "hiapi-realistic-video-workflow.repository");
+  if (!realisticBundle.installCommand?.includes("github:HiAPIAI/hiapi-realistic-video-workflow")) {
+    throw new Error("hiapi-realistic-video-workflow.installCommand must reference its GitHub repository");
+  }
+  for (const skillId of ["realistic-video-prompting", "hiapi-seedance-2-0-video"]) {
+    if (!realisticBundle.installs?.includes(skillId)) {
+      throw new Error(`hiapi-realistic-video-workflow must install ${skillId}`);
+    }
+  }
+
   const readme = await readFile("README.md", "utf8");
   const readmeZh = await readFile("README.zh-CN.md", "utf8");
   const llmsInstall = await readFile("llms-install.md", "utf8");
@@ -160,6 +191,9 @@ async function main() {
     if (!llmsInstall.includes(skill.repository)) {
       throw new Error(`llms-install.md missing ${skill.repository}`);
     }
+  }
+  if (!readme.includes(realisticBundle.repository) || !readmeZh.includes(realisticBundle.repository) || !llmsInstall.includes(realisticBundle.repository)) {
+    throw new Error("README and llms-install must include the realistic video bundle repository");
   }
 
   for (const link of requiredPublicLinks) {

@@ -51,9 +51,10 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | --- | --- | --- | --- |
 | GPT Image 2 | 海报、插画、社媒图、产品图、封面图 | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedream 5.0 Pro | 图内文字与招牌、毛笔字海报、写实人像、参考图改图与多图融合 | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
-| Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2-0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | HappyHorse 1.0 Video | 轻量文生视频草稿、短视频、广告概念 | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | 把简报、链接、调研主题写成分镜级的 Seedance/HappyHorse 提示词，生成前用 | —（纯提示词，不调模型） | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
+| Realistic Video Prompting | 手机、DV、VHS、Super 8、GoPro、监控、纪录片与去 AI 感提示词核对 | —（纯提示词或交接 Seedance） | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
 
 ---
 
@@ -67,6 +68,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
+| 把手机/DV/VHS/纪录片提示词改得更真实，并可选交给 Seedance | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| 一次安装真实感提示词与 Seedance 两个 Skill | [HiAPI 真实感视频双 Skill 工作流](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
 | 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://docs.hiapi.ai/zh/api-reference/) |
 
@@ -86,7 +89,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 安装方式 | `git clone` 或 `openclaw skills add` 到 Agent 的 skills 目录 | 在 Agent 的 MCP 配置里加一段 JSON，不用 clone |
 | 网络路径 | 用户本机 → `api.hiapi.ai` 直连 | Agent → `mcp.hiapi.ai`（托管 MCP）→ `api.hiapi.ai` |
 | 适合 | 稳定、聚焦、单一模型的工作流——只生图，或只生视频 | 聊天 Agent 在一次会话里需要发现并调用多个 HiAPI 工具 |
-| 模型范围 | 一个 skill 对应一个模型（`gpt-image-2`、`seedance-2-0`、`happyhorse-1-0`） | 暴露的所有 MCP 工具：`generate_image`、`generate_video`、`list_models` 等 |
+| 模型范围 | 一个生成 skill 对应一个模型（`gpt-image-2`、`seedance-2.0`、`happyhorse-1-0`），另有纯提示词 Skill | 暴露的所有 MCP 工具：`generate_image`、`generate_video`、`list_models` 等 |
 | 更新方式 | 仓库有新版本时你自己 pull | 托管模式，能力服务端更新 |
 | 客户端要求 | 任意能读取本地 skills 目录的 Agent | 客户端必须支持远程 MCP URL 和自定义 header（`Authorization: Bearer …`） |
 | 图片上传 | skill 脚本支持本地文件路径 | URL 上传——本地文件上传正在扩展中 |
@@ -108,7 +111,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 ## 安装一个 Skill
 
-选择你需要的模型仓库即可。只有当你希望 Agent 同时具备三个能力时，才需要把三个 skill 都装上。
+选择你需要的工作流仓库即可。纯提示词 Skill 不需要 API Key。
 
 ### 一行命令（推荐）
 
@@ -124,6 +127,12 @@ npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
 
 # Video Prompt Generator（纯提示词，不需要 API Key）
 npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
+
+# Realistic Video Prompting（默认只核对提示词）
+npx -y github:HiAPIAI/realistic-video-prompting -y
+
+# 可选组合：同时安装真实感提示词 + Seedance 2.0
+npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
 ```
 
 每个安装脚本会自动检测 Codex（`~/.codex/skills`）和 Claude Code（`~/.claude/skills`）。需要指定就传 `--codex`、`--claude`、`--target=/path`，或设置 `AGENT_SKILLS_DIR` 环境变量。要求 Node 18+ 和系统 `git`。
@@ -142,6 +151,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 # Video Prompt Generator
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
+
+# Realistic Video Prompting
+openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
 ### Codex

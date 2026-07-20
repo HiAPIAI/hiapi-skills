@@ -16,7 +16,7 @@ HiAPI has four public entry points:
 | Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://docs.hiapi.ai/api-reference/ |
 | Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
 
-HiAPI has four single-model generation skills plus one prompt-only director skill:
+HiAPI has focused generation skills plus prompt-only planning and realism skills:
 
 | User intent | Skill repository | Local directory |
 | --- | --- | --- |
@@ -25,6 +25,17 @@ HiAPI has four single-model generation skills plus one prompt-only director skil
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
 | Generate a quick text-to-video clip | https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill | `hiapi-happyhorse-1-0-video` |
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
+| Create or review phone/DV/VHS/documentary/anti-AI prompts, with optional Seedance handoff | https://github.com/HiAPIAI/realistic-video-prompting | `realistic-video-prompting` |
+
+Install the realistic prompt skill and Seedance executor together:
+
+```bash
+npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
+```
+
+Bundle repository: https://github.com/HiAPIAI/hiapi-realistic-video-workflow
+
+The bundle is an installer, not a third runtime skill. Ordinary Seedance requests still route directly to `hiapi-seedance-2-0-video`.
 
 Use Remote MCP when the user wants broader model discovery or chat-access to more HiAPI tools:
 
@@ -76,6 +87,9 @@ git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${COD
 
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
+
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/realistic-video-prompting"
+git clone https://github.com/HiAPIAI/realistic-video-prompting.git "${CODEX_HOME:-$HOME/.codex}/skills/realistic-video-prompting"
 ```
 
 Restart Codex after installing skills.
@@ -96,6 +110,9 @@ git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME
 
 rm -rf "$HOME/.claude/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HOME/.claude/skills/hiapi-video-prompt-generator"
+
+rm -rf "$HOME/.claude/skills/realistic-video-prompting"
+git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claude/skills/realistic-video-prompting"
 ```
 
 ## OpenClaw
@@ -105,9 +122,12 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
+openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
 The Video Prompt Generator skill is prompt-only — it does **not** call any HiAPI endpoint and does **not** need `HIAPI_API_KEY`. Use it before the render skills to turn a brief into a directed, scene-by-scene prompt; then pass the prompt to `hiapi-seedance-2-0-video-skill` or `hiapi-happyhorse-1-0-video-skill` for actual generation.
+
+Realistic Video Prompting is also prompt-only by default. Use it only for explicit phone/DV/VHS/Super 8/GoPro/CCTV/documentary/found-footage/anti-AI needs. Its `review-and-render` mode waits for generation approval; `direct-render` is only for requests that already explicitly authorize generation.
 
 ## After Install
 
