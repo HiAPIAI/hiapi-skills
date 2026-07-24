@@ -177,6 +177,46 @@
       }
     },
     {
+      "id": "hiapi-reference-motion-transfer",
+      "name": "HiAPI Reference Motion Transfer",
+      "model": "seedance-2.0",
+      "type": "video",
+      "capabilities": [
+        "reference-video-to-video",
+        "subject-replacement",
+        "motion-transfer",
+        "camera-transfer",
+        "rhythm-transfer"
+      ],
+      "bestFor": [
+        "reference-guided subject replacement",
+        "action and performance timing transfer",
+        "camera movement and framing transfer",
+        "shot rhythm and pacing transfer",
+        "strict preflight before paid reference-video generation"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-skills",
+      "sourcePath": "skills/hiapi-reference-motion-transfer",
+      "version": "0.2.0",
+      "updatePolicy": {
+        "latestVersion": "0.2.0",
+        "minimumVersion": "0.2.0",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer -y",
+        "notice": "HiAPI Reference Motion Transfer skill 0.2.0 adds strict replace preflight, Video 1 ratio and timing inheritance, H.264/yuv420p normalization, and mandatory human review status.",
+        "requiredNotice": "Versions below 0.2.0 do not provide the current strict replace preflight or generated_unreviewed review gate. Update before creating more reference-transfer tasks."
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer",
+        "codex": "npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --codex -y",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --claude -y",
+        "manualDirectory": "hiapi-reference-motion-transfer"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/seedance-2-0",
+        "zh": "https://www.hiapi.ai/zh/models/seedance-2-0"
+      }
+    },
+    {
       "id": "realistic-video-prompting",
       "name": "Realistic Video Prompting",
       "model": null,

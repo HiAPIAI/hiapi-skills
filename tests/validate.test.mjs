@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import {
+  cpSync,
   copyFileSync,
   mkdirSync,
   mkdtempSync,
@@ -22,6 +23,14 @@ test("validator rejects an index that omits the Seedream 5 Pro skill", (t) => {
   for (const file of ["README.md", "README.zh-CN.md", "llms-install.md", "LICENSE", "skills.json"]) {
     copyFileSync(join(repoRoot, file), join(fixture, file));
   }
+  mkdirSync(join(fixture, "scripts"));
+  copyFileSync(join(repoRoot, "scripts", "install-skill.mjs"), join(fixture, "scripts", "install-skill.mjs"));
+  mkdirSync(join(fixture, "skills"));
+  cpSync(
+    join(repoRoot, "skills", "hiapi-reference-motion-transfer"),
+    join(fixture, "skills", "hiapi-reference-motion-transfer"),
+    { recursive: true },
+  );
   mkdirSync(join(fixture, "docs"));
   for (const file of [
     "gpt-image-2.md",

@@ -52,6 +52,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | GPT Image 2 | 海报、插画、社媒图、产品图、封面图 | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedream 5.0 Pro | 图内文字与招牌、毛笔字海报、写实人像、参考图改图与多图融合 | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| 参考视频动作迁移 | 参考驱动的主体替换、动作、运镜、镜头节奏与时序迁移 | `seedance-2.0` | [仓库内 Skill](skills/hiapi-reference-motion-transfer) |
 | HappyHorse 1.0 Video | 轻量文生视频草稿、短视频、广告概念 | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | 把简报、链接、调研主题写成分镜级的 Seedance/HappyHorse 提示词，生成前用 | —（纯提示词，不调模型） | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Realistic Video Prompting | 手机、DV、VHS、Super 8、GoPro、监控、纪录片与去 AI 感提示词核对 | —（纯提示词或交接 Seedance） | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
@@ -66,6 +67,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 先找一个有真实效果的视频提示词参考 | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| 用主体图请求替换参考视频主体，并尽量保留 Video 1 的场景、动作、运镜、构图和节奏 | [参考视频动作迁移 Skill](skills/hiapi-reference-motion-transfer) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | 把手机/DV/VHS/纪录片提示词改得更真实，并可选交给 Seedance | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
@@ -122,6 +124,9 @@ npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
 # Seedance 2.0 Video
 npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 
+# 参考视频动作迁移
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer -y
+
 # HappyHorse 1.0 Video
 npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
 
@@ -146,6 +151,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 # Seedance 2.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
+# 参考视频动作迁移
+openclaw skills add https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer
+
 # HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
@@ -167,6 +175,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --codex -y
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 
@@ -187,6 +197,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --claude -y
+
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 
@@ -205,6 +217,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$AGENT_SKILLS_
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
+
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --target="$AGENT_SKILLS_DIR" -y
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
@@ -244,6 +258,9 @@ https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 如果我要更完整的视频工作流，或要图生视频，安装或使用：
 https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
+如果我提供参考视频和替换主体图，并要求尽量保留 Video 1 的场景、动作、运镜、构图和节奏，安装或使用：
+https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer
+
 如果我要快速生成一段文生视频短片，安装或使用：
 https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
@@ -278,6 +295,7 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
+- [HiAPI 参考视频动作迁移 Skill](skills/hiapi-reference-motion-transfer)（内置于本仓库）
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)

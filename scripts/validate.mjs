@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 
 const requiredFiles = [
   "README.md",
@@ -6,12 +6,16 @@ const requiredFiles = [
   "llms-install.md",
   "skills.json",
   "LICENSE",
+  "scripts/install-skill.mjs",
+  "skills/hiapi-reference-motion-transfer/SKILL.md",
+  "skills/hiapi-reference-motion-transfer/package.json",
 ];
 
 const requiredSkillIds = [
   "hiapi-gpt-image-2",
   "hiapi-seedream-5-0-pro",
   "hiapi-seedance-2-0-video",
+  "hiapi-reference-motion-transfer",
   "hiapi-happyhorse-1-0-video",
   "hiapi-video-prompt-generator",
   "realistic-video-prompting",
@@ -107,6 +111,33 @@ async function main() {
     throw new Error("hiapi-seedance-2-0-video version policy must require 0.1.8");
   }
 
+  const referenceSkill = index.skills.find((skill) => skill.id === "hiapi-reference-motion-transfer");
+  const referencePath = "skills/hiapi-reference-motion-transfer";
+  if (
+    referenceSkill?.repository !== "https://github.com/HiAPIAI/hiapi-skills"
+    || referenceSkill?.sourcePath !== referencePath
+  ) {
+    throw new Error("hiapi-reference-motion-transfer must be embedded in hiapi-skills");
+  }
+  const referencePackage = JSON.parse(await readFile(`${referencePath}/package.json`, "utf8"));
+  if (referencePackage.version !== referenceSkill.version) {
+    throw new Error("Embedded reference-motion package version must match skills.json");
+  }
+  const embeddedFiles = await listFiles(referencePath);
+  const bannedEmbeddedNames = new Set([
+    "motion.mp4",
+    "motion-small.mp4",
+    "replacement.jpg",
+    "run-test.ps1",
+    "resume-test.ps1",
+  ]);
+  if (embeddedFiles.some((file) => bannedEmbeddedNames.has(file.split("/").at(-1)))) {
+    throw new Error("Embedded reference-motion skill contains local test material");
+  }
+  if (embeddedFiles.some((file) => file.startsWith("outputs/") || file.startsWith("tmp/"))) {
+    throw new Error("Embedded reference-motion skill contains generated output or temp files");
+  }
+
   const publicEntryIds = new Set(index.publicEntries.map((entry) => entry.id));
   for (const id of requiredPublicEntryIds) {
     if (!publicEntryIds.has(id)) {
@@ -142,13 +173,14 @@ async function main() {
     if (!skill.updatePolicy.notice || !skill.updatePolicy.requiredNotice) {
       throw new Error(`${skill.id}.updatePolicy must include notice and requiredNotice`);
     }
-    if (!skill.install?.openclaw?.includes(skill.repository)) {
+    const repositorySpec = skill.repository.replace("https://github.com/", "github:");
+    if (!referencesRepository(skill.install?.openclaw, skill.repository, repositorySpec)) {
       throw new Error(`${skill.id}.install.openclaw must reference its repository`);
     }
-    if (!skill.install?.codex?.includes(skill.repository)) {
+    if (!referencesRepository(skill.install?.codex, skill.repository, repositorySpec)) {
       throw new Error(`${skill.id}.install.codex must reference its repository`);
     }
-    if (!skill.install?.claudeCode?.includes(skill.repository)) {
+    if (!referencesRepository(skill.install?.claudeCode, skill.repository, repositorySpec)) {
       throw new Error(`${skill.id}.install.claudeCode must reference its repository`);
     }
   }
@@ -170,6 +202,10 @@ async function main() {
   const readme = await readFile("README.md", "utf8");
   const readmeZh = await readFile("README.zh-CN.md", "utf8");
   const llmsInstall = await readFile("llms-install.md", "utf8");
+  const embeddedUrl = "https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer";
+  if (!readme.includes(embeddedUrl) || !readmeZh.includes(embeddedUrl) || !llmsInstall.includes(embeddedUrl)) {
+    throw new Error("Embedded reference-motion skill URL is missing from install documentation");
+  }
 
   for (const phrase of bannedReadmePhrases) {
     if (readme.includes(phrase) || readmeZh.includes(phrase)) {
@@ -227,6 +263,20 @@ async function main() {
   }
 
   console.log(`Validated ${index.skills.length} HiAPI skills.`);
+}
+
+async function listFiles(root, prefix = "") {
+  const files = [];
+  for (const entry of await readdir(root, { withFileTypes: true })) {
+    const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
+    if (entry.isDirectory()) files.push(...await listFiles(`${root}/${entry.name}`, relative));
+    else files.push(relative);
+  }
+  return files;
+}
+
+function referencesRepository(command, repository, repositorySpec) {
+  return command?.includes(repository) || command?.includes(repositorySpec);
 }
 
 function assertUrl(value, field) {
