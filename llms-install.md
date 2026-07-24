@@ -11,7 +11,7 @@ HiAPI has four public entry points:
 | User intent | Entry | Link |
 | --- | --- | --- |
 | Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
-| Choose a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
+| Choose a focused workflow with declared model routes | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
 | Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
 | Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://docs.hiapi.ai/api-reference/ |
 | Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
@@ -24,6 +24,7 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Generate or edit Seedream 5.0 Pro images | https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill | `hiapi-seedream-5-0-pro` |
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
 | Generate a quick text-to-video clip | https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill | `hiapi-happyhorse-1-0-video` |
+| Create short single-shot food and beverage commercials with route-aware pricing and approval | https://github.com/HiAPIAI/hiapi-food-commercial-video-skill | `hiapi-food-commercial-video` |
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
 | Create or review phone/DV/VHS/documentary/anti-AI prompts, with optional Seedance handoff | https://github.com/HiAPIAI/realistic-video-prompting | `realistic-video-prompting` |
 
@@ -85,6 +86,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video"
+git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video"
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 
@@ -108,6 +112,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 
+rm -rf "$HOME/.claude/skills/hiapi-food-commercial-video"
+git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git "$HOME/.claude/skills/hiapi-food-commercial-video"
+
 rm -rf "$HOME/.claude/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HOME/.claude/skills/hiapi-video-prompt-generator"
 
@@ -121,6 +128,7 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claud
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-food-commercial-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
@@ -129,14 +137,16 @@ The Video Prompt Generator skill is prompt-only — it does **not** call any HiA
 
 Realistic Video Prompting is also prompt-only by default. Use it only for explicit phone/DV/VHS/Super 8/GoPro/CCTV/documentary/found-footage/anti-AI needs. Its `review-and-render` mode waits for generation approval; `direct-render` is only for requests that already explicitly authorize generation.
 
+The Food Commercial Video skill requires an offline `--preview`, then `--check`, then `--dry-run` pricing, then explicit approval of the estimate, budget, and request hash before `--spend`. Do not skip that order.
+
 ## After Install
 
 For each installed skill:
 
 1. Read its `SKILL.md`.
 2. Run `npm test` in the skill repo when available.
-3. Run `node scripts/check-config.mjs` after the user sets `HIAPI_API_KEY`.
-4. For live testing, use the cheapest valid option for the target model.
+3. Run `node scripts/check-config.mjs` when present after the user sets `HIAPI_API_KEY`; Food Commercial Video uses `node scripts/hiapi-food-commercial-video.mjs --check`.
+4. For live testing, use the cheapest valid option for the declared model route.
 
 ## Error Handling
 
@@ -149,7 +159,7 @@ Use these user-facing messages:
 | Insufficient balance or quota | Your HiAPI balance or quota may be insufficient. Check https://www.hiapi.ai/en/dashboard or https://www.hiapi.ai/zh/dashboard. |
 | Rate limit | The request was rate limited. Wait and retry, or reduce concurrent generations. |
 | Unsupported parameter | Check the target skill README and `SKILL.md` for supported duration, size, aspect ratio, resolution, and input type. |
-| Model mismatch | Use the single-model skill that matches the requested model, or use HiAPI Remote MCP for broader model access. |
+| Model mismatch | Use the focused skill whose declared model route matches the request, or use HiAPI Remote MCP for broader model access. |
 | Async task storage failure | If `/v1/tasks` returns `STORAGE_UNAVAILABLE`, retry the task and contact HiAPI support if it persists. |
 
 ## Public Index

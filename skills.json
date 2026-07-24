@@ -48,7 +48,7 @@
     }
   ],
   "integrationGuidance": {
-    "skills": "Use local Skills for focused single-model workflows in agent runtimes.",
+    "skills": "Use local Skills for focused workflows with declared, bounded model routes in agent runtimes.",
     "remoteMcp": "Use Remote MCP when a compatible chat client should discover and call multiple HiAPI tools.",
     "asyncTasksApi": "Use /v1/tasks for product code, backend queues, webhook callbacks, polling, and durable task history.",
     "asyncTaskSignature": "Callbacks use X-HiAPI-Timestamp and X-HiAPI-Signature = hex(HMAC-SHA256(secret, timestamp + \".\" + rawBody))."
@@ -246,6 +246,64 @@
       "modelPage": {
         "en": "https://www.hiapi.ai/en/models/happyhorse-1-0",
         "zh": "https://www.hiapi.ai/zh/models/happyhorse-1-0"
+      }
+    },
+    {
+      "id": "hiapi-food-commercial-video",
+      "name": "HiAPI Food Commercial Video",
+      "model": null,
+      "models": [
+        "kling-3.0-omni/text-to-video",
+        "kling-3.0-omni/image-to-video",
+        "seedance-2.0-fast"
+      ],
+      "type": "video",
+      "capabilities": [
+        "text-to-video",
+        "image-to-video",
+        "multi-reference-video",
+        "live-price-estimation",
+        "explicit-spend-approval"
+      ],
+      "bestFor": [
+        "coffee and beverage commercials",
+        "food macro shots",
+        "packaged-product hero videos",
+        "restaurant atmosphere spots",
+        "ecommerce food promos"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-food-commercial-video-skill",
+      "version": "0.1.0",
+      "updatePolicy": {
+        "latestVersion": "0.1.0",
+        "minimumVersion": "0.1.0",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-food-commercial-video-skill -y",
+        "notice": "HiAPI Food Commercial Video skill 0.1.0 adds route-aware 3-15 second Kling and 4-15 second Seedance generation, live price estimates, request-hash spend approval, and food-specific continuity checks.",
+        "requiredNotice": "Versions below 0.1.0 do not provide the published route-aware duration validation, live pricing, or exact request-hash spend approval. Update before creating paid food commercial tasks."
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-food-commercial-video-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video\" && git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-food-commercial-video\" && git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git \"$HOME/.claude/skills/hiapi-food-commercial-video\"",
+        "manualDirectory": "hiapi-food-commercial-video"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/kling-3-0-omni",
+        "zh": "https://www.hiapi.ai/zh/models/kling-3-0-omni"
+      },
+      "modelPages": {
+        "kling-3.0-omni/text-to-video": {
+          "en": "https://www.hiapi.ai/en/models/kling-3-0-omni",
+          "zh": "https://www.hiapi.ai/zh/models/kling-3-0-omni"
+        },
+        "kling-3.0-omni/image-to-video": {
+          "en": "https://www.hiapi.ai/en/models/kling-3-0-omni",
+          "zh": "https://www.hiapi.ai/zh/models/kling-3-0-omni"
+        },
+        "seedance-2.0-fast": {
+          "en": "https://www.hiapi.ai/en/models/seedance-2-0-fast",
+          "zh": "https://www.hiapi.ai/zh/models/seedance-2-0-fast"
+        }
       }
     },
     {

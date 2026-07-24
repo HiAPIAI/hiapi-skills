@@ -18,7 +18,7 @@ Official HiAPI skill directory for AI Agents.
 
 This is the official directory of HiAPI skills for OpenClaw, Claude Code, Codex, OpenCode, Cursor-style agent workflows, and other tools that can read local skills. It helps you choose the right HiAPI entry point before installing a specific skill.
 
-HiAPI is an AI API platform built for developers: one API, all AI models. These skills package common image and video generation workflows so an AI Agent can call a focused model without guessing endpoints or parameters.
+HiAPI is an AI API platform built for developers: one API, all AI models. These skills package common image and video generation workflows so an AI Agent can use a focused, bounded model route without guessing endpoints or parameters.
 
 Use this repository when you want to choose a HiAPI skill. Install the individual skill repository when you are ready to generate images or videos.
 
@@ -38,7 +38,7 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 These entry points solve different jobs:
 
 - **Prompt Galleries** — output-backed recipes for creators and developers who want a working starting point before calling an API.
-- **Agent Skills** — installable single-model workflows for agents that need a stable model-specific tool, plus a prompt-only director that turns briefs into runnable video prompts.
+- **Agent Skills** — installable focused workflows with declared, bounded model routes, plus prompt-only tools that turn briefs into runnable video prompts.
 - **Remote MCP** — a hosted MCP endpoint for clients that can pass a HiAPI API key in request headers.
 - **Async Tasks API** — the durable `/v1/tasks` contract for product integrations, queues, polling, signed callbacks, and task history.
 - **API Cookbook** — docs and examples for direct API integration.
@@ -53,6 +53,7 @@ These entry points solve different jobs:
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | HappyHorse 1.0 Video | Lightweight text-to-video drafts, short social clips, ad concepts | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| Food Commercial Video | Coffee pours, beverage splashes, food macro shots, packaged-product hero ads, restaurant atmosphere spots | Kling 3.0 Omni + Seedance 2.0 Fast | [hiapi-food-commercial-video-skill](https://github.com/HiAPIAI/hiapi-food-commercial-video-skill) |
 | Video Prompt Generator | Direct briefs, links, and topics into scene-by-scene Seedance/HappyHorse prompts before generating | — (prompt-only) | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Realistic Video Prompting | Phone, DV, VHS, Super 8, GoPro, CCTV, documentary, anti-AI preflight, and model-agnostic handoff | — (prompt layer for any video model) | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
 
@@ -67,6 +68,7 @@ These entry points solve different jobs:
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
+| Create a coffee, beverage, food, packaged-product, or restaurant commercial shot | [Food Commercial Video Skill](https://github.com/HiAPIAI/hiapi-food-commercial-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Make a phone/DV/VHS/documentary prompt less AI-looking, then route it to any selected video model | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
 | Install the realistic prompt and Seedance skills together | [HiAPI Realistic Video Workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) |
@@ -83,19 +85,19 @@ For application code, use the direct `/v1/tasks` API: submit with `POST https://
 
 Both routes use the same HiAPI account and the same `HIAPI_API_KEY`. Pick by how your agent runs and how stable you want the workflow.
 
-| Dimension | Single-Model Skill | Remote MCP |
+| Dimension | Focused Skill | Remote MCP |
 | --- | --- | --- |
 | What it is | A local skill folder loaded by your agent (Codex, Claude Code, OpenClaw, …) | A hosted MCP endpoint at `https://mcp.hiapi.ai/mcp` |
 | Install path | `git clone` or `openclaw skills add` into the agent's skills directory | Add one JSON block to the agent's MCP config — no clone required |
 | Network | Direct HTTPS to `api.hiapi.ai` from the user's machine | Agent → `mcp.hiapi.ai` (hosted MCP) → `api.hiapi.ai` |
-| Best for | Stable, focused, single-model workflows — image-only or video-only | Chat agents that need to discover and call multiple HiAPI tools in one session |
-| Model surface | One model per generation skill (`gpt-image-2`, `seedance-2.0`, `happyhorse-1-0`), plus prompt-only skills | All MCP-exposed tools: `generate_image`, `generate_video`, `list_models`, … |
+| Best for | Stable, focused workflows with declared, bounded model routes | Chat agents that need to discover and call multiple HiAPI tools in one session |
+| Model surface | One model or a small fixed route set per generation skill, plus prompt-only skills | All MCP-exposed tools: `generate_image`, `generate_video`, `list_models`, … |
 | Updates | You pull from the repo when there's a new version | Hosted — capabilities update server-side |
 | Required client support | Any agent that can read a local skills folder | Client must support remote MCP URLs and custom headers (`Authorization: Bearer …`) |
 | Image upload | Local file paths supported by the skill scripts | Upload via URL — local-file upload is being expanded |
-| Use it when | The model and use case are fixed and you want zero configuration drift | You don't know in advance which tool the agent will need |
+| Use it when | The workflow and accepted model routes are fixed and you want zero configuration drift | You don't know in advance which tool the agent will need |
 
-If both fit, install a single-model skill first — it has the smallest moving parts. Add Remote MCP later when you need a wider tool surface in chat.
+If both fit, install a focused skill first — it has the smallest moving parts. Add Remote MCP later when you need a wider tool surface in chat.
 
 ## Skills vs Remote MCP vs /v1/tasks
 
@@ -125,6 +127,9 @@ npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 # HappyHorse 1.0 Video
 npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
 
+# Food Commercial Video
+npx -y github:HiAPIAI/hiapi-food-commercial-video-skill -y
+
 # Video Prompt Generator (prompt-only, no API key needed)
 npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 
@@ -149,6 +154,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 # HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
+# Food Commercial Video
+openclaw skills add https://github.com/HiAPIAI/hiapi-food-commercial-video-skill
+
 # Video Prompt Generator
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 
@@ -170,6 +178,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video"
+git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-food-commercial-video"
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-video-prompt-generator"
 ```
@@ -190,6 +201,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 
+rm -rf "$HOME/.claude/skills/hiapi-food-commercial-video"
+git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git "$HOME/.claude/skills/hiapi-food-commercial-video"
+
 rm -rf "$HOME/.claude/skills/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HOME/.claude/skills/hiapi-video-prompt-generator"
 ```
@@ -209,6 +223,9 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_
 rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 
+rm -rf "$AGENT_SKILLS_DIR/hiapi-food-commercial-video"
+git clone https://github.com/HiAPIAI/hiapi-food-commercial-video-skill.git "$AGENT_SKILLS_DIR/hiapi-food-commercial-video"
+
 rm -rf "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
 git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$AGENT_SKILLS_DIR/hiapi-video-prompt-generator"
 ```
@@ -227,7 +244,7 @@ export HIAPI_API_KEY="your_hiapi_api_key_here"
 export HIAPI_BASE_URL="https://api.hiapi.ai"
 ```
 
-Each skill includes a `scripts/check-config.mjs` helper so your agent can verify the key and network path before generation.
+Each generation skill includes a configuration check. Most use `scripts/check-config.mjs`; Food Commercial Video uses `node scripts/hiapi-food-commercial-video.mjs --check`.
 
 ---
 
@@ -246,6 +263,9 @@ https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
 If I ask for a quick text-to-video clip, install or use:
 https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
+
+If I ask for a coffee, beverage, food, packaged-product, or restaurant commercial shot, install or use:
+https://github.com/HiAPIAI/hiapi-food-commercial-video-skill
 
 Use HIAPI_API_KEY for authentication. If the key is missing, invalid, rate-limited, or the account has insufficient balance, show the user the next step and link to HiAPI.
 ```
@@ -279,6 +299,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
+- [HiAPI Food Commercial Video Skill](https://github.com/HiAPIAI/hiapi-food-commercial-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)
 

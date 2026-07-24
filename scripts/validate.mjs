@@ -13,6 +13,7 @@ const requiredSkillIds = [
   "hiapi-seedream-5-0-pro",
   "hiapi-seedance-2-0-video",
   "hiapi-happyhorse-1-0-video",
+  "hiapi-food-commercial-video",
   "hiapi-video-prompt-generator",
   "realistic-video-prompting",
 ];
@@ -44,6 +45,7 @@ const requiredDocs = [
   "docs/gpt-image-2.md",
   "docs/seedance-2-0.md",
   "docs/happyhorse-1-0.md",
+  "docs/food-commercial-video.md",
   "docs/video-prompt-generator.md",
   "docs/realistic-video-workflow.md",
 ];
@@ -105,6 +107,48 @@ async function main() {
     || seedanceSkill?.updatePolicy?.minimumVersion !== "0.1.8"
   ) {
     throw new Error("hiapi-seedance-2-0-video version policy must require 0.1.8");
+  }
+
+  const foodSkill = index.skills.find((skill) => skill.id === "hiapi-food-commercial-video");
+  const requiredFoodModels = [
+    "kling-3.0-omni/text-to-video",
+    "kling-3.0-omni/image-to-video",
+    "seedance-2.0-fast",
+  ];
+  if (foodSkill?.model !== null || JSON.stringify(foodSkill?.models) !== JSON.stringify(requiredFoodModels)) {
+    throw new Error("hiapi-food-commercial-video must declare its three fixed model routes");
+  }
+  const requiredFoodModelPages = {
+    "kling-3.0-omni/text-to-video": {
+      en: "https://www.hiapi.ai/en/models/kling-3-0-omni",
+      zh: "https://www.hiapi.ai/zh/models/kling-3-0-omni",
+    },
+    "kling-3.0-omni/image-to-video": {
+      en: "https://www.hiapi.ai/en/models/kling-3-0-omni",
+      zh: "https://www.hiapi.ai/zh/models/kling-3-0-omni",
+    },
+    "seedance-2.0-fast": {
+      en: "https://www.hiapi.ai/en/models/seedance-2-0-fast",
+      zh: "https://www.hiapi.ai/zh/models/seedance-2-0-fast",
+    },
+  };
+  for (const [model, pages] of Object.entries(requiredFoodModelPages)) {
+    for (const locale of ["en", "zh"]) {
+      if (foodSkill?.modelPages?.[model]?.[locale] !== pages[locale]) {
+        throw new Error(`hiapi-food-commercial-video.modelPages.${model}.${locale} is incorrect`);
+      }
+    }
+  }
+  if (foodSkill?.modelPage?.en !== requiredFoodModelPages[requiredFoodModels[0]].en
+    || foodSkill?.modelPage?.zh !== requiredFoodModelPages[requiredFoodModels[0]].zh) {
+    throw new Error("hiapi-food-commercial-video.modelPage must use the Kling route page");
+  }
+  if (
+    foodSkill?.version !== "0.1.0"
+    || foodSkill?.updatePolicy?.latestVersion !== "0.1.0"
+    || foodSkill?.updatePolicy?.minimumVersion !== "0.1.0"
+  ) {
+    throw new Error("hiapi-food-commercial-video version policy must require 0.1.0");
   }
 
   const publicEntryIds = new Set(index.publicEntries.map((entry) => entry.id));
