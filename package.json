@@ -1,9 +1,12 @@
 {
   "name": "hiapi-skills",
-  "version": "0.1.0",
-  "description": "Official HiAPI AI Agent skills directory",
+  "version": "0.2.0",
+  "description": "Official HiAPI AI Agent skills directory and embedded skill installer",
   "type": "module",
   "private": true,
+  "bin": {
+    "hiapi-skills": "./scripts/install-skill.mjs"
+  },
   "scripts": {
     "test": "node --test tests/*.test.mjs && node scripts/validate.mjs"
   },

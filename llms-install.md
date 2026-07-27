@@ -2,7 +2,7 @@
 
 This file is for AI Agents. Use it when the user asks to install, choose, or use a HiAPI skill.
 
-This repository is a directory, not a skill package itself. Choose one skill repository below, then install that repository into the user's agent runtime.
+This repository is primarily a directory. `hiapi-reference-motion-transfer` is embedded under `skills/`; the other entries still install from their linked repositories.
 
 ## Start Here
 
@@ -23,6 +23,7 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Generate images | https://github.com/HiAPIAI/hiapi-gpt-image-2-skill | `hiapi-gpt-image-2` |
 | Generate or edit Seedream 5.0 Pro images | https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill | `hiapi-seedream-5-0-pro` |
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
+| Request reference-guided subject replacement or transfer motion, camera, and shot rhythm | https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer | `hiapi-reference-motion-transfer` |
 | Generate a quick text-to-video clip | https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill | `hiapi-happyhorse-1-0-video` |
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
 | Create or review phone/DV/VHS/documentary/anti-AI prompts, with optional Seedance handoff | https://github.com/HiAPIAI/realistic-video-prompting | `realistic-video-prompting` |
@@ -82,6 +83,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --codex -y
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 
@@ -105,6 +108,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --claude -y
+
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 
@@ -120,6 +125,7 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claud
 ```bash
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
@@ -128,6 +134,8 @@ openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 The Video Prompt Generator skill is prompt-only — it does **not** call any HiAPI endpoint and does **not** need `HIAPI_API_KEY`. Use it before the render skills to turn a brief into a directed, scene-by-scene prompt; then pass the prompt to `hiapi-seedance-2-0-video-skill` or `hiapi-happyhorse-1-0-video-skill` for actual generation.
 
 Realistic Video Prompting is also prompt-only by default. Use it only for explicit phone/DV/VHS/Super 8/GoPro/CCTV/documentary/found-footage/anti-AI needs. Its `review-and-render` mode waits for generation approval; `direct-render` is only for requests that already explicitly authorize generation.
+
+Reference Motion Transfer is a generation skill. Its strict `replace` mode requests preservation of Video 1 while replacing the subject, but it is not a guaranteed hard-replacement contract. Run its free media preflight first, require explicit paid-generation approval, and treat completed output as unreviewed until a human watches the full video.
 
 ## After Install
 

@@ -52,6 +52,7 @@ These entry points solve different jobs:
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| Reference Motion Transfer | Reference-guided subject replacement, motion, camera, shot rhythm, and pacing transfer | `seedance-2.0` | [embedded skill](skills/hiapi-reference-motion-transfer) |
 | HappyHorse 1.0 Video | Lightweight text-to-video drafts, short social clips, ad concepts | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | Direct briefs, links, and topics into scene-by-scene Seedance/HappyHorse prompts before generating | — (prompt-only) | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Realistic Video Prompting | Phone, DV, VHS, Super 8, GoPro, CCTV, documentary, anti-AI preflight, and model-agnostic handoff | — (prompt layer for any video model) | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
@@ -66,6 +67,7 @@ These entry points solve different jobs:
 | Find a tested video prompt and output example | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
+| Replace a video subject while requesting preservation of Video 1's scene, action, camera, framing, and timing | [Reference Motion Transfer Skill](skills/hiapi-reference-motion-transfer) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Make a phone/DV/VHS/documentary prompt less AI-looking, then route it to any selected video model | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
@@ -122,6 +124,9 @@ npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
 # Seedance 2.0 Video
 npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 
+# Reference Motion Transfer
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer -y
+
 # HappyHorse 1.0 Video
 npx -y github:HiAPIAI/hiapi-happyhorse-1-0-video-skill -y
 
@@ -146,6 +151,9 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 # Seedance 2.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
+# Reference Motion Transfer
+openclaw skills add https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer
+
 # HappyHorse 1.0 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
@@ -167,6 +175,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --codex -y
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-happyhorse-1-0-video"
 
@@ -187,6 +197,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --claude -y
+
 rm -rf "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$HOME/.claude/skills/hiapi-happyhorse-1-0-video"
 
@@ -205,6 +217,8 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$AGENT_SKILLS_
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
+
+npx -y github:HiAPIAI/hiapi-skills -- hiapi-reference-motion-transfer --target="$AGENT_SKILLS_DIR" -y
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
 git clone https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-happyhorse-1-0-video"
@@ -244,6 +258,9 @@ https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 If I ask for a stronger video workflow or image-to-video, install or use:
 https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
+If I provide a reference video and replacement subject image, and want to preserve Video 1's scene, action, camera, framing, and timing, install or use:
+https://github.com/HiAPIAI/hiapi-skills/tree/main/skills/hiapi-reference-motion-transfer
+
 If I ask for a quick text-to-video clip, install or use:
 https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
@@ -278,6 +295,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
+- [HiAPI Reference Motion Transfer Skill](skills/hiapi-reference-motion-transfer) (embedded in this repository)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)

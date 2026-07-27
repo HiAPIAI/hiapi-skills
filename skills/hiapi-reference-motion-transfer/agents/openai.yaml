@@ -1,0 +1,8 @@
+interface:
+  display_name: "HiAPI Reference Motion Transfer"
+  short_description: "Reference-guided subject replacement and motion transfer"
+  brand_color: "#10A37F"
+  default_prompt: "Use $hiapi-reference-motion-transfer in strict replace mode, ask one concise question for any blocking uncertainty, run and show the free dry-run, wait for my explicit approval before creating a new paid task, preserve Video 1 except for the subject, and treat the result as unreviewed until the complete video is visually inspected."
+
+policy:
+  allow_implicit_invocation: true
