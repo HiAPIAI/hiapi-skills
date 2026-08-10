@@ -141,6 +141,45 @@
       }
     },
     {
+      "id": "hiapi-seedance-2-5-video",
+      "name": "HiAPI Seedance 2.5 Video",
+      "model": "seedance-2.5/*",
+      "type": "video",
+      "capabilities": [
+        "text-to-video",
+        "image-to-video",
+        "reference-to-video",
+        "task-recovery",
+        "video-quality-control"
+      ],
+      "bestFor": [
+        "up to 30-second continuous shots",
+        "first and last frame animation",
+        "multimodal reference video",
+        "native-audio video production",
+        "recoverable paid video workflows"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill",
+      "version": "1.0.0",
+      "updatePolicy": {
+        "latestVersion": "1.0.0",
+        "minimumVersion": "1.0.0",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y",
+        "notice": "A newer HiAPI Seedance 2.5 skill is available. You can finish the current task, then update for the newest workflow and contract support.",
+        "requiredNotice": "This HiAPI Seedance 2.5 skill version is incompatible with the current task contract or has a safety-critical issue. Update before creating another paid task. Existing task recovery remains available."
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video\" && git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-seedance-2-5-video\" && git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git \"$HOME/.claude/skills/hiapi-seedance-2-5-video\"",
+        "manualDirectory": "hiapi-seedance-2-5-video"
+      },
+      "modelPage": {
+        "en": "https://docs.hiapi.ai/models/video/seedance-2-5/",
+        "zh": "https://docs.hiapi.ai/zh/models/video/seedance-2-5/"
+      }
+    },
+    {
       "id": "hiapi-seedance-2-0-video",
       "name": "HiAPI Seedance 2.0 Video",
       "model": "seedance-2.0",
