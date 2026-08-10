@@ -22,6 +22,7 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | --- | --- | --- |
 | Generate images | https://github.com/HiAPIAI/hiapi-gpt-image-2-skill | `hiapi-gpt-image-2` |
 | Generate or edit Seedream 5.0 Pro images | https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill | `hiapi-seedream-5-0-pro` |
+| Produce Seedance 2.5 text/image/reference video with preflight, recovery, and QC | https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill | `hiapi-seedance-2-5-video` |
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
 | Generate a quick text-to-video clip | https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill | `hiapi-happyhorse-1-0-video` |
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
@@ -79,6 +80,9 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video"
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 
@@ -102,6 +106,9 @@ mkdir -p "$HOME/.claude/skills"
 rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
+rm -rf "$HOME/.claude/skills/hiapi-seedance-2-5-video"
+git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-5-video"
+
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
@@ -119,6 +126,7 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claud
 
 ```bash
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill

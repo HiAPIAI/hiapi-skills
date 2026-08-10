@@ -11,6 +11,7 @@ const requiredFiles = [
 const requiredSkillIds = [
   "hiapi-gpt-image-2",
   "hiapi-seedream-5-0-pro",
+  "hiapi-seedance-2-5-video",
   "hiapi-seedance-2-0-video",
   "hiapi-happyhorse-1-0-video",
   "hiapi-video-prompt-generator",
@@ -43,6 +44,7 @@ const requiredPublicEntryIds = [
 const requiredDocs = [
   "docs/gpt-image-2.md",
   "docs/seedance-2-0.md",
+  "docs/seedance-2-5.md",
   "docs/happyhorse-1-0.md",
   "docs/video-prompt-generator.md",
   "docs/realistic-video-workflow.md",
@@ -105,6 +107,23 @@ async function main() {
     || seedanceSkill?.updatePolicy?.minimumVersion !== "0.1.8"
   ) {
     throw new Error("hiapi-seedance-2-0-video version policy must require 0.1.8");
+  }
+
+  const seedance25Skill = index.skills.find((skill) => skill.id === "hiapi-seedance-2-5-video");
+  if (seedance25Skill?.model !== "seedance-2.5/*") {
+    throw new Error("hiapi-seedance-2-5-video.model must represent the three seedance-2.5 capability IDs");
+  }
+  if (
+    seedance25Skill?.version !== "1.0.0"
+    || seedance25Skill?.updatePolicy?.latestVersion !== "1.0.0"
+    || seedance25Skill?.updatePolicy?.minimumVersion !== "1.0.0"
+  ) {
+    throw new Error("hiapi-seedance-2-5-video version policy must launch at 1.0.0");
+  }
+  for (const capability of ["text-to-video", "image-to-video", "reference-to-video", "task-recovery"]) {
+    if (!seedance25Skill?.capabilities?.includes(capability)) {
+      throw new Error(`hiapi-seedance-2-5-video missing capability ${capability}`);
+    }
   }
 
   const publicEntryIds = new Set(index.publicEntries.map((entry) => entry.id));
