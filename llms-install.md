@@ -28,15 +28,20 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
 | Create or review phone/DV/VHS/documentary/anti-AI prompts, with optional Seedance handoff | https://github.com/HiAPIAI/realistic-video-prompting | `realistic-video-prompting` |
 
-Install the realistic prompt skill and Seedance executor together:
+Install the two independent skills together (recommended replacement for the archived bundle):
+
+```bash
+npx -y github:HiAPIAI/realistic-video-prompting -y
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
+```
+
+Historical bundle repository: https://github.com/HiAPIAI/hiapi-realistic-video-workflow (archived; the old command remains available for existing automation):
 
 ```bash
 npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
 ```
 
-Bundle repository: https://github.com/HiAPIAI/hiapi-realistic-video-workflow
-
-The bundle is an installer, not a third runtime skill. Ordinary Seedance requests still route directly to `hiapi-seedance-2-0-video`.
+The bundle was an installer, not a third runtime Skill. Ordinary Seedance requests still route directly to `hiapi-seedance-2-0-video`.
 
 Use Remote MCP when the user wants broader model discovery or chat-access to more HiAPI tools:
 

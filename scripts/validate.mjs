@@ -177,6 +177,9 @@ async function main() {
     throw new Error("Missing bundle id: hiapi-realistic-video-workflow");
   }
   assertUrl(realisticBundle.repository, "hiapi-realistic-video-workflow.repository");
+  if (realisticBundle.status !== "archived") {
+    throw new Error("hiapi-realistic-video-workflow must be marked archived after bundle migration");
+  }
   if (!realisticBundle.installCommand?.includes("github:HiAPIAI/hiapi-realistic-video-workflow")) {
     throw new Error("hiapi-realistic-video-workflow.installCommand must reference its GitHub repository");
   }
@@ -185,6 +188,16 @@ async function main() {
       throw new Error(`hiapi-realistic-video-workflow must install ${skillId}`);
     }
   }
+  const replacementCommands = realisticBundle.replacement?.installCommands;
+  if (!Array.isArray(replacementCommands) || replacementCommands.length !== 2) {
+    throw new Error("hiapi-realistic-video-workflow.replacement must contain two direct install commands");
+  }
+  for (const command of replacementCommands) {
+    if (!command.includes("github:HiAPIAI/") || command.includes("hiapi-realistic-video-workflow")) {
+      throw new Error("hiapi-realistic-video-workflow replacement commands must install the independent skills");
+    }
+  }
+  assertUrl(realisticBundle.replacement?.documentation, "hiapi-realistic-video-workflow.replacement.documentation");
 
   const readme = await readFile("README.md", "utf8");
   const readmeZh = await readFile("README.zh-CN.md", "utf8");

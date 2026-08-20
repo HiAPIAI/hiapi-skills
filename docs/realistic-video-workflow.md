@@ -15,7 +15,14 @@ The realistic prompt Skill is independently installable and does not depend on S
 npx -y github:HiAPIAI/realistic-video-prompting -y
 ```
 
-The optional bundle installs the prompt Skill and Seedance executor as a convenient Seedance shortcut:
+The former one-command bundle repository is archived. Install the two independent skills directly:
+
+```bash
+npx -y github:HiAPIAI/realistic-video-prompting -y
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
+```
+
+This is the replacement for the archived [`hiapi-realistic-video-workflow`](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) installer. The old command remains available for existing automation, but it receives no further feature updates:
 
 ```bash
 npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
@@ -30,7 +37,7 @@ npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
 - `external` returns a handoff package and does not create a task.
 - Target-specific duration, ratio, media, audio, and output fields are validated by the matching executor's current schema.
 - `4k` and persistent storage require cost awareness and are never silently selected.
-- The optional Seedance adapter imports the installed Seedance payload validator rather than maintaining a second API client.
+- The Seedance adapter imports the installed Seedance payload validator rather than maintaining a second API client.
 
 ## Authentication
 
