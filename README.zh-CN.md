@@ -6,7 +6,7 @@ HiAPI 官方 AI Agent 技能目录。
 
 [获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.5 提示词集](https://github.com/HiAPIAI/awesome-seedance-2-5-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
-> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
 
 ---
 
@@ -29,7 +29,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 入口 | 链接 | 什么时候用 |
 | --- | --- | --- |
 | 图像 Prompt Gallery | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | 想先看 GPT Image 2 真实效果图和创意配方，再生成图片。 |
-| 视频 Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | 想先看 Seedance 2.0 真实视频配方，再做文生视频或图生视频。 |
+| 视频 Prompt Gallery | [awesome-ai-video-prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) | 想先看 Seedance 2.0/2.5 的来源和能力元数据，再做文生视频或图生视频。 |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想浏览可用的 HiAPI skills，并选择一个明确的单模型工作流。 |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
 | 异步任务 API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/zh/api-reference/) | 正在构建后端服务，需要 `POST /v1/tasks`、轮询、签名回调和任务历史。 |
@@ -64,7 +64,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 我想要... | 打开 |
 | --- | --- |
 | 先找一个有真实效果图的图像提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
-| 先找一个有真实效果的视频提示词参考 | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
+| 先找一个有来源的视频提示词参考 | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 用文字、首尾帧或多模态参考制作最长 30 秒 Seedance 2.5 视频 | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -288,7 +288,7 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
-- [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)
+- [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)
 
 ---
 
