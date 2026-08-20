@@ -4,9 +4,9 @@ Official HiAPI skill directory for AI Agents.
 
 **HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
 
-[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.5 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-5-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
 
-> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
 
 ---
 
@@ -29,7 +29,7 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Entry | Link | Use it when... |
 | --- | --- | --- |
 | Image Prompt Gallery | [awesome-gpt-image-2-prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) | You want output-backed GPT Image 2 recipes before generating images. |
-| Video Prompt Gallery | [awesome-seedance-2-0-prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) | You want output-backed Seedance 2.0 recipes for text-to-video or image-to-video. |
+| Video Prompt Gallery | [awesome-ai-video-prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) | You want rights-aware Seedance 2.0 and 2.5 recipe metadata before generating. |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
 | Async Tasks API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/api-reference/) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
@@ -64,7 +64,7 @@ These entry points solve different jobs:
 | I want to... | Open |
 | --- | --- |
 | Find a tested image prompt and output example | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
-| Find a tested video prompt and output example | [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts) |
+| Find a video prompt and source-backed example | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Produce up to 30s Seedance 2.5 video from text, frames, or multimodal references | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -288,7 +288,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
-- [Awesome Seedance 2.0 Prompts](https://github.com/HiAPIAI/awesome-seedance-2-0-prompts)
+- [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)
 
 ---
 
