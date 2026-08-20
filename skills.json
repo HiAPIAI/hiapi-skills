@@ -59,12 +59,20 @@
       "name": "HiAPI Realistic Video Workflow",
       "repository": "https://github.com/HiAPIAI/hiapi-realistic-video-workflow",
       "version": "1.0.0",
+      "status": "archived",
       "installs": [
         "realistic-video-prompting",
         "hiapi-seedance-2-0-video"
       ],
       "installCommand": "npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y",
-      "useWhen": "Install realistic prompt design and HiAPI Seedance 2.0 generation together while keeping both skills independently routable."
+      "useWhen": "Historical one-command installer for the realistic prompt and Seedance 2.0 skills; keep only for existing automation.",
+      "replacement": {
+        "documentation": "https://github.com/HiAPIAI/hiapi-skills/blob/main/docs/realistic-video-workflow.md",
+        "installCommands": [
+          "npx -y github:HiAPIAI/realistic-video-prompting -y",
+          "npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y"
+        ]
+      }
     }
   ],
   "skills": [

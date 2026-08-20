@@ -71,7 +71,7 @@ These entry points solve different jobs:
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Make a phone/DV/VHS/documentary prompt less AI-looking, then route it to any selected video model | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
-| Install the realistic prompt and Seedance skills together | [HiAPI Realistic Video Workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) |
+| Install the realistic prompt and Seedance skills together | [Direct install and archived bundle migration](./docs/realistic-video-workflow.md) (old bundle: [hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
 | Build a server-side integration with webhooks and task history | [Async Tasks API](https://docs.hiapi.ai/api-reference/) |
 
@@ -136,8 +136,9 @@ npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 # Realistic Video Prompting (prompt-only by default)
 npx -y github:HiAPIAI/realistic-video-prompting -y
 
-# Optional Seedance shortcut: installs Realistic Video Prompting + Seedance 2.0
-npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
+# Install both independent skills (replacement for the archived bundle)
+npx -y github:HiAPIAI/realistic-video-prompting -y
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 ```
 
 Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claude/skills`). Pass `--codex`, `--claude`, `--target=/path`, or set `AGENT_SKILLS_DIR` to override. Requires Node 18+ and `git` on PATH.

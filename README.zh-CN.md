@@ -71,7 +71,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | 把手机/DV/VHS/纪录片提示词改得更真实，并可选交给 Seedance | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
-| 一次安装真实感提示词与 Seedance 两个 Skill | [HiAPI 真实感视频双 Skill 工作流](https://github.com/HiAPIAI/hiapi-realistic-video-workflow) |
+| 一次安装真实感提示词与 Seedance 两个 Skill | [直接安装和归档迁移说明](./docs/realistic-video-workflow.md)（旧组合仓库：[hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)） |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
 | 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://docs.hiapi.ai/zh/api-reference/) |
 
@@ -136,8 +136,9 @@ npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 # Realistic Video Prompting（默认只核对提示词）
 npx -y github:HiAPIAI/realistic-video-prompting -y
 
-# 可选组合：同时安装真实感提示词 + Seedance 2.0
-npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
+# 同时安装两个独立 Skill（替代已归档组合仓库）
+npx -y github:HiAPIAI/realistic-video-prompting -y
+npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 ```
 
 每个安装脚本会自动检测 Codex（`~/.codex/skills`）和 Claude Code（`~/.claude/skills`）。需要指定就传 `--codex`、`--claude`、`--target=/path`，或设置 `AGENT_SKILLS_DIR` 环境变量。要求 Node 18+ 和系统 `git`。
