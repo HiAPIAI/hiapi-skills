@@ -4,7 +4,7 @@ HiAPI 官方 AI Agent 技能目录。
 
 **HiAPI Skills • 安装 • API Key • [HiAPI](https://www.hiapi.ai/zh)**
 
-[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [Seedance 2.5 提示词集](https://github.com/HiAPIAI/awesome-seedance-2-5-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
+[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI 视频提示词集](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
 
 > **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
 
