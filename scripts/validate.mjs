@@ -114,11 +114,11 @@ async function main() {
     throw new Error("hiapi-seedance-2-5-video.model must represent the three seedance-2.5 capability IDs");
   }
   if (
-    seedance25Skill?.version !== "1.0.0"
-    || seedance25Skill?.updatePolicy?.latestVersion !== "1.0.0"
-    || seedance25Skill?.updatePolicy?.minimumVersion !== "1.0.0"
+    seedance25Skill?.version !== "1.1.0"
+    || seedance25Skill?.updatePolicy?.latestVersion !== "1.1.0"
+    || seedance25Skill?.updatePolicy?.minimumVersion !== "1.1.0"
   ) {
-    throw new Error("hiapi-seedance-2-5-video version policy must launch at 1.0.0");
+    throw new Error("hiapi-seedance-2-5-video version policy must require 1.1.0 for the mode-specific resolution contract");
   }
   for (const capability of ["text-to-video", "image-to-video", "reference-to-video", "task-recovery"]) {
     if (!seedance25Skill?.capabilities?.includes(capability)) {
