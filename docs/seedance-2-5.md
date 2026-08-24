@@ -10,14 +10,15 @@ API models:
 
 Skill directory: `hiapi-seedance-2-5-video`
 
-Current release: `1.0.0`.
+Current release: `1.1.0`.
 
 Use this skill for Seedance 2.5 video planning and production through HiAPI, including cost-aware dry runs, text/image/reference mode selection, paid-task idempotency, interrupted-task recovery, download, and quality control.
 
 ## Current Contract
 
 - 4-30 second output.
-- 480p or 720p.
+- Text/image: 720p or 1080p; default 720p.
+- Reference: 480p, 720p, or 1080p; default 480p.
 - MP4 or MOV.
 - Up to 30 reference images.
 - Up to 10 reference videos and 10 audio clips; each media type totals at most 30 seconds.
@@ -28,6 +29,7 @@ Use this skill for Seedance 2.5 video planning and production through HiAPI, inc
 - Hard upgrades block only incompatible or unsafe new paid tasks.
 - Existing task recovery remains available during a hard upgrade.
 - The runtime checks this directory and falls back to the skill repository's `update-policy.json`.
+- Versions older than 1.1.0 are hard-blocked for new paid tasks because their resolution validation no longer matches the live contract.
 
 ## Install
 
