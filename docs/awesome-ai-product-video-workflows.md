@@ -27,4 +27,3 @@ Planning and review do not require a HiAPI key. If the selected workflow uses a 
 
 - API key (English): https://www.hiapi.ai/en/dashboard/api-keys
 - API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
-

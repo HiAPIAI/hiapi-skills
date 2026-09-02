@@ -25,4 +25,3 @@ The collection remains labeled `release-candidate` until its own public release 
 
 - API key (English): https://www.hiapi.ai/en/dashboard/api-keys
 - API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
-
