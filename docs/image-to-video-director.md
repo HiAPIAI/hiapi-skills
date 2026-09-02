@@ -31,4 +31,3 @@ The planning mode does not need a HiAPI key. If the user authorizes generation t
 
 - API key (English): https://www.hiapi.ai/en/dashboard/api-keys
 - API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
-

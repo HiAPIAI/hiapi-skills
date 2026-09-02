@@ -32,4 +32,3 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 - Chinese model page: https://www.hiapi.ai/zh/models/seedream-5.0-pro-text-to-image
 - API key (English): https://www.hiapi.ai/en/dashboard/api-keys
 - API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
-

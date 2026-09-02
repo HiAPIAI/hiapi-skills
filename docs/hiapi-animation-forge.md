@@ -30,4 +30,3 @@ Planning and Blender preview do not require a HiAPI key. If the user authorizes 
 
 - API key (English): https://www.hiapi.ai/en/dashboard/api-keys
 - API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
-
