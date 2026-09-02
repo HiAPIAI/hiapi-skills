@@ -56,6 +56,13 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | HappyHorse 1.0 Video | 轻量文生视频草稿、短视频、广告概念 | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | 把简报、链接、调研主题写成分镜级的 Seedance/HappyHorse 提示词，生成前用 | —（纯提示词，不调模型） | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Realistic Video Prompting | 手机、DV、VHS、Super 8、GoPro、监控、纪录片与去 AI 感提示词核对 | —（纯提示词或交接 Seedance） | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| Image-to-Video Director | 从一张已确认静态图评估可行运镜、生成图生视频提示词并做运动质检 | —（模型无关工作流） | [hiapi-image-to-video-camera-motion-skill](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill) |
+| Awesome AI Product Video Workflows | 商品图审计、主视觉、电商视频、UGC 广告、社媒变体与来源约束质检 | —（工作流库） | [awesome-ai-video-workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
+| HiAPI Animation Forge | 资产优先的 2D 转 3D 规划、Blender 预览、来源锁定检查与可选生成渲染 | —（制作工作流） | [hiapi-2d-to-3d-video-skill](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
+
+### 产品视频适配器集合
+
+[`hiapi-product-video-skills`](https://github.com/HiAPIAI/hiapi-product-video-skills) 是当前处于 `release-candidate` 的活跃集合，包含 `ugc-ad`、`fashion-lookbook`、`food-commercial` 和 `product-spokesperson` 四个可安装适配器。因为仓库根目录不是一个单独的 `SKILL.md`，所以在目录中登记为 bundle。详见[适配器说明](docs/product-video-skills.md)。
 
 ---
 
@@ -71,6 +78,10 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | 把一句话简报或链接变成分镜级视频提示词再生成 | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | 把手机/DV/VHS/纪录片提示词改得更真实，并可选交给 Seedance | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| 从一张已确认静态图设计可行运镜 | [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill) |
+| 把商品图或商品页变成有来源约束的视频工作流 | [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
+| 规划来源锁定的 2D 转 3D 制作或 Blender 预览 | [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
+| 为 UGC、时尚、食品或口播安装一个产品视频适配器 | [Product Video Skills](docs/product-video-skills.md) |
 | 一次安装真实感提示词与 Seedance 两个 Skill | [直接安装和归档迁移说明](./docs/realistic-video-workflow.md)（旧组合仓库：[hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)） |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
 | 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://docs.hiapi.ai/zh/api-reference/) |
@@ -121,6 +132,9 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 # GPT Image 2
 npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
 
+# Seedream 5.0 Pro
+npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y
+
 # Seedance 2.5 Video
 npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y
 
@@ -136,6 +150,15 @@ npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 # Realistic Video Prompting（默认只核对提示词）
 npx -y github:HiAPIAI/realistic-video-prompting -y
 
+# 商品视频工作流
+npx -y github:HiAPIAI/awesome-ai-video-workflows -y
+
+# HiAPI Animation Forge
+npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill -y
+
+# Image-to-Video Director（通用 clone 安装）
+git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
+
 # 同时安装两个独立 Skill（替代已归档组合仓库）
 npx -y github:HiAPIAI/realistic-video-prompting -y
 npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
@@ -148,6 +171,9 @@ npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
 ```bash
 # GPT Image 2
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+
+# Seedream 5.0 Pro
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 
 # Seedance 2.5 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill
@@ -288,6 +314,10 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
+- [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill)
+- [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows)
+- [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill)
+- [HiAPI Product Video Skills](https://github.com/HiAPIAI/hiapi-product-video-skills)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)
 

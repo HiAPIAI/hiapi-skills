@@ -55,6 +55,22 @@
   },
   "bundles": [
     {
+      "id": "hiapi-product-video-skills",
+      "name": "HiAPI Product Video Skills",
+      "repository": "https://github.com/HiAPIAI/hiapi-product-video-skills",
+      "version": "0.1.0",
+      "status": "release-candidate",
+      "adapters": [
+        "ugc-ad",
+        "fashion-lookbook",
+        "food-commercial",
+        "product-spokesperson"
+      ],
+      "installCommand": "npx -y github:HiAPIAI/hiapi-product-video-skills -y --adapter <adapter>",
+      "useWhen": "Install one shared product-video adapter for UGC ads, fashion lookbooks, food commercials, or product spokesperson videos.",
+      "documentation": "https://github.com/HiAPIAI/hiapi-skills/blob/main/docs/product-video-skills.md"
+    },
+    {
       "id": "hiapi-realistic-video-workflow",
       "name": "HiAPI Realistic Video Workflow",
       "repository": "https://github.com/HiAPIAI/hiapi-realistic-video-workflow",
@@ -329,6 +345,99 @@
       "modelPage": {
         "en": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill",
         "zh": "https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill"
+      }
+    },
+    {
+      "id": "image-to-video-director",
+      "name": "Image-to-Video Director",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "source-image-analysis",
+        "camera-motion-direction",
+        "model-ready-i2v-prompts",
+        "visual-quality-control"
+      ],
+      "bestFor": [
+        "safe camera movement from one approved still",
+        "product and architecture image animation",
+        "portrait and environment motion planning",
+        "model-adapted image-to-video prompts"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill",
+      "version": null,
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git \"$HOME/.claude/skills/image-to-video-director\"",
+        "manualDirectory": "image-to-video-director"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill"
+      }
+    },
+    {
+      "id": "awesome-ai-product-video-workflows",
+      "name": "Awesome AI Product Video Workflows",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "product-image-audit",
+        "hero-visual-planning",
+        "product-video-storyboards",
+        "ugc-and-social-variant-qc"
+      ],
+      "bestFor": [
+        "product image to commercial video workflows",
+        "ecommerce and UGC ad planning",
+        "TikTok, Reels, Shorts, and marketplace variants",
+        "source-grounded product claims and media QC"
+      ],
+      "repository": "https://github.com/HiAPIAI/awesome-ai-video-workflows",
+      "version": "0.1.1",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/awesome-ai-video-workflows",
+        "codex": "npx -y github:HiAPIAI/awesome-ai-video-workflows --codex",
+        "claudeCode": "npx -y github:HiAPIAI/awesome-ai-video-workflows --claude",
+        "manualDirectory": "awesome-ai-product-video-workflows"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/awesome-ai-video-workflows",
+        "zh": "https://github.com/HiAPIAI/awesome-ai-video-workflows/blob/main/README.zh-CN.md"
+      }
+    },
+    {
+      "id": "hiapi-2d-to-3d-video",
+      "name": "HiAPI Animation Forge",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "2d-to-3d-production-planning",
+        "source-locked-reconstruction",
+        "blender-preview-gating",
+        "optional-generative-rendering"
+      ],
+      "bestFor": [
+        "asset-first 2D animation reconstruction",
+        "rigged 3D assets and Blender-ready scenes",
+        "source-locked motion and camera solving",
+        "appearance-first 3D-style video"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill",
+      "version": "0.8.0",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill",
+        "codex": "npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill --claude",
+        "manualDirectory": "hiapi-2d-to-3d-video"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill"
       }
     }
   ]

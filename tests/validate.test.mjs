@@ -25,10 +25,15 @@ test("validator rejects an index that omits the Seedream 5 Pro skill", (t) => {
   mkdirSync(join(fixture, "docs"));
   for (const file of [
     "gpt-image-2.md",
+    "seedream-5-0-pro.md",
     "seedance-2-5.md",
     "seedance-2-0.md",
     "happyhorse-1-0.md",
     "video-prompt-generator.md",
+    "image-to-video-director.md",
+    "awesome-ai-product-video-workflows.md",
+    "hiapi-animation-forge.md",
+    "product-video-skills.md",
     "realistic-video-workflow.md",
   ]) {
     copyFileSync(join(repoRoot, "docs", file), join(fixture, "docs", file));
