@@ -27,6 +27,11 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Generate a quick text-to-video clip | https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill | `hiapi-happyhorse-1-0-video` |
 | Turn a one-line brief, link, or topic into a scene-by-scene video prompt (no API call) | https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill | `hiapi-video-prompt-generator` |
 | Create or review phone/DV/VHS/documentary/anti-AI prompts, with optional Seedance handoff | https://github.com/HiAPIAI/realistic-video-prompting | `realistic-video-prompting` |
+| Direct feasible camera motion from one approved still | https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill | `image-to-video-director` |
+| Build source-grounded product-video workflows and social variants | https://github.com/HiAPIAI/awesome-ai-video-workflows | `awesome-ai-product-video-workflows` |
+| Plan asset-first 2D-to-3D production and source-lock QC | https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill | `hiapi-2d-to-3d-video` |
+
+The active product-video adapter collection is https://github.com/HiAPIAI/hiapi-product-video-skills. It is a `release-candidate` bundle with `ugc-ad`, `fashion-lookbook`, `food-commercial`, and `product-spokesperson` adapters; it is not one root-level Skill.
 
 Install the two independent skills together (recommended replacement for the archived bundle):
 
@@ -85,6 +90,9 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro"
+git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro"
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-5-video"
 
@@ -103,6 +111,14 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "${CODEX_HOME
 
 Restart Codex after installing skills.
 
+Install the specialized workflow skills when their narrower route matches the request:
+
+```bash
+git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
+npx -y github:HiAPIAI/awesome-ai-video-workflows --codex
+npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill --codex
+```
+
 ## Install Into Claude Code
 
 ```bash
@@ -110,6 +126,9 @@ mkdir -p "$HOME/.claude/skills"
 
 rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
+
+rm -rf "$HOME/.claude/skills/hiapi-seedream-5-0-pro"
+git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git "$HOME/.claude/skills/hiapi-seedream-5-0-pro"
 
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-5-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-5-video"
@@ -131,11 +150,15 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claud
 
 ```bash
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
+openclaw skills add https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill
+openclaw skills add https://github.com/HiAPIAI/awesome-ai-video-workflows
+openclaw skills add https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill
 ```
 
 The Video Prompt Generator skill is prompt-only — it does **not** call any HiAPI endpoint and does **not** need `HIAPI_API_KEY`. Use it before the render skills to turn a brief into a directed, scene-by-scene prompt; then pass the prompt to `hiapi-seedance-2-0-video-skill` or `hiapi-happyhorse-1-0-video-skill` for actual generation.

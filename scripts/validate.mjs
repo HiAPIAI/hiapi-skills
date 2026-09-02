@@ -16,6 +16,9 @@ const requiredSkillIds = [
   "hiapi-happyhorse-1-0-video",
   "hiapi-video-prompt-generator",
   "realistic-video-prompting",
+  "image-to-video-director",
+  "awesome-ai-product-video-workflows",
+  "hiapi-2d-to-3d-video",
 ];
 
 const requiredPublicLinks = [
@@ -43,10 +46,15 @@ const requiredPublicEntryIds = [
 
 const requiredDocs = [
   "docs/gpt-image-2.md",
+  "docs/seedream-5-0-pro.md",
   "docs/seedance-2-0.md",
   "docs/seedance-2-5.md",
   "docs/happyhorse-1-0.md",
   "docs/video-prompt-generator.md",
+  "docs/image-to-video-director.md",
+  "docs/awesome-ai-product-video-workflows.md",
+  "docs/hiapi-animation-forge.md",
+  "docs/product-video-skills.md",
   "docs/realistic-video-workflow.md",
 ];
 
@@ -144,31 +152,47 @@ async function main() {
     assertUrl(skill.repository, `${skill.id}.repository`);
     assertUrl(skill.modelPage.en, `${skill.id}.modelPage.en`);
     assertUrl(skill.modelPage.zh, `${skill.id}.modelPage.zh`);
-    if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.version || "")) {
+    if (skill.version !== null && !/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.version || "")) {
       throw new Error(`${skill.id}.version must be a semver-like string`);
     }
-    if (!skill.updatePolicy || typeof skill.updatePolicy !== "object") {
-      throw new Error(`${skill.id}.updatePolicy is required`);
-    }
-    for (const field of ["latestVersion", "minimumVersion"]) {
-      if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.updatePolicy[field] || "")) {
-        throw new Error(`${skill.id}.updatePolicy.${field} must be a semver-like string`);
+    if (skill.updatePolicy !== null) {
+      if (!skill.updatePolicy || typeof skill.updatePolicy !== "object") {
+        throw new Error(`${skill.id}.updatePolicy must be an object or null`);
+      }
+      for (const field of ["latestVersion", "minimumVersion"]) {
+        if (!/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(skill.updatePolicy[field] || "")) {
+          throw new Error(`${skill.id}.updatePolicy.${field} must be a semver-like string`);
+        }
+      }
+      if (!commandReferencesRepository(skill.updatePolicy.updateCommand, skill.repository)) {
+        throw new Error(`${skill.id}.updatePolicy.updateCommand must reference its GitHub repository`);
+      }
+      if (!skill.updatePolicy.notice || !skill.updatePolicy.requiredNotice) {
+        throw new Error(`${skill.id}.updatePolicy must include notice and requiredNotice`);
       }
     }
-    if (!skill.updatePolicy.updateCommand?.includes(skill.repository.replace("https://github.com/", "github:"))) {
-      throw new Error(`${skill.id}.updatePolicy.updateCommand must reference its GitHub repository`);
-    }
-    if (!skill.updatePolicy.notice || !skill.updatePolicy.requiredNotice) {
-      throw new Error(`${skill.id}.updatePolicy must include notice and requiredNotice`);
-    }
-    if (!skill.install?.openclaw?.includes(skill.repository)) {
+    if (!commandReferencesRepository(skill.install?.openclaw, skill.repository)) {
       throw new Error(`${skill.id}.install.openclaw must reference its repository`);
     }
-    if (!skill.install?.codex?.includes(skill.repository)) {
+    if (!commandReferencesRepository(skill.install?.codex, skill.repository)) {
       throw new Error(`${skill.id}.install.codex must reference its repository`);
     }
-    if (!skill.install?.claudeCode?.includes(skill.repository)) {
+    if (!commandReferencesRepository(skill.install?.claudeCode, skill.repository)) {
       throw new Error(`${skill.id}.install.claudeCode must reference its repository`);
+    }
+  }
+
+  const productVideoBundle = index.bundles.find((bundle) => bundle.id === "hiapi-product-video-skills");
+  if (!productVideoBundle) {
+    throw new Error("Missing bundle id: hiapi-product-video-skills");
+  }
+  assertUrl(productVideoBundle.repository, "hiapi-product-video-skills.repository");
+  if (productVideoBundle.status !== "release-candidate") {
+    throw new Error("hiapi-product-video-skills must remain release-candidate until its public release gate passes");
+  }
+  for (const adapter of ["ugc-ad", "fashion-lookbook", "food-commercial", "product-spokesperson"]) {
+    if (!productVideoBundle.adapters?.includes(adapter)) {
+      throw new Error(`hiapi-product-video-skills missing adapter ${adapter}`);
     }
   }
 
@@ -224,6 +248,17 @@ async function main() {
       throw new Error(`llms-install.md missing ${skill.repository}`);
     }
   }
+  for (const bundle of index.bundles) {
+    for (const [file, content] of [
+      ["README.md", readme],
+      ["README.zh-CN.md", readmeZh],
+      ["llms-install.md", llmsInstall],
+    ]) {
+      if (!content.includes(bundle.repository)) {
+        throw new Error(`${file} missing bundle repository ${bundle.repository}`);
+      }
+    }
+  }
   if (!readme.includes(realisticBundle.repository) || !readmeZh.includes(realisticBundle.repository) || !llmsInstall.includes(realisticBundle.repository)) {
     throw new Error("README and llms-install must include the realistic video bundle repository");
   }
@@ -270,6 +305,12 @@ function assertUrl(value, field) {
   } catch {
     throw new Error(`${field} must be an https URL`);
   }
+}
+
+function commandReferencesRepository(command, repository) {
+  if (typeof command !== "string") return false;
+  const slug = repository.replace("https://github.com/", "");
+  return command.includes(repository) || command.includes(`github:${slug}`);
 }
 
 main().catch((error) => {

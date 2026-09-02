@@ -56,6 +56,13 @@ These entry points solve different jobs:
 | HappyHorse 1.0 Video | Lightweight text-to-video drafts, short social clips, ad concepts | `happyhorse-1-0` | [hiapi-happyhorse-1-0-video-skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Video Prompt Generator | Direct briefs, links, and topics into scene-by-scene Seedance/HappyHorse prompts before generating | — (prompt-only) | [hiapi-video-prompt-generator-skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Realistic Video Prompting | Phone, DV, VHS, Super 8, GoPro, CCTV, documentary, anti-AI preflight, and model-agnostic handoff | — (prompt layer for any video model) | [realistic-video-prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| Image-to-Video Director | Feasibility-aware camera motion, model-ready I2V prompts, and motion QC from one approved still | — (model-agnostic workflow) | [hiapi-image-to-video-camera-motion-skill](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill) |
+| Awesome AI Product Video Workflows | Product-image audits, hero visuals, ecommerce videos, UGC ads, social variants, and source-grounded QC | — (workflow library) | [awesome-ai-video-workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
+| HiAPI Animation Forge | Asset-first 2D-to-3D planning, Blender previews, source-lock checks, and optional generative rendering | — (production workflow) | [hiapi-2d-to-3d-video-skill](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
+
+### Product Video Adapter Collection
+
+[`hiapi-product-video-skills`](https://github.com/HiAPIAI/hiapi-product-video-skills) is an active `release-candidate` collection with four installable adapters: `ugc-ad`, `fashion-lookbook`, `food-commercial`, and `product-spokesperson`. It is indexed as a bundle because the repository does not expose one root-level `SKILL.md`. See the [adapter guide](docs/product-video-skills.md).
 
 ---
 
@@ -71,6 +78,10 @@ These entry points solve different jobs:
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
 | Turn a one-line brief or link into a scene-by-scene video prompt before generating | [Video Prompt Generator Skill](https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill) |
 | Make a phone/DV/VHS/documentary prompt less AI-looking, then route it to any selected video model | [Realistic Video Prompting](https://github.com/HiAPIAI/realistic-video-prompting) |
+| Direct safe camera motion from one approved still | [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill) |
+| Turn product images or listings into grounded product-video workflows | [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
+| Plan a source-locked 2D-to-3D production or Blender preview | [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
+| Install one product-video adapter for UGC, fashion, food, or spokesperson work | [Product Video Skills](docs/product-video-skills.md) |
 | Install the realistic prompt and Seedance skills together | [Direct install and archived bundle migration](./docs/realistic-video-workflow.md) (old bundle: [hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
 | Build a server-side integration with webhooks and task history | [Async Tasks API](https://docs.hiapi.ai/api-reference/) |
@@ -121,6 +132,9 @@ Pick the repository for the workflow you need. Prompt-only skills do not require
 # GPT Image 2
 npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
 
+# Seedream 5.0 Pro
+npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y
+
 # Seedance 2.5 Video
 npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y
 
@@ -136,6 +150,15 @@ npx -y github:HiAPIAI/hiapi-video-prompt-generator-skill -y
 # Realistic Video Prompting (prompt-only by default)
 npx -y github:HiAPIAI/realistic-video-prompting -y
 
+# Product Video Workflows
+npx -y github:HiAPIAI/awesome-ai-video-workflows -y
+
+# HiAPI Animation Forge
+npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill -y
+
+# Image-to-Video Director (portable clone install)
+git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
+
 # Install both independent skills (replacement for the archived bundle)
 npx -y github:HiAPIAI/realistic-video-prompting -y
 npx -y github:HiAPIAI/hiapi-seedance-2-0-video-skill -y
@@ -148,6 +171,9 @@ Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claud
 ```bash
 # GPT Image 2
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+
+# Seedream 5.0 Pro
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 
 # Seedance 2.5 Video
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill
@@ -288,6 +314,10 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
+- [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill)
+- [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows)
+- [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill)
+- [HiAPI Product Video Skills](https://github.com/HiAPIAI/hiapi-product-video-skills)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)
 
