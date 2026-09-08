@@ -330,3 +330,9 @@ MIT
 ---
 
 [HiAPI](https://www.hiapi.ai/zh) — 一个 API，所有 AI 模型。
+
+## Seedance 2.5 必须更新
+
+创建新付费任务前请更新到 1.2.0 或更新版本。新版支持参考模式 duration=-1，并按参考视频加输出视频时长估价。中央最低版本为 1.2.0，新建任务要求通过最新版检查；已有任务仍可恢复和下载。
+
+`npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y`

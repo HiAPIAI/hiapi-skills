@@ -122,13 +122,13 @@ async function main() {
     throw new Error("hiapi-seedance-2-5-video.model must represent the three seedance-2.5 capability IDs");
   }
   if (
-    seedance25Skill?.version !== "1.1.0"
-    || seedance25Skill?.updatePolicy?.latestVersion !== "1.1.0"
-    || seedance25Skill?.updatePolicy?.minimumVersion !== "1.1.0"
+    seedance25Skill?.version !== "1.2.0"
+    || seedance25Skill?.updatePolicy?.latestVersion !== "1.2.0"
+    || seedance25Skill?.updatePolicy?.minimumVersion !== "1.2.0"
   ) {
-    throw new Error("hiapi-seedance-2-5-video version policy must require 1.1.0 for the mode-specific resolution contract");
+    throw new Error("hiapi-seedance-2-5-video version policy must require 1.2.0 for automatic reference duration and correct billing estimates");
   }
-  for (const capability of ["text-to-video", "image-to-video", "reference-to-video", "task-recovery"]) {
+  for (const capability of ["text-to-video", "image-to-video", "reference-to-video", "task-recovery", "automatic-reference-duration"]) {
     if (!seedance25Skill?.capabilities?.includes(capability)) {
       throw new Error(`hiapi-seedance-2-5-video missing capability ${capability}`);
     }
