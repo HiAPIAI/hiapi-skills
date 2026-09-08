@@ -323,6 +323,12 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 
 ---
 
+## Seedance 2.5 required update
+
+Install version 1.2.0 or later before new paid generation. It supports reference-mode duration=-1 and estimates reference plus output duration. The central minimum is 1.2.0; the latest verified version is required for new creation. Recovery of existing tasks remains available.
+
+`npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y`
+
 ## License
 
 MIT

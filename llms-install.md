@@ -201,3 +201,7 @@ https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 ```
 
 Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.ai/v1/tasks` request.
+
+## Seedance 2.5 update requirement
+
+Use hiapi-seedance-2-5-video 1.2.0 or later. Before new paid creation, install the latest version using `npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y`. Reference mode accepts -1 and bills reference plus output duration. Old task recovery is never a new create operation.
