@@ -129,6 +129,49 @@
       }
     },
     {
+      "id": "hiapi-gpt-image-2-5",
+      "name": "HiAPI GPT Image 2.5",
+      "version": "0.1.0",
+      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst.",
+      "keywords": ["gpt-image-2.5", "image-generation", "image-editing", "codex", "claude-code"],
+      "keywordsNote": "Directory metadata only; these keywords do not configure GitHub topics.",
+      "model": "gpt-image-2.5-flare",
+      "modelIds": ["gpt-image-2.5-flare", "gpt-image-2.5-sunburst"],
+      "type": "image",
+      "status": "release",
+      "publicInstall": "available",
+      "updatePolicy": {
+        "latestVersion": "0.1.0",
+        "minimumVersion": "0.1.0",
+        "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
+        "notice": "A newer GPT Image 2.5 skill is available.",
+        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current API."
+      },
+      "capabilities": ["text-to-image", "image-to-image"],
+      "bestFor": ["single-image generation", "high-quality image drafts", "image variations", "reference-guided visuals"],
+      "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill",
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-5\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill.git \"$HOME/.claude/skills/hiapi-gpt-image-2-5\"",
+        "manualDirectory": "hiapi-gpt-image-2-5",
+        "localCandidate": "node ../hiapi-gpt-image-2-5-skill/scripts/install.mjs --target=\"${AGENT_SKILLS_DIR:-.}\""
+      },
+      "skillsCli": {
+        "afterPublication": "npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5"
+      },
+      "modelPage": {
+        "en": "https://www.hiapi.ai/en/models/gpt-image-2.5-flare",
+        "zh": "https://www.hiapi.ai/zh/models/gpt-image-2.5-flare"
+      },
+      "modelPages": {
+        "sunburst": {
+          "en": "https://www.hiapi.ai/en/models/gpt-image-2.5-sunburst",
+          "zh": "https://www.hiapi.ai/zh/models/gpt-image-2.5-sunburst"
+        }
+      }
+    },
+    {
       "id": "hiapi-seedream-5-0-pro",
       "name": "HiAPI Seedream 5.0 Pro",
       "model": "seedream-5.0-pro",
