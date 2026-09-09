@@ -10,6 +10,7 @@ const requiredFiles = [
 
 const requiredSkillIds = [
   "hiapi-gpt-image-2",
+  "hiapi-gpt-image-2-5",
   "hiapi-seedream-5-0-pro",
   "hiapi-seedance-2-5-video",
   "hiapi-seedance-2-0-video",
@@ -46,6 +47,7 @@ const requiredPublicEntryIds = [
 
 const requiredDocs = [
   "docs/gpt-image-2.md",
+  "docs/gpt-image-2-5.md",
   "docs/seedream-5-0-pro.md",
   "docs/seedance-2-0.md",
   "docs/seedance-2-5.md",
@@ -120,6 +122,26 @@ async function main() {
   const seedance25Skill = index.skills.find((skill) => skill.id === "hiapi-seedance-2-5-video");
   if (seedance25Skill?.model !== "seedance-2.5/*") {
     throw new Error("hiapi-seedance-2-5-video.model must represent the three seedance-2.5 capability IDs");
+  }
+
+  const image25 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-5");
+  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.0") {
+    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.0");
+  }
+  if (image25.status !== "release" || image25.publicInstall !== "available") {
+    throw new Error("hiapi-gpt-image-2-5 must be released with public install available");
+  }
+  if (JSON.stringify(image25.modelIds) !== JSON.stringify(["gpt-image-2.5-flare", "gpt-image-2.5-sunburst"])) {
+    throw new Error("hiapi-gpt-image-2-5.modelIds must list flare and sunburst in order");
+  }
+  if (!image25.description || !image25.keywords?.includes("image-generation") || !image25.keywords?.includes("image-editing")) {
+    throw new Error("hiapi-gpt-image-2-5 must include image generation/editing metadata");
+  }
+  if (image25.skillsCli?.afterPublication !== "npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5") {
+    throw new Error("hiapi-gpt-image-2-5.skillsCli.afterPublication must use the official Skills CLI command");
+  }
+  if (image25.updatePolicy?.latestVersion !== image25.version || image25.updatePolicy?.minimumVersion !== image25.version) {
+    throw new Error("hiapi-gpt-image-2-5.updatePolicy versions must match its version");
   }
   if (
     seedance25Skill?.version !== "1.2.0"
