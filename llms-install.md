@@ -21,6 +21,7 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | User intent | Skill repository | Local directory |
 | --- | --- | --- |
 | Generate images | https://github.com/HiAPIAI/hiapi-gpt-image-2-skill | `hiapi-gpt-image-2` |
+| Generate or edit one GPT Image 2.5 image | https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill | `hiapi-gpt-image-2-5` |
 | Generate or edit Seedream 5.0 Pro images | https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill | `hiapi-seedream-5-0-pro` |
 | Produce Seedance 2.5 text/image/reference video with preflight, recovery, and QC | https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill | `hiapi-seedance-2-5-video` |
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
@@ -30,6 +31,12 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Direct feasible camera motion from one approved still | https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill | `image-to-video-director` |
 | Build source-grounded product-video workflows and social variants | https://github.com/HiAPIAI/awesome-ai-video-workflows | `awesome-ai-product-video-workflows` |
 | Plan asset-first 2D-to-3D production and source-lock QC | https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill | `hiapi-2d-to-3d-video` |
+
+Install GPT Image 2.5 with the official Skills CLI:
+
+```bash
+npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5
+```
 
 The active product-video adapter collection is https://github.com/HiAPIAI/hiapi-product-video-skills. It is a `release-candidate` bundle with `ugc-ad`, `fashion-lookbook`, `food-commercial`, and `product-spokesperson` adapters; it is not one root-level Skill.
 

@@ -50,6 +50,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 技能 | 适合场景 | 模型 | 仓库 |
 | --- | --- | --- | --- |
 | GPT Image 2 | 海报、插画、社媒图、产品图、封面图 | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| GPT Image 2.5 | 单张图片生成、参考图引导、图片变体 | `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst` | [面向 Codex 和 Claude Code 的 GPT Image 2.5 图像生成与编辑 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Seedream 5.0 Pro | 图内文字与招牌、毛笔字海报、写实人像、参考图改图与多图融合 | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | 最长 30 秒文生/图生/参考生视频、按模式支持 480p/720p/1080p、原生音频、付费任务恢复与质检 | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -73,6 +74,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 先找一个有真实效果图的图像提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | 先找一个有来源的视频提示词参考 | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
 | 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| 生成或编辑 GPT Image 2.5 图片 | [GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | 用文字、首尾帧或多模态参考制作最长 30 秒 Seedance 2.5 视频 | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | 快速生成一段短视频 | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -191,6 +193,12 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skil
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
+使用官方 Skills CLI 安装 GPT Image 2.5：
+
+```bash
+npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5
+```
+
 ### Codex
 
 ```bash
@@ -276,6 +284,10 @@ export HIAPI_BASE_URL="https://api.hiapi.ai"
 如果我要生成图片，安装或使用：
 https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 
+如果我明确要求 GPT Image 2.5，使用该图像生成与编辑工作流：
+https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill
+执行 `npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5` 安装。
+
 如果我要更完整的视频工作流，或要图生视频，安装或使用：
 https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
@@ -312,6 +324,7 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 ## 相关 HiAPI 仓库
 
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
+- [HiAPI GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill)

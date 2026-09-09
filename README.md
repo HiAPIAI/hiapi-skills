@@ -50,6 +50,7 @@ These entry points solve different jobs:
 | Skill | Best For | Model | Repository |
 | --- | --- | --- | --- |
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| GPT Image 2.5 | Single-image generation, reference-guided visuals, image variations | `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst` | [GPT Image 2.5 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | Up to 30s text/image/reference video, mode-specific 480p/720p/1080p, native audio, paid-task recovery, QC | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -73,6 +74,7 @@ These entry points solve different jobs:
 | Find a tested image prompt and output example | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | Find a video prompt and source-backed example | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
 | Generate images from text | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| Generate or edit one GPT Image 2.5 image | [GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Produce up to 30s Seedance 2.5 video from text, frames, or multimodal references | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -191,6 +193,12 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skil
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
+Install GPT Image 2.5 with the official Skills CLI:
+
+```bash
+npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5
+```
+
 ### Codex
 
 ```bash
@@ -276,6 +284,10 @@ Use HiAPI skills for image and video generation.
 If I ask for an image, install or use:
 https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 
+If I explicitly ask for GPT Image 2.5, use this image generation and editing workflow:
+https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill
+Install it with `npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5`.
+
 If I ask for a stronger video workflow or image-to-video, install or use:
 https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 
@@ -312,6 +324,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 ## Related HiAPI Repositories
 
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
+- [HiAPI GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill)
