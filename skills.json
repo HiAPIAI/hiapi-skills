@@ -109,13 +109,13 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "updatePolicy": {
-        "latestVersion": "0.3.0",
-        "minimumVersion": "0.1.3",
+        "latestVersion": "0.4.0",
+        "minimumVersion": "0.4.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
-        "notice": "A newer HiAPI GPT Image 2 skill (0.3.0) is available. It adds an optional --storage persistent flag for HiAPI Output Storage and documents production callbacks.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is missing current GPT Image 2 image-to-image support or may hide the real task failure reason. Update before creating more image tasks."
+        "notice": "A newer HiAPI GPT Image 2 skill (0.4.0) is available. It raises image-to-image references to 1-16, adds --background, and validates the current 1K-only aspect ratio and background rules before creating a task.",
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it rejects valid 6-16 reference requests, cannot send background, and does not validate the current 1K-only rules, so requests may be rejected or mis-built. Update to 0.4.0 before creating more image tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
@@ -131,7 +131,7 @@
     {
       "id": "hiapi-gpt-image-2-5",
       "name": "HiAPI GPT Image 2.5",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst.",
       "keywords": ["gpt-image-2.5", "image-generation", "image-editing", "codex", "claude-code"],
       "keywordsNote": "Directory metadata only; these keywords do not configure GitHub topics.",
@@ -141,11 +141,11 @@
       "status": "release",
       "publicInstall": "available",
       "updatePolicy": {
-        "latestVersion": "0.1.0",
-        "minimumVersion": "0.1.0",
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.1",
         "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
-        "notice": "A newer GPT Image 2.5 skill is available.",
-        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current API."
+        "notice": "A newer GPT Image 2.5 skill (0.1.1) is available. It fixes --estimate, which failed after the public pricing list moved to the canonical @pro model IDs.",
+        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current public pricing list: its --estimate fails, so no preflight cost check is possible. Update to 0.1.1 before creating more image tasks."
       },
       "capabilities": ["text-to-image", "image-to-image"],
       "bestFor": ["single-image generation", "high-quality image drafts", "image variations", "reference-guided visuals"],
