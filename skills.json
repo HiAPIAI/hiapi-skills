@@ -112,10 +112,10 @@
       "version": "0.4.0",
       "updatePolicy": {
         "latestVersion": "0.4.0",
-        "minimumVersion": "0.1.3",
+        "minimumVersion": "0.4.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
         "notice": "A newer HiAPI GPT Image 2 skill (0.4.0) is available. It raises image-to-image references to 1-16, adds --background, and validates the current 1K-only aspect ratio and background rules before creating a task.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is missing current GPT Image 2 image-to-image support or may hide the real task failure reason. Update before creating more image tasks."
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it rejects valid 6-16 reference requests, cannot send background, and does not validate the current 1K-only rules, so requests may be rejected or mis-built. Update to 0.4.0 before creating more image tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
@@ -142,10 +142,10 @@
       "publicInstall": "available",
       "updatePolicy": {
         "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.0",
+        "minimumVersion": "0.1.1",
         "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
         "notice": "A newer GPT Image 2.5 skill (0.1.1) is available. It fixes --estimate, which failed after the public pricing list moved to the canonical @pro model IDs.",
-        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current API."
+        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current public pricing list: its --estimate fails, so no preflight cost check is possible. Update to 0.1.1 before creating more image tasks."
       },
       "capabilities": ["text-to-image", "image-to-image"],
       "bestFor": ["single-image generation", "high-quality image drafts", "image variations", "reference-guided visuals"],

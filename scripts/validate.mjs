@@ -140,11 +140,8 @@ async function main() {
   if (image25.skillsCli?.afterPublication !== "npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5") {
     throw new Error("hiapi-gpt-image-2-5.skillsCli.afterPublication must use the official Skills CLI command");
   }
-  if (image25.updatePolicy?.latestVersion !== image25.version) {
-    throw new Error("hiapi-gpt-image-2-5.updatePolicy.latestVersion must match its version");
-  }
-  if (!image25.updatePolicy?.minimumVersion) {
-    throw new Error("hiapi-gpt-image-2-5.updatePolicy.minimumVersion is required");
+  if (image25.updatePolicy?.latestVersion !== image25.version || image25.updatePolicy?.minimumVersion !== image25.version) {
+    throw new Error("hiapi-gpt-image-2-5.updatePolicy versions must match its version");
   }
   if (
     seedance25Skill?.version !== "1.2.0"
