@@ -125,8 +125,8 @@ async function main() {
   }
 
   const image25 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-5");
-  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.0") {
-    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.0");
+  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.1") {
+    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.1");
   }
   if (image25.status !== "release" || image25.publicInstall !== "available") {
     throw new Error("hiapi-gpt-image-2-5 must be released with public install available");
@@ -140,8 +140,11 @@ async function main() {
   if (image25.skillsCli?.afterPublication !== "npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5") {
     throw new Error("hiapi-gpt-image-2-5.skillsCli.afterPublication must use the official Skills CLI command");
   }
-  if (image25.updatePolicy?.latestVersion !== image25.version || image25.updatePolicy?.minimumVersion !== image25.version) {
-    throw new Error("hiapi-gpt-image-2-5.updatePolicy versions must match its version");
+  if (image25.updatePolicy?.latestVersion !== image25.version) {
+    throw new Error("hiapi-gpt-image-2-5.updatePolicy.latestVersion must match its version");
+  }
+  if (!image25.updatePolicy?.minimumVersion) {
+    throw new Error("hiapi-gpt-image-2-5.updatePolicy.minimumVersion is required");
   }
   if (
     seedance25Skill?.version !== "1.2.0"
