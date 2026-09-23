@@ -125,8 +125,8 @@ async function main() {
   }
 
   const image25 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-5");
-  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.0") {
-    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.0");
+  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.1") {
+    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.1");
   }
   if (image25.status !== "release" || image25.publicInstall !== "available") {
     throw new Error("hiapi-gpt-image-2-5 must be released with public install available");
