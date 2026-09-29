@@ -2,9 +2,18 @@
 
 Repository: https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 
-Model: `gpt-image-2`
+Models: `gpt-image-2/text-to-image`, `gpt-image-2/image-to-image`
 
-Use this skill when the user wants text-to-image generation through HiAPI.
+Current version: 0.5.0 (hard upgrade; older versions stop creating new tasks until updated).
+
+Use this skill when the user wants GPT Image 2 text-to-image or image-to-image generation through HiAPI.
+
+## Capabilities
+
+- Default route: 16 aspect ratios at 1K/2K/4K with documented 2K/4K gaps, optional `background` at 1K, 1-16 image-to-image references.
+- `--route beta`: text-to-image with an exact `--size` such as `1536x1024`.
+- `--route ext`: every aspect ratio at 1K/2K/4K with `--quality low|medium|high`; image-to-image takes 1-6 references.
+- Paid-task safety: `--dry-run` / `--estimate` create no task, every create sends an `Idempotency-Key`, and `--resume-task-id` recovers an existing task without creating a new one.
 
 ## Best For
 
