@@ -49,7 +49,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 | 技能 | 适合场景 | 模型 | 仓库 |
 | --- | --- | --- | --- |
-| GPT Image 2 | 海报、插画、社媒图、产品图、封面图 | `gpt-image-2` | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| GPT Image 2 | 海报、插画、社媒图、产品图、封面图、参考图编辑 | `gpt-image-2/text-to-image` / `gpt-image-2/image-to-image`（路由：默认、`beta`、`ext` 全比例 4K） | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | GPT Image 2.5 | 单张图片生成、参考图引导、图片变体 | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image`（默认）、Sunburst 对应模型、质量档 `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst` | [面向 Codex 和 Claude Code 的 GPT Image 2.5 图像生成与编辑 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Seedream 5.0 Pro | 图内文字与招牌、毛笔字海报、写实人像、参考图改图与多图融合 | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | 最长 30 秒文生/图生/参考生视频、按模式支持 480p/720p/1080p、原生音频、付费任务恢复与质检 | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
