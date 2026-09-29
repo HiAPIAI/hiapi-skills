@@ -153,6 +153,9 @@ git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$HO
 
 rm -rf "$HOME/.claude/skills/realistic-video-prompting"
 git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claude/skills/realistic-video-prompting"
+
+rm -rf "$HOME/.claude/skills/hiapi-hand-painted-animation"
+git clone https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill.git "$HOME/.claude/skills/hiapi-hand-painted-animation"
 ```
 
 ## OpenClaw
