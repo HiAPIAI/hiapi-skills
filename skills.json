@@ -109,13 +109,13 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "updatePolicy": {
-        "latestVersion": "0.4.0",
-        "minimumVersion": "0.4.0",
+        "latestVersion": "0.4.1",
+        "minimumVersion": "0.4.1",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
-        "notice": "A newer HiAPI GPT Image 2 skill (0.4.0) is available. It raises image-to-image references to 1-16, adds --background, and validates the current 1K-only aspect ratio and background rules before creating a task.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it rejects valid 6-16 reference requests, cannot send background, and does not validate the current 1K-only rules, so requests may be rejected or mis-built. Update to 0.4.0 before creating more image tasks."
+        "notice": "A newer HiAPI GPT Image 2 skill (0.4.1) is available. It allows 5:4 and 4:5 at 4K and applies the current 2K/4K aspect ratio rules before creating a task.",
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it rejects valid 5:4 and 4:5 requests at 4K and does not apply the current 2K/4K aspect ratio rules. Update to 0.4.1 before creating more image tasks."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
