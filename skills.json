@@ -109,13 +109,13 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
-      "version": "0.4.1",
+      "version": "0.5.0",
       "updatePolicy": {
-        "latestVersion": "0.4.1",
-        "minimumVersion": "0.4.1",
+        "latestVersion": "0.5.0",
+        "minimumVersion": "0.5.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
-        "notice": "A newer HiAPI GPT Image 2 skill (0.4.1) is available. It allows 5:4 and 4:5 at 4K and applies the current 2K/4K aspect ratio rules before creating a task.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it rejects valid 5:4 and 4:5 requests at 4K and does not apply the current 2K/4K aspect ratio rules. Update to 0.4.1 before creating more image tasks."
+        "notice": "A newer HiAPI GPT Image 2 skill (0.5.0) is available. It adds the beta and ext (every aspect ratio at 4K) routes, --dry-run/--estimate, idempotent task creation, and --resume-task-id recovery.",
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it cannot use the beta/ext routes, has no idempotent create or create-free recovery, and applies outdated 4K rules. Update to 0.5.0 before creating more image tasks; recovery of existing tasks still works after updating."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
