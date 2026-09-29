@@ -133,10 +133,19 @@
       "name": "HiAPI GPT Image 2.5",
       "version": "0.1.1",
       "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst.",
-      "keywords": ["gpt-image-2.5", "image-generation", "image-editing", "codex", "claude-code"],
+      "keywords": [
+        "gpt-image-2.5",
+        "image-generation",
+        "image-editing",
+        "codex",
+        "claude-code"
+      ],
       "keywordsNote": "Directory metadata only; these keywords do not configure GitHub topics.",
       "model": "gpt-image-2.5-flare",
-      "modelIds": ["gpt-image-2.5-flare", "gpt-image-2.5-sunburst"],
+      "modelIds": [
+        "gpt-image-2.5-flare",
+        "gpt-image-2.5-sunburst"
+      ],
       "type": "image",
       "status": "release",
       "publicInstall": "available",
@@ -147,8 +156,16 @@
         "notice": "A newer GPT Image 2.5 skill (0.1.1) is available. It fixes --estimate, which failed after the public pricing list moved to the canonical @pro model IDs.",
         "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current public pricing list: its --estimate fails, so no preflight cost check is possible. Update to 0.1.1 before creating more image tasks."
       },
-      "capabilities": ["text-to-image", "image-to-image"],
-      "bestFor": ["single-image generation", "high-quality image drafts", "image variations", "reference-guided visuals"],
+      "capabilities": [
+        "text-to-image",
+        "image-to-image"
+      ],
+      "bestFor": [
+        "single-image generation",
+        "high-quality image drafts",
+        "image variations",
+        "reference-guided visuals"
+      ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill",
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill",
@@ -483,6 +500,37 @@
       "modelPage": {
         "en": "https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill",
         "zh": "https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill"
+      }
+    },
+    {
+      "id": "hiapi-hand-painted-animation",
+      "name": "HiAPI Hand-Painted Animation",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "storyboard-to-animation",
+        "hand-painted-rendering",
+        "optional-lyrics-and-song",
+        "subtitles-and-end-card"
+      ],
+      "bestFor": [
+        "hand-painted animated shorts",
+        "animated explainers and stories",
+        "lyric videos and animated songs",
+        "animated ads and openings"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill",
+      "version": "0.1.0",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill",
+        "codex": "npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill --claude",
+        "manualDirectory": "hiapi-hand-painted-animation"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill"
       }
     }
   ]
