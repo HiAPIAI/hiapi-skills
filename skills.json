@@ -131,8 +131,8 @@
     {
       "id": "hiapi-gpt-image-2-5",
       "name": "HiAPI GPT Image 2.5",
-      "version": "0.1.1",
-      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst.",
+      "version": "0.2.0",
+      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models.",
       "keywords": [
         "gpt-image-2.5",
         "image-generation",
@@ -141,8 +141,12 @@
         "claude-code"
       ],
       "keywordsNote": "Directory metadata only; these keywords do not configure GitHub topics.",
-      "model": "gpt-image-2.5-flare",
+      "model": "gpt-image-2.5-flare/text-to-image",
       "modelIds": [
+        "gpt-image-2.5-flare/text-to-image",
+        "gpt-image-2.5-flare/image-to-image",
+        "gpt-image-2.5-sunburst/text-to-image",
+        "gpt-image-2.5-sunburst/image-to-image",
         "gpt-image-2.5-flare",
         "gpt-image-2.5-sunburst"
       ],
@@ -150,11 +154,11 @@
       "status": "release",
       "publicInstall": "available",
       "updatePolicy": {
-        "latestVersion": "0.1.1",
-        "minimumVersion": "0.1.1",
+        "latestVersion": "0.2.0",
+        "minimumVersion": "0.2.0",
         "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
-        "notice": "A newer GPT Image 2.5 skill (0.1.1) is available. It fixes --estimate, which failed after the public pricing list moved to the canonical @pro model IDs.",
-        "requiredNotice": "This GPT Image 2.5 skill version is incompatible with the current public pricing list: its --estimate fails, so no preflight cost check is possible. Update to 0.1.1 before creating more image tasks."
+        "notice": "A newer GPT Image 2.5 skill (0.2.0) is available. It adds the text-to-image and image-to-image mode models for Flare and Sunburst and makes them the default route.",
+        "requiredNotice": "This GPT Image 2.5 skill version predates the text-to-image/image-to-image mode models that are now the default route. Update to 0.2.0 before creating more image tasks."
       },
       "capabilities": [
         "text-to-image",
