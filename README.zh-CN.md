@@ -74,7 +74,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | --- | --- |
 | 先找一个有真实效果图的图像提示词参考 | [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) |
 | 先找一个有来源的视频提示词参考 | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
-| 根据文字生成图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
+| 用 GPT Image 2 生成或编辑图片 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | 生成或编辑 GPT Image 2.5 图片 | [GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | 用文字、首尾帧或多模态参考制作最长 30 秒 Seedance 2.5 视频 | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | 生成视频，或让图片动起来 | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
