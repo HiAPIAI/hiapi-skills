@@ -127,14 +127,21 @@ async function main() {
   }
 
   const image25 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-5");
-  if (image25.model !== "gpt-image-2.5-flare" || image25.version !== "0.1.1") {
-    throw new Error("hiapi-gpt-image-2-5 must use flare and version 0.1.1");
+  if (image25.model !== "gpt-image-2.5-flare/text-to-image" || image25.version !== "0.2.0") {
+    throw new Error("hiapi-gpt-image-2-5 must default to flare/text-to-image and version 0.2.0");
   }
   if (image25.status !== "release" || image25.publicInstall !== "available") {
     throw new Error("hiapi-gpt-image-2-5 must be released with public install available");
   }
-  if (JSON.stringify(image25.modelIds) !== JSON.stringify(["gpt-image-2.5-flare", "gpt-image-2.5-sunburst"])) {
-    throw new Error("hiapi-gpt-image-2-5.modelIds must list flare and sunburst in order");
+  if (JSON.stringify(image25.modelIds) !== JSON.stringify([
+    "gpt-image-2.5-flare/text-to-image",
+    "gpt-image-2.5-flare/image-to-image",
+    "gpt-image-2.5-sunburst/text-to-image",
+    "gpt-image-2.5-sunburst/image-to-image",
+    "gpt-image-2.5-flare",
+    "gpt-image-2.5-sunburst",
+  ])) {
+    throw new Error("hiapi-gpt-image-2-5.modelIds must list the four mode IDs then flare and sunburst");
   }
   if (!image25.description || !image25.keywords?.includes("image-generation") || !image25.keywords?.includes("image-editing")) {
     throw new Error("hiapi-gpt-image-2-5 must include image generation/editing metadata");
