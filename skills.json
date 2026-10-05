@@ -131,8 +131,8 @@
     {
       "id": "hiapi-gpt-image-2-5",
       "name": "HiAPI GPT Image 2.5",
-      "version": "0.3.0",
-      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models.",
+      "version": "0.3.1",
+      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models; all six model IDs accept prompts up to 8,000 characters.",
       "keywords": [
         "gpt-image-2.5",
         "image-generation",
@@ -154,11 +154,11 @@
       "status": "release",
       "publicInstall": "available",
       "updatePolicy": {
-        "latestVersion": "0.3.0",
-        "minimumVersion": "0.3.0",
+        "latestVersion": "0.3.1",
+        "minimumVersion": "0.3.1",
         "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
-        "notice": "A newer GPT Image 2.5 skill (0.3.0) is available. Quality tiers now use the @pro route (--route pro); the bare gpt-image-2.5-flare / gpt-image-2.5-sunburst IDs are no longer sent.",
-        "requiredNotice": "This GPT Image 2.5 skill version can still send the bare gpt-image-2.5-flare / gpt-image-2.5-sunburst IDs, which are not a supported request route. Update to 0.3.0 before creating more image tasks."
+        "notice": "GPT Image 2.5 skill 0.3.1 validates the current 8,000-character prompt limit on all six model IDs.",
+        "requiredNotice": "Older GPT Image 2.5 skills allow prompts beyond the current 8,000-character limit. Update to 0.3.1 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
       },
       "capabilities": [
         "text-to-image",
