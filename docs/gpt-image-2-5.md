@@ -2,7 +2,7 @@
 
 技能状态：`release`。仓库为 https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill，已提供公开安装；下方 API schema 与公开价格页已核实。
 
-本条目对应 6 个可调用模型 ID，分两条路线（技能版本 0.3.0）：
+本条目对应 6 个可调用模型 ID，分两条路线（技能版本 0.3.1）：
 
 - **模式路线（默认）**：`gpt-image-2.5-flare/text-to-image`、`gpt-image-2.5-flare/image-to-image`、`gpt-image-2.5-sunburst/text-to-image`、`gpt-image-2.5-sunburst/image-to-image`。不指定 `--model` 时，CLI 按是否传参考图自动选文生图或图生图；`--family` 默认 `flare`。按 `resolution`（1K/2K/4K）计价。
 - **Pro（`--route pro`）**：`gpt-image-2.5-flare@pro`、`gpt-image-2.5-sunburst@pro`，按 `quality` 计价。
@@ -10,6 +10,8 @@
 不要直接请求裸 ID `gpt-image-2.5-flare` / `gpt-image-2.5-sunburst`，技能会在本地拒绝。
 
 一次任务生成一张图片。
+
+六个模型 ID 的提示词上限已统一为 8,000 字符（2026-10-05 公开 schema 核验）。CLI 先去除首尾空白，再按 JavaScript `string.length` 计算 UTF-16 码元；常用汉字计 1、补充平面 emoji 计 2。0.3.1 为硬更新：`latestVersion` 和 `minimumVersion` 均为 `0.3.1`，旧版需升级后创建新的付费任务，预检与已有任务恢复仍可用。
 
 ## 安装
 
@@ -38,13 +40,13 @@ POST https://api.hiapi.ai/v1/tasks
 
 模式路线 `input` 支持：
 
-- `prompt`：必填，1–20,000 字符。
+- `prompt`：必填，1–8,000 字符。
 - `image_urls`：图生图必填、文生图禁止；1–16 张 JPEG/PNG/WebP，公开可直接下载的 HTTP(S) URL 或 data URI。
 - `aspect_ratio`：`auto`（默认）、`1:1`、`3:2`、`2:3`、`4:3`、`3:4`、`16:9`、`9:16`、`21:9`、`27:16`、`16:27`、`9:8`、`8:9`。
 - `resolution`：`1K`（默认）、`2K`、`4K`。
 - `background`：可选 `transparent`、`opaque`、`auto`，仅 `resolution=1K` 时允许；透明返回带 alpha 的 PNG。
 
-Pro 路线把顶层 `model` 写成 `gpt-image-2.5-flare@pro` 或 `gpt-image-2.5-sunburst@pro`，`input` 支持 `prompt`（≤ 32,000 字符）、可选 `image_urls`（1–16）、`aspect_ratio`（比例或像素尺寸）、`quality`（`low`、`medium`、`high`、`xhigh`、`max`、`auto`）、`background` 与 `output_format`（`png`、`jpeg`、`webp`）。
+Pro 路线把顶层 `model` 写成 `gpt-image-2.5-flare@pro` 或 `gpt-image-2.5-sunburst@pro`，`input` 支持 `prompt`（≤ 8,000 字符）、可选 `image_urls`（1–16）、`aspect_ratio`（比例或像素尺寸）、`quality`（`low`、`medium`、`high`、`xhigh`、`max`、`auto`）、`background` 与 `output_format`（`png`、`jpeg`、`webp`）。
 
 任务创建前执行本地参数校验；一次调用只创建一个任务。不要为重试重复创建不确定的付费任务，应先恢复或查询已有任务。成功结果为 `type=image` 的 URL；可通过 `GET /v1/tasks/{taskId}` 查询 `queued`、`handling`、`archiving`、`success`、`fail` 状态。
 
