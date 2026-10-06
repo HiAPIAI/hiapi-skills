@@ -61,6 +61,8 @@ These entry points solve different jobs:
 | Awesome AI Product Video Workflows | Product-image audits, hero visuals, ecommerce videos, UGC ads, social variants, and source-grounded QC | — (workflow library) | [awesome-ai-video-workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
 | HiAPI Animation Forge | Asset-first 2D-to-3D planning, Blender previews, source-lock checks, and optional generative rendering | — (production workflow) | [hiapi-2d-to-3d-video-skill](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
 | HiAPI Hand-Painted Animation | Hand-painted animated shorts, explainers and lyric videos in one watercolour-and-ink look, with optional lyrics and song | — (production workflow) | [hiapi-hand-painted-animation-skill](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
+| HiAPI Brand Kit | One business idea → editable SVG logo system, colours, type, voice, photorealistic mockups with the exact logo, and a brand book | — (production workflow) | [hiapi-brand-kit-skill](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
+| HiAPI Game Asset Studio | One game idea → consistent sprites, tilesets, UI icons, backgrounds, music, voice lines and a trailer, plus a playable prototype | — (production workflow) | [hiapi-game-asset-studio-skill](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 
 ### Product Video Adapter Collection
 
@@ -85,6 +87,8 @@ These entry points solve different jobs:
 | Turn product images or listings into grounded product-video workflows | [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
 | Plan a source-locked 2D-to-3D production or Blender preview | [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
 | Make a hand-painted animated short, explainer or song video | [HiAPI Hand-Painted Animation](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
+| Design a brand identity with a logo, mockups and a brand book | [HiAPI Brand Kit](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
+| Make a consistent game asset pack and a playable prototype | [HiAPI Game Asset Studio](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 | Install one product-video adapter for UGC, fashion, food, or spokesperson work | [Product Video Skills](docs/product-video-skills.md) |
 | Install the realistic prompt and Seedance skills together | [Direct install and archived bundle migration](./docs/realistic-video-workflow.md) (old bundle: [hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)) |
 | Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
@@ -162,6 +166,12 @@ npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill -y
 
 # HiAPI Hand-Painted Animation
 npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill -y
+
+# HiAPI Brand Kit
+npx -y github:HiAPIAI/hiapi-brand-kit-skill -y
+
+# HiAPI Game Asset Studio
+npx -y github:HiAPIAI/hiapi-game-asset-studio-skill -y
 
 # Image-to-Video Director (portable clone install)
 git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
@@ -336,6 +346,8 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 - [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows)
 - [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill)
 - [HiAPI Hand-Painted Animation](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill)
+- [HiAPI Brand Kit](https://github.com/HiAPIAI/hiapi-brand-kit-skill)
+- [HiAPI Game Asset Studio](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill)
 - [HiAPI Product Video Skills](https://github.com/HiAPIAI/hiapi-product-video-skills)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)

@@ -21,6 +21,8 @@ const requiredSkillIds = [
   "awesome-ai-product-video-workflows",
   "hiapi-2d-to-3d-video",
   "hiapi-hand-painted-animation",
+  "hiapi-brand-kit",
+  "hiapi-game-assets",
 ];
 
 const requiredPublicLinks = [
@@ -58,6 +60,8 @@ const requiredDocs = [
   "docs/awesome-ai-product-video-workflows.md",
   "docs/hiapi-animation-forge.md",
   "docs/hiapi-hand-painted-animation.md",
+  "docs/hiapi-brand-kit.md",
+  "docs/hiapi-game-assets.md",
   "docs/product-video-skills.md",
   "docs/realistic-video-workflow.md",
 ];

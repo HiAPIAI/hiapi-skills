@@ -536,6 +536,68 @@
         "en": "https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill",
         "zh": "https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill"
       }
+    },
+    {
+      "id": "hiapi-game-assets",
+      "name": "HiAPI Game Asset Studio",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "game-asset-planning",
+        "consistent-sprites",
+        "sheet-slicing",
+        "music-voice-trailer"
+      ],
+      "bestFor": [
+        "indie game prototypes",
+        "game jams",
+        "pixel-art and hand-painted asset packs",
+        "game trailers and music"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-game-asset-studio-skill",
+      "version": "0.1.0",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-game-asset-studio-skill",
+        "codex": "npx -y github:HiAPIAI/hiapi-game-asset-studio-skill --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-game-asset-studio-skill --claude",
+        "manualDirectory": "hiapi-game-assets"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-game-asset-studio-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-game-asset-studio-skill"
+      }
+    },
+    {
+      "id": "hiapi-brand-kit",
+      "name": "HiAPI Brand Kit",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "brand-strategy",
+        "svg-logo-system",
+        "logo-accurate-mockups",
+        "brand-guidelines-page"
+      ],
+      "bestFor": [
+        "small-business branding",
+        "app and product launch kits",
+        "logo mockups",
+        "brand guidelines"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-brand-kit-skill",
+      "version": "0.1.0",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-brand-kit-skill",
+        "codex": "npx -y github:HiAPIAI/hiapi-brand-kit-skill --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-brand-kit-skill --claude",
+        "manualDirectory": "hiapi-brand-kit"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-brand-kit-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-brand-kit-skill"
+      }
     }
   ]
 }
