@@ -61,6 +61,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | Awesome AI Product Video Workflows | 商品图审计、主视觉、电商视频、UGC 广告、社媒变体与来源约束质检 | —（工作流库） | [awesome-ai-video-workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
 | HiAPI Animation Forge | 资产优先的 2D 转 3D 规划、Blender 预览、来源锁定检查与可选生成渲染 | —（制作工作流） | [hiapi-2d-to-3d-video-skill](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
 | HiAPI 手绘动画短片 | 水彩笔触加墨线风格的手绘动画短片、科普讲解和歌词动画，可选写词作曲 | —（制作工作流） | [hiapi-hand-painted-animation-skill](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
+| HiAPI 品牌套件 | 一句生意描述，生成可编辑的 SVG Logo、配色字体语气、带原版 Logo 的真实感样机和品牌手册 | —（制作工作流） | [hiapi-brand-kit-skill](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
+| HiAPI 游戏素材工坊 | 一句游戏创意，生成风格统一的角色、地块、图标、背景、音乐、配音和预告片，外加可玩原型 | —（制作工作流） | [hiapi-game-asset-studio-skill](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 
 ### 产品视频适配器集合
 
@@ -85,6 +87,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 把商品图或商品页变成有来源约束的视频工作流 | [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows) |
 | 规划来源锁定的 2D 转 3D 制作或 Blender 预览 | [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill) |
 | 制作手绘动画短片、科普讲解或歌曲动画 | [HiAPI 手绘动画短片](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
+| 设计品牌：Logo、样机和品牌手册 | [HiAPI 品牌套件](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
+| 制作风格统一的游戏素材包和可玩原型 | [HiAPI 游戏素材工坊](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 | 为 UGC、时尚、食品或口播安装一个产品视频适配器 | [Product Video Skills](docs/product-video-skills.md) |
 | 一次安装真实感提示词与 Seedance 两个 Skill | [直接安装和归档迁移说明](./docs/realistic-video-workflow.md)（旧组合仓库：[hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)） |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
@@ -162,6 +166,12 @@ npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill -y
 
 # HiAPI Hand-Painted Animation
 npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill -y
+
+# HiAPI Brand Kit
+npx -y github:HiAPIAI/hiapi-brand-kit-skill -y
+
+# HiAPI Game Asset Studio
+npx -y github:HiAPIAI/hiapi-game-asset-studio-skill -y
 
 # Image-to-Video Director（通用 clone 安装）
 git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
@@ -336,6 +346,8 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 - [Awesome AI Product Video Workflows](https://github.com/HiAPIAI/awesome-ai-video-workflows)
 - [HiAPI Animation Forge](https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill)
 - [HiAPI 手绘动画短片](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill)
+- [HiAPI 品牌套件](https://github.com/HiAPIAI/hiapi-brand-kit-skill)
+- [HiAPI 游戏素材工坊](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill)
 - [HiAPI Product Video Skills](https://github.com/HiAPIAI/hiapi-product-video-skills)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)

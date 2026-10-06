@@ -32,6 +32,8 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Build source-grounded product-video workflows and social variants | https://github.com/HiAPIAI/awesome-ai-video-workflows | `awesome-ai-product-video-workflows` |
 | Plan asset-first 2D-to-3D production and source-lock QC | https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill | `hiapi-2d-to-3d-video` |
 | Make a hand-painted animated short, explainer, or song video | https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill | `hiapi-hand-painted-animation` |
+| Design a brand identity with a logo, mockups and a brand book | https://github.com/HiAPIAI/hiapi-brand-kit-skill | `hiapi-brand-kit` |
+| Make a consistent game asset pack and a playable prototype | https://github.com/HiAPIAI/hiapi-game-asset-studio-skill | `hiapi-game-assets` |
 
 Install GPT Image 2.5 with the official Skills CLI:
 
@@ -126,6 +128,8 @@ git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.gi
 npx -y github:HiAPIAI/awesome-ai-video-workflows --codex
 npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill --codex
 npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill --codex
+npx -y github:HiAPIAI/hiapi-brand-kit-skill --codex
+npx -y github:HiAPIAI/hiapi-game-asset-studio-skill --codex
 ```
 
 ## Install Into Claude Code
@@ -156,6 +160,12 @@ git clone https://github.com/HiAPIAI/realistic-video-prompting.git "$HOME/.claud
 
 rm -rf "$HOME/.claude/skills/hiapi-hand-painted-animation"
 git clone https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill.git "$HOME/.claude/skills/hiapi-hand-painted-animation"
+
+rm -rf "$HOME/.claude/skills/hiapi-brand-kit"
+git clone https://github.com/HiAPIAI/hiapi-brand-kit-skill.git "$HOME/.claude/skills/hiapi-brand-kit"
+
+rm -rf "$HOME/.claude/skills/hiapi-game-assets"
+git clone https://github.com/HiAPIAI/hiapi-game-asset-studio-skill.git "$HOME/.claude/skills/hiapi-game-assets"
 ```
 
 ## OpenClaw
@@ -172,6 +182,8 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-image-to-video-camera-motio
 openclaw skills add https://github.com/HiAPIAI/awesome-ai-video-workflows
 openclaw skills add https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-brand-kit-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-game-asset-studio-skill
 ```
 
 The Video Prompt Generator skill is prompt-only — it does **not** call any HiAPI endpoint and does **not** need `HIAPI_API_KEY`. Use it before the render skills to turn a brief into a directed, scene-by-scene prompt; then pass the prompt to `hiapi-seedance-2-0-video-skill` or `hiapi-happyhorse-1-0-video-skill` for actual generation.
