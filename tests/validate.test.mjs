@@ -35,6 +35,8 @@ test("validator rejects an index that omits the Seedream 5 Pro skill", (t) => {
     "awesome-ai-product-video-workflows.md",
     "hiapi-animation-forge.md",
     "hiapi-hand-painted-animation.md",
+    "hiapi-brand-kit.md",
+    "hiapi-game-assets.md",
     "product-video-skills.md",
     "realistic-video-workflow.md",
   ]) {
