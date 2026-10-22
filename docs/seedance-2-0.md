@@ -24,7 +24,7 @@ The CLI defaults to a 120-minute polling window and accepts `--timeout-minutes <
 
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://docs.hiapi.ai
+- API docs: https://www.hiapi.ai/docs
 - GPT Image 2 prompt gallery for still-image starting points: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 
 ## Install

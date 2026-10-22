@@ -13,8 +13,8 @@ HiAPI has four public entry points:
 | Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
 | Choose a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
 | Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
-| Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://docs.hiapi.ai/api-reference/ |
-| Copy direct API examples and model parameters | API Cookbook | https://docs.hiapi.ai |
+| Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://www.hiapi.ai/docs/api-reference/ |
+| Copy direct API examples and model parameters | API Cookbook | https://www.hiapi.ai/docs |
 
 HiAPI has focused generation skills plus prompt-only planning and realism skills:
 
