@@ -4,9 +4,9 @@ HiAPI 官方 AI Agent 技能目录。
 
 **HiAPI Skills • 安装 • API Key • [HiAPI](https://www.hiapi.ai/zh)**
 
-[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://docs.hiapi.ai) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI 视频提示词集](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) · [English](README.md)
+[获取 API Key](https://www.hiapi.ai/zh/dashboard/api-keys) · [查看价格](https://www.hiapi.ai/zh/pricing) · [HiAPI 文档](https://www.hiapi.ai/docs) · [GPT Image 2 提示词集](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI 视频提示词集](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP 指南](https://www.hiapi.ai/docs/zh/for-ai/) · [English](README.md)
 
-> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://www.hiapi.ai/docs/for-ai/) · 📖 [API Docs](https://www.hiapi.ai/docs)
 
 ---
 
@@ -32,8 +32,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 视频 Prompt Gallery | [awesome-ai-video-prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) | 想先看 Seedance 2.0/2.5 的来源和能力元数据，再做文生视频或图生视频。 |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | 想浏览可用的 HiAPI skills，并选择一个明确的单模型工作流。 |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | 客户端支持远程 MCP，并能传 `Authorization: Bearer <HIAPI_API_KEY>`。 |
-| 异步任务 API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/zh/api-reference/) | 正在构建后端服务，需要 `POST /v1/tasks`、轮询、签名回调和任务历史。 |
-| API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | 想直接复制 API 请求形态、模型参数和接入指南。 |
+| 异步任务 API | [www.hiapi.ai/docs/api-reference](https://www.hiapi.ai/docs/zh/api-reference/) | 正在构建后端服务，需要 `POST /v1/tasks`、轮询、签名回调和任务历史。 |
+| API Cookbook | [www.hiapi.ai/docs](https://www.hiapi.ai/docs) | 想直接复制 API 请求形态、模型参数和接入指南。 |
 
 这些入口各自解决不同问题：
 
@@ -50,7 +50,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 技能 | 适合场景 | 模型 | 仓库 |
 | --- | --- | --- | --- |
 | GPT Image 2 | 海报、插画、社媒图、产品图、封面图、参考图编辑 | `gpt-image-2/text-to-image` / `gpt-image-2/image-to-image`（路由：默认、`beta`、`ext` 全比例 4K） | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
-| GPT Image 2.5 | 单张图片生成、参考图引导、图片变体；提示词上限 8,000 字符 | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image`（默认）、Sunburst 对应模型、pro 质量档 `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [面向 Codex 和 Claude Code 的 GPT Image 2.5 图像生成与编辑 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
+| GPT Image 2.5 | 单张图片生成、参考图引导、图片变体；提示词上限 20,000 字符 | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image`（默认）、Sunburst 对应模型、pro 质量档 `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [面向 Codex 和 Claude Code 的 GPT Image 2.5 图像生成与编辑 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Seedream 5.0 Pro | 图内文字与招牌、毛笔字海报、写实人像、参考图改图与多图融合 | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | 最长 30 秒文生/图生/参考生视频、按模式支持 480p/720p/1080p、原生音频、付费任务恢复与质检 | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Seedance 2.0 Video | 文生视频、图生视频、电影感片段、产品视频、分镜 | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -91,8 +91,8 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 制作风格统一的游戏素材包和可玩原型 | [HiAPI 游戏素材工坊](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 | 为 UGC、时尚、食品或口播安装一个产品视频适配器 | [Product Video Skills](docs/product-video-skills.md) |
 | 一次安装真实感提示词与 Seedance 两个 Skill | [直接安装和归档迁移说明](./docs/realistic-video-workflow.md)（旧组合仓库：[hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)） |
-| 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/) |
-| 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://docs.hiapi.ai/zh/api-reference/) |
+| 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://www.hiapi.ai/docs/zh/for-ai/) |
+| 构建带 Webhook 和任务历史的服务端集成 | [异步任务 API](https://www.hiapi.ai/docs/zh/api-reference/) |
 
 如果你要一个稳定、明确、单模型的工作流，用 skill 更合适。如果你希望聊天 Agent 能发现和调用更多 HiAPI 工具，用 Remote MCP 更合适。MCP 端点是 `https://mcp.hiapi.ai/mcp`。
 
@@ -332,7 +332,7 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 | Key 无效或鉴权失败 | 检查 Key，或到 [HiAPI API Keys](https://www.hiapi.ai/zh/dashboard/api-keys) 重新创建。 |
 | 余额、额度或支付状态不足 | 到 [HiAPI Dashboard](https://www.hiapi.ai/zh/dashboard) 检查账号状态，并查看 [价格页](https://www.hiapi.ai/zh/pricing)。 |
 | 请求被限流 | 稍后重试，或减少并发生成请求。 |
-| 不确定该用哪个模型 | 先看上面的选择表，或查看 [HiAPI Remote MCP 指南](https://docs.hiapi.ai/zh/for-ai/)，让 Agent 查看可用工具。 |
+| 不确定该用哪个模型 | 先看上面的选择表，或查看 [HiAPI Remote MCP 指南](https://www.hiapi.ai/docs/zh/for-ai/)，让 Agent 查看可用工具。 |
 
 ---
 

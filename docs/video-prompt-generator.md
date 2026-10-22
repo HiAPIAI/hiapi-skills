@@ -17,7 +17,7 @@ Use this skill when the user has a one-line brief, a product link, a GitHub repo
 
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://docs.hiapi.ai
+- API docs: https://www.hiapi.ai/docs
 - Seedance 2.0 video skill (renderer): https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 - HappyHorse 1.0 video skill (renderer): https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 

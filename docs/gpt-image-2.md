@@ -28,7 +28,7 @@ Use this skill when the user wants GPT Image 2 text-to-image or image-to-image g
 - Prompt gallery: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://docs.hiapi.ai
+- API docs: https://www.hiapi.ai/docs
 
 ## Install
 

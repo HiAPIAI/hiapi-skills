@@ -4,9 +4,9 @@ Official HiAPI skill directory for AI Agents.
 
 **HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
 
-[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://docs.hiapi.ai) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP Guide](https://docs.hiapi.ai/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://www.hiapi.ai/docs) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) · [简体中文](README.zh-CN.md)
 
-> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://docs.hiapi.ai/for-ai/) · 📖 [API Docs](https://docs.hiapi.ai)
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://www.hiapi.ai/docs/for-ai/) · 📖 [API Docs](https://www.hiapi.ai/docs)
 
 ---
 
@@ -32,8 +32,8 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Video Prompt Gallery | [awesome-ai-video-prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) | You want rights-aware Seedance 2.0 and 2.5 recipe metadata before generating. |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
-| Async Tasks API | [docs.hiapi.ai/api-reference](https://docs.hiapi.ai/api-reference/) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
-| API Cookbook | [docs.hiapi.ai](https://docs.hiapi.ai) | You want direct API request shapes, model parameters, and integration guides. |
+| Async Tasks API | [www.hiapi.ai/docs/api-reference](https://www.hiapi.ai/docs/api-reference/) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
+| API Cookbook | [www.hiapi.ai/docs](https://www.hiapi.ai/docs) | You want direct API request shapes, model parameters, and integration guides. |
 
 These entry points solve different jobs:
 
@@ -50,7 +50,7 @@ These entry points solve different jobs:
 | Skill | Best For | Model | Repository |
 | --- | --- | --- | --- |
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images, reference edits | `gpt-image-2/text-to-image` / `gpt-image-2/image-to-image` (routes: default, `beta`, `ext` multi-ratio 4K) | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
-| GPT Image 2.5 | Single-image generation, reference-guided visuals, image variations; prompts up to 8,000 characters | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image` (default), Sunburst equivalents, pro quality tiers `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [GPT Image 2.5 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
+| GPT Image 2.5 | Single-image generation, reference-guided visuals, image variations; prompts up to 20,000 characters | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image` (default), Sunburst equivalents, pro quality tiers `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [GPT Image 2.5 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | Up to 30s text/image/reference video, mode-specific 480p/720p/1080p, native audio, paid-task recovery, QC | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -91,8 +91,8 @@ These entry points solve different jobs:
 | Make a consistent game asset pack and a playable prototype | [HiAPI Game Asset Studio](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 | Install one product-video adapter for UGC, fashion, food, or spokesperson work | [Product Video Skills](docs/product-video-skills.md) |
 | Install the realistic prompt and Seedance skills together | [Direct install and archived bundle migration](./docs/realistic-video-workflow.md) (old bundle: [hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)) |
-| Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) |
-| Build a server-side integration with webhooks and task history | [Async Tasks API](https://docs.hiapi.ai/api-reference/) |
+| Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) |
+| Build a server-side integration with webhooks and task history | [Async Tasks API](https://www.hiapi.ai/docs/api-reference/) |
 
 Skills are best when you want a stable, focused workflow. Remote MCP is better when you want a chat agent to discover and call multiple HiAPI tools. The MCP endpoint is `https://mcp.hiapi.ai/mcp`.
 
@@ -332,7 +332,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 | Invalid key or unauthorized request | Check the key or create a new one at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys). |
 | Insufficient balance, quota, or payment status | Check your account in the [HiAPI Dashboard](https://www.hiapi.ai/en/dashboard) and review [Pricing](https://www.hiapi.ai/en/pricing). |
 | Rate limited | Wait and retry, or reduce concurrent generations. |
-| Unsure which model to use | Start with the table above, or follow the [HiAPI Remote MCP Guide](https://docs.hiapi.ai/for-ai/) so your agent can inspect available tools. |
+| Unsure which model to use | Start with the table above, or follow the [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) so your agent can inspect available tools. |
 
 ---
 
