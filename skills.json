@@ -214,7 +214,7 @@
         "latestVersion": "0.2.1",
         "minimumVersion": "0.1.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y",
-        "notice": "HiAPI Seedream 5.0 Pro skill 0.2.1 restores the required resolution input (1K/2K), keeps --quality as a deprecated alias, and corrects image-to-image 1K pricing to $0.06/image. On 0.1.x, text-to-image still works because it sends resolution, but image-to-image with the default aspect_ratio (match_input_image) is rejected by the API, so update to 0.2.1 to fix it. 0.1.x 的文生图仍可正常使用（发送 resolution 是正确的），但图生图使用默认比例（match_input_image）会被 API 拒绝，需升级到 0.2.1 修复。",
+        "notice": "HiAPI Seedream 5.0 Pro skill 0.2.1 restores the required resolution input (1K/2K), keeps --quality as a deprecated alias, and corrects image-to-image 1K pricing to $0.06/image. On 0.1.x, text-to-image still works because it sends resolution, but image-to-image with the default aspect_ratio (match_input_image) is rejected by the API, so update to 0.2.1 to fix it.",
         "requiredNotice": "This Seedream 5.0 Pro skill sends incompatible aspect-ratio values. Update to 0.2.1 before creating more image tasks. Versions 0.1.x that send resolution remain allowed for text-to-image until the minimum is raised."
       },
       "install": {
