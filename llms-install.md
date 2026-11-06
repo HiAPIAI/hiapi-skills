@@ -22,6 +22,7 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | --- | --- | --- |
 | Generate images | https://github.com/HiAPIAI/hiapi-gpt-image-2-skill | `hiapi-gpt-image-2` |
 | Generate or edit one GPT Image 2.5 image | https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill | `hiapi-gpt-image-2-5` |
+| Generate or edit one GPT Image 2.6 image, including SVG, GIF, or masked local edits | https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill | `hiapi-gpt-image-2-6` |
 | Generate or edit Seedream 5.0 Pro images | https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill | `hiapi-seedream-5-0-pro` |
 | Produce Seedance 2.5 text/image/reference video with preflight, recovery, and QC | https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill | `hiapi-seedance-2-5-video` |
 | Generate video or animate an image | https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill | `hiapi-seedance-2-0-video` |
@@ -35,10 +36,17 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Design a brand identity with a logo, mockups and a brand book | https://github.com/HiAPIAI/hiapi-brand-kit-skill | `hiapi-brand-kit` |
 | Make a consistent game asset pack and a playable prototype | https://github.com/HiAPIAI/hiapi-game-asset-studio-skill | `hiapi-game-assets` |
 
-Install GPT Image 2.5 with the official Skills CLI:
+Install GPT Image 2.6 with the one-command installer (auto-detects Codex and Claude Code skill directories):
+
+```bash
+npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y
+```
+
+Install GPT Image 2.5 or 2.6 with the official Skills CLI:
 
 ```bash
 npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5
+npx skills add HiAPIAI/hiapi-gpt-image-2-6-skill --skill hiapi-gpt-image-2-6
 ```
 
 The active product-video adapter collection is https://github.com/HiAPIAI/hiapi-product-video-skills. It is a `release-candidate` bundle with `ugc-ad`, `fashion-lookbook`, `food-commercial`, and `product-spokesperson` adapters; it is not one root-level Skill.
@@ -100,6 +108,9 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-6"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-6"
+
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro"
 git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedream-5-0-pro"
 
@@ -140,6 +151,9 @@ mkdir -p "$HOME/.claude/skills"
 rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
+rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2-6"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2-6"
+
 rm -rf "$HOME/.claude/skills/hiapi-seedream-5-0-pro"
 git clone https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill.git "$HOME/.claude/skills/hiapi-seedream-5-0-pro"
 
@@ -172,6 +186,7 @@ git clone https://github.com/HiAPIAI/hiapi-game-asset-studio-skill.git "$HOME/.c
 
 ```bash
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
@@ -230,3 +245,7 @@ Use it as an API-ready creative recipe source: choose a case by output image and
 ## Seedance 2.5 update requirement
 
 Use hiapi-seedance-2-5-video 1.2.0 or later. Before new paid creation, install the latest version using `npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y`. Reference mode accepts -1 and bills reference plus output duration. Old task recovery is never a new create operation.
+
+## GPT Image 2.6 version requirement
+
+Use hiapi-gpt-image-2-6 1.0.0 or later. The skill keeps itself current inside the 1.x line with signed automatic updates: it verifies an Ed25519 signature and per-file sha256 before replacing anything, and falls back to printing the manual install command when a check fails. Disable it with `HIAPI_SKILL_AUTO_UPDATE=off` or `--no-auto-update`; reinstall manually with `npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y`.

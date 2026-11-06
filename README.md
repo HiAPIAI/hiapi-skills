@@ -50,7 +50,8 @@ These entry points solve different jobs:
 | Skill | Best For | Model | Repository |
 | --- | --- | --- | --- |
 | GPT Image 2 | Posters, illustrations, social graphics, product visuals, cover images, reference edits | `gpt-image-2/text-to-image` / `gpt-image-2/image-to-image` (routes: default, `beta`, `ext` multi-ratio 4K) | [hiapi-gpt-image-2-skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
-| GPT Image 2.5 | Single-image generation, reference-guided visuals, image variations; prompts up to 20,000 characters | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image` (default), Sunburst equivalents, pro quality tiers `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [GPT Image 2.5 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
+| GPT Image 2.5 | Single-image generation, reference-guided visuals, image variations; prompts up to 20,000 characters. Existing projects only — new image projects should start with GPT Image 2.6 below | `gpt-image-2.5-flare/text-to-image` / `gpt-image-2.5-flare/image-to-image` (default), Sunburst equivalents, pro quality tiers `gpt-image-2.5-flare@pro` / `gpt-image-2.5-sunburst@pro` | [GPT Image 2.5 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
+| GPT Image 2.6 | Single-image generation, SVG and GIF output (text-to-image only), mask or markup local edits, reference-guided visuals; prompts up to 32,000 characters | `gpt-image-2.6-flare/text-to-image` / `gpt-image-2.6-flare/image-to-image` (default), Sunburst equivalents; one model carries both quality and resolution | [GPT Image 2.6 image generation and editing skill for Codex and Claude Code](https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill) |
 | Seedream 5.0 Pro | In-image text & signage, brush calligraphy posters, photoreal portraits, reference-based edits & composites | `seedream-5.0-pro` | [hiapi-seedream-5-0-pro-skill](https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill) |
 | Seedance 2.5 Video | Up to 30s text/image/reference video, mode-specific 480p/720p/1080p, native audio, paid-task recovery, QC | `seedance-2.5/*` | [hiapi-seedance-2-5-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Seedance 2.0 Video | Text-to-video, image-to-video, cinematic clips, product videos, storyboards | `seedance-2.0` | [hiapi-seedance-2-0-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
@@ -78,6 +79,7 @@ These entry points solve different jobs:
 | Find a video prompt and source-backed example | [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) |
 | Generate or edit images with GPT Image 2 | [GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill) |
 | Generate or edit one GPT Image 2.5 image | [GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill) |
+| Generate or edit one GPT Image 2.6 image, including SVG, GIF, or masked local edits | [GPT Image 2.6 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill) |
 | Produce up to 30s Seedance 2.5 video from text, frames, or multimodal references | [Seedance 2.5 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill) |
 | Generate or animate videos with a stronger video workflow | [Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill) |
 | Quickly generate short text-to-video clips | [HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill) |
@@ -140,6 +142,9 @@ Pick the repository for the workflow you need. Prompt-only skills do not require
 # GPT Image 2
 npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y
 
+# GPT Image 2.6 (SVG, GIF, mask edits, signed auto-update)
+npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y
+
 # Seedream 5.0 Pro
 npx -y github:HiAPIAI/hiapi-seedream-5-0-pro-skill -y
 
@@ -189,6 +194,9 @@ Each installer auto-detects Codex (`~/.codex/skills`) and Claude Code (`~/.claud
 # GPT Image 2
 openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 
+# GPT Image 2.6
+openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill
+
 # Seedream 5.0 Pro
 openclaw skills add https://github.com/HiAPIAI/hiapi-seedream-5-0-pro-skill
 
@@ -208,10 +216,11 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-video-prompt-generator-skil
 openclaw skills add https://github.com/HiAPIAI/realistic-video-prompting
 ```
 
-Install GPT Image 2.5 with the official Skills CLI:
+Install GPT Image 2.5 or 2.6 with the official Skills CLI:
 
 ```bash
 npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5
+npx skills add HiAPIAI/hiapi-gpt-image-2-6-skill --skill hiapi-gpt-image-2-6
 ```
 
 ### Codex
@@ -221,6 +230,9 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2"
+
+rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-6"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-6"
 
 rm -rf "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-2-0-video"
@@ -242,6 +254,9 @@ mkdir -p "$HOME/.claude/skills"
 rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2"
 
+rm -rf "$HOME/.claude/skills/hiapi-gpt-image-2-6"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git "$HOME/.claude/skills/hiapi-gpt-image-2-6"
+
 rm -rf "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$HOME/.claude/skills/hiapi-seedance-2-0-video"
 
@@ -260,6 +275,9 @@ mkdir -p "$AGENT_SKILLS_DIR"
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
 git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git "$AGENT_SKILLS_DIR/hiapi-gpt-image-2"
+
+rm -rf "$AGENT_SKILLS_DIR/hiapi-gpt-image-2-6"
+git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git "$AGENT_SKILLS_DIR/hiapi-gpt-image-2-6"
 
 rm -rf "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
 git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git "$AGENT_SKILLS_DIR/hiapi-seedance-2-0-video"
@@ -298,6 +316,10 @@ Use HiAPI skills for image and video generation.
 
 If I ask for an image, install or use:
 https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
+
+If I explicitly ask for GPT Image 2.6, or want SVG, GIF, or masked local edits, use this image generation and editing workflow:
+https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill
+Install it with `npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y`.
 
 If I explicitly ask for GPT Image 2.5, use this image generation and editing workflow:
 https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill
@@ -340,6 +362,7 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 
 - [HiAPI GPT Image 2 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-skill)
 - [HiAPI GPT Image 2.5 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill)
+- [HiAPI GPT Image 2.6 Skill](https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill)
 - [HiAPI Seedance 2.0 Video Skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill)
 - [HiAPI HappyHorse 1.0 Video Skill](https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill)
 - [Image-to-Video Director](https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill)

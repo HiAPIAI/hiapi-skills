@@ -193,6 +193,83 @@
       }
     },
     {
+      "id": "hiapi-gpt-image-2-6",
+      "name": "HiAPI GPT Image 2.6",
+      "version": "1.0.0",
+      "description": "Generate or edit images with GPT Image 2.6 Flare or Sunburst, including SVG and GIF output (text-to-image only) and mask or markup local edits; one model carries both quality and resolution, with prompts up to 32,000 characters.",
+      "keywords": [
+        "gpt-image-2.6",
+        "image-generation",
+        "image-editing",
+        "svg",
+        "gif",
+        "codex",
+        "claude-code"
+      ],
+      "keywordsNote": "Directory metadata only; these keywords do not configure GitHub topics.",
+      "model": "gpt-image-2.6-flare/text-to-image",
+      "modelIds": [
+        "gpt-image-2.6-flare/text-to-image",
+        "gpt-image-2.6-flare/image-to-image",
+        "gpt-image-2.6-sunburst/text-to-image",
+        "gpt-image-2.6-sunburst/image-to-image"
+      ],
+      "type": "image",
+      "status": "release",
+      "publicInstall": "available",
+      "updatePolicy": {
+        "latestVersion": "1.0.0",
+        "minimumVersion": "1.0.0",
+        "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y",
+        "notice": "GPT Image 2.6 skill 1.0.0 adds SVG and GIF output, masked local edits, dry-run cost estimates, and signed automatic updates within the 1.x line.",
+        "requiredNotice": "Run GPT Image 2.6 skill 1.0.0 or later. Automatic updates verify an Ed25519 signature before replacing files; set HIAPI_SKILL_AUTO_UPDATE=off to disable them."
+      },
+      "autoUpdate": {
+        "enabledByDefault": true,
+        "scope": "same-major (1.x)",
+        "verification": "Ed25519 signature over the release manifest, then a sha256 check per file",
+        "disable": "HIAPI_SKILL_AUTO_UPDATE=off or --no-auto-update",
+        "fallback": "If a check or update fails, the run continues and prints the manual install command"
+      },
+      "capabilities": [
+        "text-to-image",
+        "image-to-image",
+        "svg",
+        "gif",
+        "mask-editing",
+        "dry-run-estimate",
+        "signed-auto-update"
+      ],
+      "bestFor": [
+        "single-image generation",
+        "vector SVG artwork",
+        "short animated GIFs",
+        "local mask or markup edits",
+        "high-quality image drafts"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill",
+      "install": {
+        "oneCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-6-skill -y",
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-gpt-image-2-6\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill.git \"$HOME/.claude/skills/hiapi-gpt-image-2-6\"",
+        "manualDirectory": "hiapi-gpt-image-2-6"
+      },
+      "skillsCli": {
+        "afterPublication": "npx skills add HiAPIAI/hiapi-gpt-image-2-6-skill --skill hiapi-gpt-image-2-6"
+      },
+      "modelPage": {
+        "en": "https://hiapi.ai/en/models/gpt-image-2.6-flare-text-to-image",
+        "zh": "https://hiapi.ai/zh/models/gpt-image-2.6-flare-text-to-image"
+      },
+      "modelPages": {
+        "sunburst": {
+          "en": "https://hiapi.ai/en/models/gpt-image-2.6-sunburst-text-to-image",
+          "zh": "https://hiapi.ai/zh/models/gpt-image-2.6-sunburst-text-to-image"
+        }
+      }
+    },
+    {
       "id": "hiapi-seedream-5-0-pro",
       "name": "HiAPI Seedream 5.0 Pro",
       "model": "seedream-5.0-pro",

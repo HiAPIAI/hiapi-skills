@@ -26,6 +26,7 @@ test("validator rejects an index that omits the Seedream 5 Pro skill", (t) => {
   for (const file of [
     "gpt-image-2.md",
     "gpt-image-2-5.md",
+    "gpt-image-2-6.md",
     "seedream-5-0-pro.md",
     "seedance-2-5.md",
     "seedance-2-0.md",

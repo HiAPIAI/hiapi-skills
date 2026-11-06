@@ -11,6 +11,7 @@ const requiredFiles = [
 const requiredSkillIds = [
   "hiapi-gpt-image-2",
   "hiapi-gpt-image-2-5",
+  "hiapi-gpt-image-2-6",
   "hiapi-seedream-5-0-pro",
   "hiapi-seedance-2-5-video",
   "hiapi-seedance-2-0-video",
@@ -51,6 +52,7 @@ const requiredPublicEntryIds = [
 const requiredDocs = [
   "docs/gpt-image-2.md",
   "docs/gpt-image-2-5.md",
+  "docs/gpt-image-2-6.md",
   "docs/seedream-5-0-pro.md",
   "docs/seedance-2-0.md",
   "docs/seedance-2-5.md",
@@ -155,6 +157,39 @@ async function main() {
   }
   if (image25.updatePolicy?.latestVersion !== image25.version || image25.updatePolicy?.minimumVersion !== "0.3.1") {
     throw new Error("hiapi-gpt-image-2-5.updatePolicy must publish 0.3.2 with a soft minimum of 0.3.1");
+  }
+
+  const image26 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-6");
+  if (image26.model !== "gpt-image-2.6-flare/text-to-image" || image26.version !== "1.0.0") {
+    throw new Error("hiapi-gpt-image-2-6 must default to flare/text-to-image and version 1.0.0");
+  }
+  if (image26.status !== "release" || image26.publicInstall !== "available") {
+    throw new Error("hiapi-gpt-image-2-6 must be released with public install available");
+  }
+  if (JSON.stringify(image26.modelIds) !== JSON.stringify([
+    "gpt-image-2.6-flare/text-to-image",
+    "gpt-image-2.6-flare/image-to-image",
+    "gpt-image-2.6-sunburst/text-to-image",
+    "gpt-image-2.6-sunburst/image-to-image",
+  ])) {
+    throw new Error("hiapi-gpt-image-2-6.modelIds must list the four mode IDs");
+  }
+  if (!image26.description?.includes("SVG") || !image26.keywords?.includes("image-generation") || !image26.keywords?.includes("image-editing")) {
+    throw new Error("hiapi-gpt-image-2-6 must include image generation/editing and SVG metadata");
+  }
+  if (image26.skillsCli?.afterPublication !== "npx skills add HiAPIAI/hiapi-gpt-image-2-6-skill --skill hiapi-gpt-image-2-6") {
+    throw new Error("hiapi-gpt-image-2-6.skillsCli.afterPublication must use the official Skills CLI command");
+  }
+  if (image26.updatePolicy?.latestVersion !== image26.version || image26.updatePolicy?.minimumVersion !== "1.0.0") {
+    throw new Error("hiapi-gpt-image-2-6.updatePolicy must publish and require 1.0.0");
+  }
+  for (const capability of ["text-to-image", "image-to-image", "svg", "gif", "mask-editing", "signed-auto-update"]) {
+    if (!image26.capabilities?.includes(capability)) {
+      throw new Error(`hiapi-gpt-image-2-6 missing capability ${capability}`);
+    }
+  }
+  if (image26.autoUpdate?.enabledByDefault !== true || !/same-major/u.test(image26.autoUpdate?.scope || "")) {
+    throw new Error("hiapi-gpt-image-2-6.autoUpdate must document default-on same-major updates");
   }
   if (
     seedance25Skill?.version !== "1.2.0"
