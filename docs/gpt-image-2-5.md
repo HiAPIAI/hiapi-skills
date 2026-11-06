@@ -2,7 +2,7 @@
 
 技能状态：`release`。仓库为 https://github.com/HiAPIAI/hiapi-gpt-image-2-5-skill，已提供公开安装；下方 API schema 与公开价格页已核实。
 
-本条目对应 6 个可调用模型 ID，分两条路线（技能版本 0.3.2）：
+本条目对应 6 个可调用模型 ID，分两条路线（技能版本 0.3.3）：
 
 - **模式路线（默认）**：`gpt-image-2.5-flare/text-to-image`、`gpt-image-2.5-flare/image-to-image`、`gpt-image-2.5-sunburst/text-to-image`、`gpt-image-2.5-sunburst/image-to-image`。不指定 `--model` 时，CLI 按是否传参考图自动选文生图或图生图；`--family` 默认 `flare`。按 `resolution`（1K/2K/4K）计价。
 - **Pro（`--route pro`）**：`gpt-image-2.5-flare@pro`、`gpt-image-2.5-sunburst@pro`，按 `quality` 计价。
@@ -11,7 +11,7 @@
 
 一次任务生成一张图片。
 
-六个模型 ID 的提示词上限已统一为 20,000 字符（2026-10-13 起放宽，2026-10-23 核验）。CLI 先去除首尾空白，再按 JavaScript `string.length` 计算 UTF-16 码元；常用汉字计 1、补充平面 emoji 计 2。文生图另有 o200k token 内部上限，超限返回 `PROMPT_TOO_LONG`；图生图没有该上限。0.3.2 为软更新：`latestVersion` 为 `0.3.2`，`minimumVersion` 保持 `0.3.1`；0.3.1 仍能正常创建任务，只是会把 8,001–20,000 字符的合法提示词挡在本地。
+六个模型 ID 的提示词上限已统一为 20,000 字符（2026-10-13 起放宽，2026-10-23 核验）。CLI 先去除首尾空白，再按 JavaScript `string.length` 计算 UTF-16 码元；常用汉字计 1、补充平面 emoji 计 2。文生图另有 o200k token 内部上限，超限返回 `PROMPT_TOO_LONG`；图生图没有该上限。0.3.3 为软更新：`latestVersion` 为 `0.3.3`，`minimumVersion` 保持 `0.3.1`。0.3.3 把免 key 的公开价格与模型元数据改从 `https://api.hiapi.ai` 读取；`https://www.hiapi.ai/api/...` 现在会跳到 `https://hiapi.ai/api/...` 并返回 404，因此 0.3.3 之前的版本 `--estimate` 与契约检查会失败。
 
 ## 安装
 

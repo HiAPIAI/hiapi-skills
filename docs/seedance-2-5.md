@@ -10,7 +10,7 @@ API models:
 
 Skill directory: `hiapi-seedance-2-5-video`
 
-Current release: `1.2.0`.
+Current release: `1.2.1` (soft upgrade over 1.2.0; `minimumVersion` stays 1.2.0). 1.2.1 reads public pricing and no-key model schemas from `https://api.hiapi.ai`, since `https://www.hiapi.ai/api/...` now redirects and returns 404.
 
 Use this skill for Seedance 2.5 video planning and production through HiAPI, including cost-aware dry runs, text/image/reference mode selection, paid-task idempotency, interrupted-task recovery, download, and quality control.
 

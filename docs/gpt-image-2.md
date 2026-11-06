@@ -4,7 +4,7 @@ Repository: https://github.com/HiAPIAI/hiapi-gpt-image-2-skill
 
 Models: `gpt-image-2/text-to-image`, `gpt-image-2/image-to-image`
 
-Current version: 0.5.0 (hard upgrade; older versions stop creating new tasks until updated).
+Current version: 0.5.1 (soft upgrade over 0.5.0; `minimumVersion` stays 0.5.0). 0.5.1 reads public pricing from `https://api.hiapi.ai`, since `https://www.hiapi.ai/api/pricing` now redirects and returns 404.
 
 Use this skill when the user wants GPT Image 2 text-to-image or image-to-image generation through HiAPI.
 

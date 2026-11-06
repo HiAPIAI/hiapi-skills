@@ -133,8 +133,8 @@ async function main() {
   }
 
   const image25 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-5");
-  if (image25.model !== "gpt-image-2.5-flare/text-to-image" || image25.version !== "0.3.2") {
-    throw new Error("hiapi-gpt-image-2-5 must default to flare/text-to-image and version 0.3.2");
+  if (image25.model !== "gpt-image-2.5-flare/text-to-image" || image25.version !== "0.3.3") {
+    throw new Error("hiapi-gpt-image-2-5 must default to flare/text-to-image and version 0.3.3");
   }
   if (image25.status !== "release" || image25.publicInstall !== "available") {
     throw new Error("hiapi-gpt-image-2-5 must be released with public install available");
@@ -156,7 +156,7 @@ async function main() {
     throw new Error("hiapi-gpt-image-2-5.skillsCli.afterPublication must use the official Skills CLI command");
   }
   if (image25.updatePolicy?.latestVersion !== image25.version || image25.updatePolicy?.minimumVersion !== "0.3.1") {
-    throw new Error("hiapi-gpt-image-2-5.updatePolicy must publish 0.3.2 with a soft minimum of 0.3.1");
+    throw new Error("hiapi-gpt-image-2-5.updatePolicy must publish the current version with a soft minimum of 0.3.1");
   }
 
   const image26 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-6");
@@ -192,11 +192,11 @@ async function main() {
     throw new Error("hiapi-gpt-image-2-6.autoUpdate must document default-on same-major updates");
   }
   if (
-    seedance25Skill?.version !== "1.2.0"
-    || seedance25Skill?.updatePolicy?.latestVersion !== "1.2.0"
+    seedance25Skill?.version !== "1.2.1"
+    || seedance25Skill?.updatePolicy?.latestVersion !== "1.2.1"
     || seedance25Skill?.updatePolicy?.minimumVersion !== "1.2.0"
   ) {
-    throw new Error("hiapi-seedance-2-5-video version policy must require 1.2.0 for automatic reference duration and correct billing estimates");
+    throw new Error("hiapi-seedance-2-5-video version policy must publish 1.2.1 with a minimum of 1.2.0 for automatic reference duration and correct billing estimates");
   }
   for (const capability of ["text-to-video", "image-to-video", "reference-to-video", "task-recovery", "automatic-reference-duration"]) {
     if (!seedance25Skill?.capabilities?.includes(capability)) {

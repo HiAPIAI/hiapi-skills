@@ -109,13 +109,13 @@
         "cover images"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "updatePolicy": {
-        "latestVersion": "0.5.0",
+        "latestVersion": "0.5.1",
         "minimumVersion": "0.5.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-gpt-image-2-skill -y",
-        "notice": "A newer HiAPI GPT Image 2 skill (0.5.0) is available. It adds the beta and ext (every aspect ratio at 4K) routes, --dry-run/--estimate, idempotent task creation, and --resume-task-id recovery.",
-        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it cannot use the beta/ext routes, has no idempotent create or create-free recovery, and applies outdated 4K rules. Update to 0.5.0 before creating more image tasks; recovery of existing tasks still works after updating."
+        "notice": "HiAPI GPT Image 2 skill 0.5.1 fixes price estimates and contract checks: public endpoints moved to api.hiapi.ai.",
+        "requiredNotice": "This HiAPI GPT Image 2 skill version is out of date: it cannot use the beta/ext routes, has no idempotent create or create-free recovery, and applies outdated 4K rules. Update to 0.5.1 before creating more image tasks; recovery of existing tasks still works after updating."
       },
       "install": {
         "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-gpt-image-2-skill",
@@ -131,7 +131,7 @@
     {
       "id": "hiapi-gpt-image-2-5",
       "name": "HiAPI GPT Image 2.5",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models; all six model IDs accept prompts up to 20,000 characters.",
       "keywords": [
         "gpt-image-2.5",
@@ -154,11 +154,11 @@
       "status": "release",
       "publicInstall": "available",
       "updatePolicy": {
-        "latestVersion": "0.3.2",
+        "latestVersion": "0.3.3",
         "minimumVersion": "0.3.1",
         "updateCommand": "for d in \"$HOME/.claude/skills\" \"$HOME/.codex/skills\"; do if [ -d \"$d\" ]; then npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"$d\" --force; fi; done",
-        "notice": "GPT Image 2.5 skill 0.3.2 accepts prompts up to 20,000 characters on all six model IDs and installs into every detected Claude Code / Codex skills directory.",
-        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.3.2 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
+        "notice": "GPT Image 2.5 skill 0.3.3 fixes price estimates and contract checks: public endpoints moved to api.hiapi.ai.",
+        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.3.3 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
       },
       "capabilities": [
         "text-to-image",
@@ -327,12 +327,12 @@
         "reference-plus-output duration pricing"
       ],
       "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-5-video-skill",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "updatePolicy": {
-        "latestVersion": "1.2.0",
+        "latestVersion": "1.2.1",
         "minimumVersion": "1.2.0",
         "updateCommand": "npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y",
-        "notice": "Update to Seedance 2.5 skill 1.2.0 before creating a new task.",
+        "notice": "Seedance 2.5 skill 1.2.1 fixes price estimates and contract checks: public endpoints moved to api.hiapi.ai.",
         "requiredNotice": "Versions before 1.2.0 reject automatic reference-video duration and underestimate reference-video charges. Update to 1.2.0 before creating a new paid task. Existing task recovery and non-billing validation remain available."
       },
       "install": {
