@@ -25,5 +25,5 @@ Use `--codex`, `--claude`, or `--target=/path/to/skills` when a specific destina
 
 Planning and review do not require a HiAPI key. If the selected workflow uses a HiAPI generation skill:
 
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

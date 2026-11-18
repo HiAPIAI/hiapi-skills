@@ -24,7 +24,7 @@ The CLI defaults to a 120-minute polling window and accepts `--timeout-minutes <
 
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://www.hiapi.ai/docs
+- API docs: https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 - GPT Image 2 prompt gallery for still-image starting points: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 
 ## Install
@@ -41,7 +41,7 @@ git clone https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill.git
 
 ## Links
 
-- English model page: https://www.hiapi.ai/en/models/seedance-2-0
-- Chinese model page: https://www.hiapi.ai/zh/models/seedance-2-0
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- English model page: https://www.hiapi.ai/en/models/seedance-2-0?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Chinese model page: https://www.hiapi.ai/zh/models/seedance-2-0?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

@@ -17,7 +17,7 @@ Use this skill when the user has a one-line brief, a product link, a GitHub repo
 
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://www.hiapi.ai/docs
+- API docs: https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 - Seedance 2.0 video skill (renderer): https://github.com/HiAPIAI/hiapi-seedance-2-0-video-skill
 - HappyHorse 1.0 video skill (renderer): https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 
@@ -43,5 +43,5 @@ This skill does not call any HiAPI endpoint and does not require `HIAPI_API_KEY`
 
 API key pages for downstream render skills:
 
-- English: https://www.hiapi.ai/en/dashboard/api-keys
-- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys
+- English: https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

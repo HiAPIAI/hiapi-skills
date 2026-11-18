@@ -28,7 +28,7 @@ Use this skill when the user wants GPT Image 2 text-to-image or image-to-image g
 - Prompt gallery: https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 - Skills directory: https://github.com/HiAPIAI/hiapi-skills
 - Remote MCP: https://mcp.hiapi.ai/mcp
-- API docs: https://www.hiapi.ai/docs
+- API docs: https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 
 ## Install
 
@@ -44,7 +44,7 @@ git clone https://github.com/HiAPIAI/hiapi-gpt-image-2-skill.git
 
 ## Links
 
-- English model page: https://www.hiapi.ai/en/models/gpt-image-2
-- Chinese model page: https://www.hiapi.ai/zh/models/gpt-image-2
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- English model page: https://www.hiapi.ai/en/models/gpt-image-2?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Chinese model page: https://www.hiapi.ai/zh/models/gpt-image-2?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

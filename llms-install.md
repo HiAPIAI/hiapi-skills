@@ -13,8 +13,8 @@ HiAPI has four public entry points:
 | Browse tested image prompts and output examples | Prompt Galleries | https://github.com/HiAPIAI/awesome-gpt-image-2-prompts |
 | Choose a focused model workflow | Agent Skills | https://github.com/HiAPIAI/hiapi-skills |
 | Let a compatible client discover HiAPI tools | Remote MCP | https://mcp.hiapi.ai/mcp |
-| Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://www.hiapi.ai/docs/api-reference/ |
-| Copy direct API examples and model parameters | API Cookbook | https://www.hiapi.ai/docs |
+| Build a backend integration with async jobs, polling, signed callbacks, and task history | Async Tasks API | https://www.hiapi.ai/docs/api-reference/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills |
+| Copy direct API examples and model parameters | API Cookbook | https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills |
 
 HiAPI has focused generation skills plus prompt-only planning and realism skills:
 
@@ -95,8 +95,8 @@ export HIAPI_BASE_URL="https://api.hiapi.ai"
 
 If the user does not have a key:
 
-- English: https://www.hiapi.ai/en/dashboard/api-keys
-- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys
+- English: https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Chinese: https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 
 Do not print or commit API keys.
 
@@ -220,9 +220,9 @@ Use these user-facing messages:
 
 | Condition | Message |
 | --- | --- |
-| Missing key | Set `HIAPI_API_KEY` first. Create or copy one at https://www.hiapi.ai/en/dashboard/api-keys or https://www.hiapi.ai/zh/dashboard/api-keys. |
+| Missing key | Set `HIAPI_API_KEY` first. Create or copy one at https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills or https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills. |
 | Invalid key | HiAPI rejected the API key. Check it or create a new key in HiAPI API Keys. |
-| Insufficient balance or quota | Your HiAPI balance or quota may be insufficient. Check https://www.hiapi.ai/en/dashboard or https://www.hiapi.ai/zh/dashboard. |
+| Insufficient balance or quota | Your HiAPI balance or quota may be insufficient. Check https://www.hiapi.ai/en/dashboard?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills or https://www.hiapi.ai/zh/dashboard?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills. |
 | Rate limit | The request was rate limited. Wait and retry, or reduce concurrent generations. |
 | Unsupported parameter | Check the target skill README and `SKILL.md` for supported duration, size, aspect ratio, resolution, and input type. |
 | Model mismatch | Use the single-model skill that matches the requested model, or use HiAPI Remote MCP for broader model access. |

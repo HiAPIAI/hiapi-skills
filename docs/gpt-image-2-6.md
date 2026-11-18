@@ -97,7 +97,7 @@ node scripts/hiapi-gpt-image-2-6.mjs "a poster" --dry-run --estimate --max-cost 
 
 `--estimate` 按质量、分辨率、输出格式和参考图张数估价，并读取当前活动；`--max-cost` 设上限，估价超过上限就不下单。估价接口不可用时：设了 `--max-cost` 就拦住，没设就照常下单。
 
-价格：low 1K 起 $0.023，以定价页为准：https://hiapi.ai/en/pricing
+价格：low 1K 起 $0.023，以定价页为准：https://hiapi.ai/en/pricing?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 
 ## 自动更新
 
@@ -145,12 +145,12 @@ export HIAPI_API_KEY="your_hiapi_api_key_here"
 export HIAPI_BASE_URL="https://api.hiapi.ai"
 ```
 
-- API Key（English）：https://www.hiapi.ai/en/dashboard/api-keys
-- API Key（中文）：https://www.hiapi.ai/zh/dashboard/api-keys
-- 模型页：https://hiapi.ai/en/models/gpt-image-2.6-flare-text-to-image ；中文：https://hiapi.ai/zh/models/gpt-image-2.6-flare-text-to-image
-- Sunburst 模型页：https://hiapi.ai/en/models/gpt-image-2.6-sunburst-text-to-image ；中文：https://hiapi.ai/zh/models/gpt-image-2.6-sunburst-text-to-image
-- Pricing（公开价格页）：https://hiapi.ai/en/pricing
-- API docs：https://www.hiapi.ai/docs
+- API Key（English）：https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API Key（中文）：https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- 模型页：https://hiapi.ai/en/models/gpt-image-2.6-flare-text-to-image?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills ；中文：https://hiapi.ai/zh/models/gpt-image-2.6-flare-text-to-image?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Sunburst 模型页：https://hiapi.ai/en/models/gpt-image-2.6-sunburst-text-to-image?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills ；中文：https://hiapi.ai/zh/models/gpt-image-2.6-sunburst-text-to-image?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Pricing（公开价格页）：https://hiapi.ai/en/pricing?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API docs：https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 - Prompt gallery：https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 - 兼容性与改动记录：https://github.com/HiAPIAI/hiapi-gpt-image-2-6-skill/blob/main/MIGRATION.md
 

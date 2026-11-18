@@ -59,10 +59,10 @@ export HIAPI_API_KEY="your_hiapi_api_key_here"
 export HIAPI_BASE_URL="https://api.hiapi.ai"
 ```
 
-- API Key（English）：https://www.hiapi.ai/en/dashboard/api-keys
-- API Key（中文）：https://www.hiapi.ai/zh/dashboard/api-keys
-- Pricing（公开价格页）：https://www.hiapi.ai/en/pricing
-- API docs：https://www.hiapi.ai/docs
+- API Key（English）：https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API Key（中文）：https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Pricing（公开价格页）：https://www.hiapi.ai/en/pricing?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API docs：https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 - Prompt gallery：https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 
 当前文档记录已发布目录与已核实的线上请求形态；价格与生产可用性仍需按各自证据单独验收。
