@@ -158,7 +158,7 @@
         "minimumVersion": "0.3.1",
         "updateCommand": "for d in \"$HOME/.claude/skills\" \"$HOME/.codex/skills\"; do if [ -d \"$d\" ]; then npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"$d\" --force; fi; done",
         "notice": "GPT Image 2.5 skill 0.4.0 follows the new @pro contract: @pro now accepts --resolution (1K/2K/4K), is priced by framing x resolution x quality, drops quality=auto and aspect_ratio=auto, and never sends framing (the server computes it).",
-        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.4.0 before creating new @pro image tasks. Non-billing preflight and existing-task recovery remain available."
+        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.4.0 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
       },
       "capabilities": [
         "text-to-image",
