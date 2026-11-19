@@ -28,5 +28,5 @@ Use `--codex`, `--claude`, or `--target=/path/to/skills` when a specific destina
 
 Planning and Blender preview do not require a HiAPI key. If the user authorizes a HiAPI render:
 
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

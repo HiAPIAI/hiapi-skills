@@ -29,5 +29,5 @@ Needs Node 18+, ffmpeg, uv, git and Google Chrome or Chromium.
 
 The animation renders locally and needs no HiAPI key. Lyrics and songs are HiAPI calls:
 
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills

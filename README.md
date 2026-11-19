@@ -2,11 +2,11 @@
 
 Official HiAPI skill directory for AI Agents.
 
-**HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en)**
+**HiAPI Skills • Install • API Key • [HiAPI](https://www.hiapi.ai/en?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills)**
 
-[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys) · [Pricing](https://www.hiapi.ai/en/pricing) · [Docs](https://www.hiapi.ai/docs) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) · [简体中文](README.zh-CN.md)
+[Get API Key](https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) · [Pricing](https://www.hiapi.ai/en/pricing?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) · [Docs](https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) · [GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · [AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · [Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) · [简体中文](README.zh-CN.md)
 
-> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://www.hiapi.ai/docs/for-ai/) · 📖 [API Docs](https://www.hiapi.ai/docs)
+> **HiAPI Matrix:** 🎨 [Image Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts) · 🎬 [Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) · 🛠️ **Agent Skills (you are here)** · 🤖 [Remote MCP](https://www.hiapi.ai/docs/for-ai/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) · 📖 [API Docs](https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills)
 
 ---
 
@@ -32,8 +32,8 @@ Use this repository when you want to choose a HiAPI skill. Install the individua
 | Video Prompt Gallery | [awesome-ai-video-prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts) | You want rights-aware Seedance 2.0 and 2.5 recipe metadata before generating. |
 | Agent Skills | [hiapi-skills](https://github.com/HiAPIAI/hiapi-skills) | You want to browse available HiAPI skills and choose one focused workflow. |
 | Remote MCP | `https://mcp.hiapi.ai/mcp` | Your client supports remote MCP and can pass `Authorization: Bearer <HIAPI_API_KEY>`. |
-| Async Tasks API | [www.hiapi.ai/docs/api-reference](https://www.hiapi.ai/docs/api-reference/) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
-| API Cookbook | [www.hiapi.ai/docs](https://www.hiapi.ai/docs) | You want direct API request shapes, model parameters, and integration guides. |
+| Async Tasks API | [www.hiapi.ai/docs/api-reference](https://www.hiapi.ai/docs/api-reference/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) | You are building a backend service that needs `POST /v1/tasks`, polling, signed callbacks, and task history. |
+| API Cookbook | [www.hiapi.ai/docs](https://www.hiapi.ai/docs?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) | You want direct API request shapes, model parameters, and integration guides. |
 
 These entry points solve different jobs:
 
@@ -93,8 +93,8 @@ These entry points solve different jobs:
 | Make a consistent game asset pack and a playable prototype | [HiAPI Game Asset Studio](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
 | Install one product-video adapter for UGC, fashion, food, or spokesperson work | [Product Video Skills](docs/product-video-skills.md) |
 | Install the realistic prompt and Seedance skills together | [Direct install and archived bundle migration](./docs/realistic-video-workflow.md) (old bundle: [hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)) |
-| Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) |
-| Build a server-side integration with webhooks and task history | [Async Tasks API](https://www.hiapi.ai/docs/api-reference/) |
+| Let an agent access more HiAPI models from chat | [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) |
+| Build a server-side integration with webhooks and task history | [Async Tasks API](https://www.hiapi.ai/docs/api-reference/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) |
 
 Skills are best when you want a stable, focused workflow. Remote MCP is better when you want a chat agent to discover and call multiple HiAPI tools. The MCP endpoint is `https://mcp.hiapi.ai/mcp`.
 
@@ -293,7 +293,7 @@ git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$AG
 
 ## Get API Key
 
-1. Open [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys).
+1. Open [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills).
 2. Create or sign in to your HiAPI account.
 3. Create or copy an API key.
 4. Set it in the terminal where your agent runs:
@@ -350,11 +350,11 @@ This repository includes [skills.json](skills.json), a machine-readable index of
 
 | Problem | Next Step |
 | --- | --- |
-| Missing `HIAPI_API_KEY` | Create or copy a key at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys), then export `HIAPI_API_KEY`. |
-| Invalid key or unauthorized request | Check the key or create a new one at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys). |
-| Insufficient balance, quota, or payment status | Check your account in the [HiAPI Dashboard](https://www.hiapi.ai/en/dashboard) and review [Pricing](https://www.hiapi.ai/en/pricing). |
+| Missing `HIAPI_API_KEY` | Create or copy a key at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills), then export `HIAPI_API_KEY`. |
+| Invalid key or unauthorized request | Check the key or create a new one at [HiAPI API Keys](https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills). |
+| Insufficient balance, quota, or payment status | Check your account in the [HiAPI Dashboard](https://www.hiapi.ai/en/dashboard?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) and review [Pricing](https://www.hiapi.ai/en/pricing?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills). |
 | Rate limited | Wait and retry, or reduce concurrent generations. |
-| Unsure which model to use | Start with the table above, or follow the [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/) so your agent can inspect available tools. |
+| Unsure which model to use | Start with the table above, or follow the [HiAPI Remote MCP Guide](https://www.hiapi.ai/docs/for-ai/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) so your agent can inspect available tools. |
 
 ---
 
@@ -389,4 +389,4 @@ MIT
 
 ---
 
-[HiAPI](https://www.hiapi.ai/en) — One API, all AI models.
+[HiAPI](https://www.hiapi.ai/en?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) — One API, all AI models.

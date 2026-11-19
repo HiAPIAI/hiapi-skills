@@ -39,8 +39,8 @@ npx -y github:HiAPIAI/hiapi-seedance-2-5-video-skill -y
 
 ## Links
 
-- English model docs: https://www.hiapi.ai/docs/models/video/seedance-2-5/
-- Chinese model docs: https://www.hiapi.ai/docs/zh/models/video/seedance-2-5/
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- English model docs: https://www.hiapi.ai/docs/models/video/seedance-2-5/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- Chinese model docs: https://www.hiapi.ai/docs/zh/models/video/seedance-2-5/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 - Prompt gallery: https://github.com/HiAPIAI/awesome-seedance-2-5-prompts

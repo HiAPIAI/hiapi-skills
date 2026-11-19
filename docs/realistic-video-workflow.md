@@ -43,8 +43,8 @@ npx -y github:HiAPIAI/hiapi-realistic-video-workflow -y
 
 Prompt-only and generic handoff modes need no API key. The chosen generation executor owns its authentication. HiAPI Seedance rendering requires `HIAPI_API_KEY` in the agent environment.
 
-- English API keys: https://www.hiapi.ai/en/dashboard/api-keys
-- 中文 API Key：https://www.hiapi.ai/zh/dashboard/api-keys
+- English API keys: https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- 中文 API Key：https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
 
 Do not store keys in the skill repository or installer.
 

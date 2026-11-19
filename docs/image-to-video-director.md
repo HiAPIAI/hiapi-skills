@@ -29,5 +29,5 @@ git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.gi
 
 The planning mode does not need a HiAPI key. If the user authorizes generation through HiAPI, create or copy a key here:
 
-- API key (English): https://www.hiapi.ai/en/dashboard/api-keys
-- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys
+- API key (English): https://www.hiapi.ai/en/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
+- API key (Chinese): https://www.hiapi.ai/zh/dashboard/api-keys?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills
