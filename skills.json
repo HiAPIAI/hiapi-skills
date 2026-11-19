@@ -131,8 +131,8 @@
     {
       "id": "hiapi-gpt-image-2-5",
       "name": "HiAPI GPT Image 2.5",
-      "version": "0.3.3",
-      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models; all six model IDs accept prompts up to 20,000 characters.",
+      "version": "0.4.0",
+      "description": "Generate or edit one image per async task with GPT Image 2.5 Flare or Sunburst; defaults to the text-to-image / image-to-image mode models; all six model IDs accept prompts up to 20,000 characters. The @pro route is priced by quality x framing x resolution (15 ratios or a WxH size, 1K/2K/4K, five quality values, server-computed framing).",
       "keywords": [
         "gpt-image-2.5",
         "image-generation",
@@ -154,11 +154,11 @@
       "status": "release",
       "publicInstall": "available",
       "updatePolicy": {
-        "latestVersion": "0.3.3",
+        "latestVersion": "0.4.0",
         "minimumVersion": "0.3.1",
         "updateCommand": "for d in \"$HOME/.claude/skills\" \"$HOME/.codex/skills\"; do if [ -d \"$d\" ]; then npx --yes --package=github:HiAPIAI/hiapi-gpt-image-2-5-skill hiapi-gpt-image-2-5-install --target=\"$d\" --force; fi; done",
-        "notice": "GPT Image 2.5 skill 0.3.3 fixes price estimates and contract checks: public endpoints moved to api.hiapi.ai.",
-        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.3.3 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
+        "notice": "GPT Image 2.5 skill 0.4.0 follows the new @pro contract: @pro now accepts --resolution (1K/2K/4K), is priced by framing x resolution x quality, drops quality=auto and aspect_ratio=auto, and never sends framing (the server computes it).",
+        "requiredNotice": "This GPT Image 2.5 skill predates the 0.3.0 routing contract. Update to 0.4.0 before creating new image tasks. Non-billing preflight and existing-task recovery remain available."
       },
       "capabilities": [
         "text-to-image",
