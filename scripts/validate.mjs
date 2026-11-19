@@ -160,8 +160,8 @@ async function main() {
   }
 
   const image26 = index.skills.find((skill) => skill.id === "hiapi-gpt-image-2-6");
-  if (image26.model !== "gpt-image-2.6-flare/text-to-image" || image26.version !== "1.0.1") {
-    throw new Error("hiapi-gpt-image-2-6 must default to flare/text-to-image and version 1.0.1");
+  if (image26.model !== "gpt-image-2.6-flare/text-to-image" || image26.version !== "1.0.2") {
+    throw new Error("hiapi-gpt-image-2-6 must default to flare/text-to-image and version 1.0.2");
   }
   if (image26.status !== "release" || image26.publicInstall !== "available") {
     throw new Error("hiapi-gpt-image-2-6 must be released with public install available");
