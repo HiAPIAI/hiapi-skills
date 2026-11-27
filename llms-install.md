@@ -35,6 +35,11 @@ HiAPI has focused generation skills plus prompt-only planning and realism skills
 | Make a hand-painted animated short, explainer, or song video | https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill | `hiapi-hand-painted-animation` |
 | Design a brand identity with a logo, mockups and a brand book | https://github.com/HiAPIAI/hiapi-brand-kit-skill | `hiapi-brand-kit` |
 | Make a consistent game asset pack and a playable prototype | https://github.com/HiAPIAI/hiapi-game-asset-studio-skill | `hiapi-game-assets` |
+| Rebuild a regeneration prompt from one reference image (no API call needed) | https://github.com/HiAPIAI/hiapi-image-to-prompt-skill | `hiapi-image-to-prompt` |
+| Plan a Jimeng Seedance 2.0 storyboard and @reference mapping (prompt-only) | https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill | `hiapi-seedance-prompt-director` |
+| Make a creator-style UGC product ad with Seedance 2.0 | https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill | `hiapi-seedance-2-0-ugc-ad-video-skill` |
+| Generate a cohesive product icon set | https://github.com/HiAPIAI/hiapi-icon-skills | `hiapi-icon-skills` |
+| Write an emotional close-up performance prompt (prompt-only) | https://github.com/HiAPIAI/hiapi-emotion-closeup | `emotion-closeup-prompt` |
 
 Install GPT Image 2.6 with the one-command installer (auto-detects Codex and Claude Code skill directories):
 
@@ -75,9 +80,9 @@ https://mcp.hiapi.ai/mcp
 Use the direct `/v1/tasks` API when the user is building product code or a backend service. The core flow is:
 
 ```text
-POST https://api.hiapi.ai/v1/tasks
-GET  https://api.hiapi.ai/v1/tasks/{taskId}
-GET  https://api.hiapi.ai/v1/tasks
+POST https://api.hiapi.sh/v1/tasks
+GET  https://api.hiapi.sh/v1/tasks/{taskId}
+GET  https://api.hiapi.sh/v1/tasks
 ```
 
 Request shape: `{ "model": "...", "input": { ... }, "callback": { "url": "https://...", "when": "final" } }`.
@@ -90,7 +95,7 @@ All generation skills require:
 
 ```bash
 export HIAPI_API_KEY="your_hiapi_api_key_here"
-export HIAPI_BASE_URL="https://api.hiapi.ai"
+export HIAPI_BASE_URL="https://api.hiapi.sh"
 ```
 
 If the user does not have a key:
@@ -141,6 +146,11 @@ npx -y github:HiAPIAI/hiapi-2d-to-3d-video-skill --codex
 npx -y github:HiAPIAI/hiapi-hand-painted-animation-skill --codex
 npx -y github:HiAPIAI/hiapi-brand-kit-skill --codex
 npx -y github:HiAPIAI/hiapi-game-asset-studio-skill --codex
+npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --codex
+npx -y github:HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill --codex
+npx -y github:HiAPIAI/hiapi-icon-skills -y --codex
+git clone https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-prompt-director"
+git clone https://github.com/HiAPIAI/hiapi-emotion-closeup.git "${CODEX_HOME:-$HOME/.codex}/skills/emotion-closeup-prompt"
 ```
 
 ## Install Into Claude Code
@@ -180,6 +190,16 @@ git clone https://github.com/HiAPIAI/hiapi-brand-kit-skill.git "$HOME/.claude/sk
 
 rm -rf "$HOME/.claude/skills/hiapi-game-assets"
 git clone https://github.com/HiAPIAI/hiapi-game-asset-studio-skill.git "$HOME/.claude/skills/hiapi-game-assets"
+
+rm -rf "$HOME/.claude/skills/hiapi-seedance-prompt-director"
+git clone https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill.git "$HOME/.claude/skills/hiapi-seedance-prompt-director"
+
+rm -rf "$HOME/.claude/skills/emotion-closeup-prompt"
+git clone https://github.com/HiAPIAI/hiapi-emotion-closeup.git "$HOME/.claude/skills/emotion-closeup-prompt"
+
+npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --claude
+npx -y github:HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill --claude
+npx -y github:HiAPIAI/hiapi-icon-skills -y --claude
 ```
 
 ## OpenClaw
@@ -199,6 +219,11 @@ openclaw skills add https://github.com/HiAPIAI/hiapi-2d-to-3d-video-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-brand-kit-skill
 openclaw skills add https://github.com/HiAPIAI/hiapi-game-asset-studio-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-image-to-prompt-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill
+openclaw skills add https://github.com/HiAPIAI/hiapi-icon-skills
+openclaw skills add https://github.com/HiAPIAI/hiapi-emotion-closeup
 ```
 
 The Video Prompt Generator skill is prompt-only — it does **not** call any HiAPI endpoint and does **not** need `HIAPI_API_KEY`. Use it before the render skills to turn a brief into a directed, scene-by-scene prompt; then pass the prompt to `hiapi-seedance-2-0-video-skill` or `hiapi-happyhorse-1-0-video-skill` for actual generation.
@@ -240,7 +265,7 @@ If the user asks for prompt ideas, style references, image examples, or a starti
 https://github.com/HiAPIAI/awesome-gpt-image-2-prompts
 ```
 
-Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.ai/v1/tasks` request.
+Use it as an API-ready creative recipe source: choose a case by output image and category, preserve source attribution when showing it, then adapt the prompt and aspect ratio for the user's own subject. When the user is ready to generate, use `hiapi-gpt-image-2-skill` or a direct `POST https://api.hiapi.sh/v1/tasks` request.
 
 ## Seedance 2.5 update requirement
 
