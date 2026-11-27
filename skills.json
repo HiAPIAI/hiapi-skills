@@ -95,7 +95,7 @@
     {
       "id": "hiapi-gpt-image-2",
       "name": "HiAPI GPT Image 2",
-      "model": "gpt-image-2",
+      "model": "gpt-image-2/text-to-image",
       "type": "image",
       "capabilities": [
         "text-to-image",
@@ -124,8 +124,8 @@
         "manualDirectory": "hiapi-gpt-image-2"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/en/models/gpt-image-2",
-        "zh": "https://www.hiapi.ai/zh/models/gpt-image-2"
+        "en": "https://hiapi.ai/en/models/gpt-image-2.gpt-image-2-image-to-image",
+        "zh": "https://hiapi.ai/zh/models/gpt-image-2.gpt-image-2-image-to-image"
       }
     },
     {
@@ -182,8 +182,8 @@
         "afterPublication": "npx skills add HiAPIAI/hiapi-gpt-image-2-5-skill --skill hiapi-gpt-image-2-5"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/en/models/gpt-image-2.5-flare",
-        "zh": "https://www.hiapi.ai/zh/models/gpt-image-2.5-flare"
+        "en": "https://hiapi.ai/en/models/gpt-image-2.5-flare",
+        "zh": "https://hiapi.ai/zh/models/gpt-image-2.5-flare"
       },
       "modelPages": {
         "sunburst": {
@@ -272,7 +272,7 @@
     {
       "id": "hiapi-seedream-5-0-pro",
       "name": "HiAPI Seedream 5.0 Pro",
-      "model": "seedream-5.0-pro",
+      "model": "seedream-5.0-pro/text-to-image",
       "type": "image",
       "capabilities": [
         "text-to-image",
@@ -301,8 +301,8 @@
         "manualDirectory": "hiapi-seedream-5-0-pro"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/en/models/seedream-5.0-pro-text-to-image",
-        "zh": "https://www.hiapi.ai/zh/models/seedream-5.0-pro-text-to-image"
+        "en": "https://hiapi.ai/en/models/seedream-5.0.seedream-5.0-pro-text-to-image",
+        "zh": "https://hiapi.ai/zh/models/seedream-5.0.seedream-5.0-pro-text-to-image"
       }
     },
     {
@@ -342,8 +342,8 @@
         "manualDirectory": "hiapi-seedance-2-5-video"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/docs/models/video/seedance-2-5/",
-        "zh": "https://www.hiapi.ai/docs/zh/models/video/seedance-2-5/"
+        "en": "https://hiapi.ai/docs/models/video/seedance-2-5/",
+        "zh": "https://hiapi.ai/docs/zh/models/video/seedance-2-5/"
       }
     },
     {
@@ -378,8 +378,8 @@
         "manualDirectory": "hiapi-seedance-2-0-video"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/en/models/seedance-2-0",
-        "zh": "https://www.hiapi.ai/zh/models/seedance-2-0"
+        "en": "https://hiapi.ai/en/models/seedance-2.0",
+        "zh": "https://hiapi.ai/zh/models/seedance-2.0"
       }
     },
     {
@@ -422,7 +422,7 @@
     {
       "id": "hiapi-happyhorse-1-0-video",
       "name": "HiAPI HappyHorse 1.0 Video",
-      "model": "happyhorse-1-0",
+      "model": "happyhorse-1.0",
       "type": "video",
       "capabilities": [
         "text-to-video"
@@ -450,8 +450,8 @@
         "manualDirectory": "hiapi-happyhorse-1-0-video"
       },
       "modelPage": {
-        "en": "https://www.hiapi.ai/en/models/happyhorse-1-0",
-        "zh": "https://www.hiapi.ai/zh/models/happyhorse-1-0"
+        "en": "https://hiapi.ai/en/models/happyhorse-1.0",
+        "zh": "https://hiapi.ai/zh/models/happyhorse-1.0"
       }
     },
     {
@@ -674,6 +674,165 @@
       "modelPage": {
         "en": "https://github.com/HiAPIAI/hiapi-brand-kit-skill",
         "zh": "https://github.com/HiAPIAI/hiapi-brand-kit-skill"
+      }
+    },
+    {
+      "id": "hiapi-image-to-prompt",
+      "name": "HiAPI Image to Prompt",
+      "model": "deepseek-v4.1-flash",
+      "type": "prompt",
+      "capabilities": [
+        "image-to-prompt",
+        "reverse-prompt",
+        "agent-vision-no-key",
+        "bilingual-output"
+      ],
+      "bestFor": [
+        "rebuilding a regeneration prompt from one reference image",
+        "prompts for GPT Image, Midjourney, FLUX, or Stable Diffusion",
+        "English or Chinese prompt output"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-image-to-prompt-skill",
+      "version": "0.1.1",
+      "updatePolicy": {
+        "latestVersion": "0.1.1",
+        "minimumVersion": "0.1.0",
+        "updateCommand": "npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --target=\"${AGENT_SKILLS_DIR:-$HOME/.codex/skills}\" --force",
+        "notice": "Image to Prompt skill 0.1.1 fixes price estimates and contract checks: public endpoints moved to api.hiapi.ai.",
+        "requiredNotice": "This HiAPI Image to Prompt skill version is outdated. Update before making live HiAPI calls; the Agent-vision path and --dry-run keep working."
+      },
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-image-to-prompt-skill",
+        "codex": "npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --codex",
+        "claudeCode": "npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --claude",
+        "manualDirectory": "hiapi-image-to-prompt"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-image-to-prompt-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-image-to-prompt-skill"
+      }
+    },
+    {
+      "id": "hiapi-seedance-prompt-director",
+      "name": "HiAPI Seedance Prompt Director",
+      "model": null,
+      "type": "prompt",
+      "capabilities": [
+        "asset-reference-mapping",
+        "second-by-second-storyboard",
+        "paste-ready-prompt",
+        "feasibility-check"
+      ],
+      "bestFor": [
+        "Jimeng Seedance 2.0 video planning",
+        "@Image / @Video / @Audio reference role assignment",
+        "dialogue and sound timing",
+        "video extension and targeted edits"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill",
+      "version": null,
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-prompt-director\" && git clone https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill.git \"${CODEX_HOME:-$HOME/.codex}/skills/hiapi-seedance-prompt-director\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/hiapi-seedance-prompt-director\" && git clone https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill.git \"$HOME/.claude/skills/hiapi-seedance-prompt-director\"",
+        "manualDirectory": "hiapi-seedance-prompt-director"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill",
+        "zh": "https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill"
+      }
+    },
+    {
+      "id": "hiapi-seedance-2-0-ugc-ad-video-skill",
+      "name": "HiAPI Seedance 2.0 UGC Ad Video",
+      "model": "seedance-2.0",
+      "type": "video",
+      "capabilities": [
+        "ugc-ad-planning",
+        "product-claim-ledger",
+        "talent-consent-checks",
+        "native-dialogue-validation",
+        "9-16-video-generation",
+        "media-qc"
+      ],
+      "bestFor": [
+        "TikTok and Instagram Reels product ads",
+        "unboxing, first-use, and direct-to-camera demos",
+        "paid-social variant batches"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill",
+      "version": "0.1.3",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill",
+        "codex": "npx -y github:HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill -y --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill -y --claude",
+        "manualDirectory": "hiapi-seedance-2-0-ugc-ad-video-skill"
+      },
+      "modelPage": {
+        "en": "https://hiapi.ai/en/models/seedance-2.0",
+        "zh": "https://hiapi.ai/zh/models/seedance-2.0"
+      }
+    },
+    {
+      "id": "hiapi-icon-skills",
+      "name": "HIAPI Icon Skills",
+      "model": null,
+      "type": "workflow",
+      "capabilities": [
+        "icon-set-generation",
+        "single-icon-revision",
+        "individual-png-export",
+        "transparent-background-preparation"
+      ],
+      "bestFor": [
+        "app and website feature icons",
+        "cohesive 2x2 or multi-icon sheets",
+        "reference-image direction with consistent style"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-icon-skills",
+      "version": "0.2.0",
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-icon-skills",
+        "codex": "npx -y github:HiAPIAI/hiapi-icon-skills -y --codex",
+        "claudeCode": "npx -y github:HiAPIAI/hiapi-icon-skills -y --claude",
+        "manualDirectory": "hiapi-icon-skills"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-icon-skills",
+        "zh": "https://github.com/HiAPIAI/hiapi-icon-skills"
+      }
+    },
+    {
+      "id": "emotion-closeup-prompt",
+      "name": "Emotion Close-up Prompt",
+      "model": null,
+      "type": "prompt",
+      "capabilities": [
+        "six-stage-emotional-arc",
+        "muscle-level-performance-description",
+        "tear-and-breath-physics",
+        "prompt-template"
+      ],
+      "bestFor": [
+        "crying and breakdown close-ups",
+        "suppressed laughter, held-back anger, tears of joy",
+        "emotional close-up prompts for Sora, Veo, Kling, Jimeng, Hailuo"
+      ],
+      "repository": "https://github.com/HiAPIAI/hiapi-emotion-closeup",
+      "version": null,
+      "updatePolicy": null,
+      "install": {
+        "openclaw": "openclaw skills add https://github.com/HiAPIAI/hiapi-emotion-closeup",
+        "codex": "mkdir -p \"${CODEX_HOME:-$HOME/.codex}/skills\" && rm -rf \"${CODEX_HOME:-$HOME/.codex}/skills/emotion-closeup-prompt\" && git clone https://github.com/HiAPIAI/hiapi-emotion-closeup.git \"${CODEX_HOME:-$HOME/.codex}/skills/emotion-closeup-prompt\"",
+        "claudeCode": "mkdir -p \"$HOME/.claude/skills\" && rm -rf \"$HOME/.claude/skills/emotion-closeup-prompt\" && git clone https://github.com/HiAPIAI/hiapi-emotion-closeup.git \"$HOME/.claude/skills/emotion-closeup-prompt\"",
+        "manualDirectory": "emotion-closeup-prompt"
+      },
+      "modelPage": {
+        "en": "https://github.com/HiAPIAI/hiapi-emotion-closeup",
+        "zh": "https://github.com/HiAPIAI/hiapi-emotion-closeup"
       }
     }
   ]

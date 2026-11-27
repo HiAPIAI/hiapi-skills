@@ -64,6 +64,11 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | HiAPI 手绘动画短片 | 水彩笔触加墨线风格的手绘动画短片、科普讲解和歌词动画，可选写词作曲 | —（制作工作流） | [hiapi-hand-painted-animation-skill](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
 | HiAPI 品牌套件 | 一句生意描述，生成可编辑的 SVG Logo、配色字体语气、带原版 Logo 的真实感样机和品牌手册 | —（制作工作流） | [hiapi-brand-kit-skill](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
 | HiAPI 游戏素材工坊 | 一句游戏创意，生成风格统一的角色、地块、图标、背景、音乐、配音和预告片，外加可玩原型 | —（制作工作流） | [hiapi-game-asset-studio-skill](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
+| Image to Prompt | 从一张参考图反推可复现的提示词，适配 GPT Image、Midjourney、FLUX、Stable Diffusion，中英文输出 | —（默认用 Agent 自带视觉；可选脚本默认 `deepseek-v4.1-flash`） | [hiapi-image-to-prompt-skill](https://github.com/HiAPIAI/hiapi-image-to-prompt-skill) |
+| Seedance 提示词导演 | 为即梦 Seedance 2.0 做逐秒分镜、@素材角色映射和可行性检查 | —（纯提示词） | [hiapi-seedance-prompt-director-skill](https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill) |
+| Seedance 2.0 UGC 广告视频 | TikTok/Reels 创作者风格产品广告：卖点核对、肖像授权检查、原生对白、成片质检（同时是 Product Video Skills 的 adapter） | `seedance-2.0` | [hiapi-seedance-2-0-ugc-ad-video-skill](https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill) |
+| HIAPI 图标 Skill | 风格统一的产品图标套组、单图返修、独立 PNG 导出、透明背景准备 | —（制作工作流） | [hiapi-icon-skills](https://github.com/HiAPIAI/hiapi-icon-skills) |
+| 情绪特写 Prompt | 六阶段情绪弧线，写哭戏、强忍、破防等人物情绪特写，适配 Sora、Veo、可灵、即梦、海螺 | —（纯提示词） | [hiapi-emotion-closeup](https://github.com/HiAPIAI/hiapi-emotion-closeup) |
 
 ### 产品视频适配器集合
 
@@ -91,6 +96,11 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | 制作手绘动画短片、科普讲解或歌曲动画 | [HiAPI 手绘动画短片](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill) |
 | 设计品牌：Logo、样机和品牌手册 | [HiAPI 品牌套件](https://github.com/HiAPIAI/hiapi-brand-kit-skill) |
 | 制作风格统一的游戏素材包和可玩原型 | [HiAPI 游戏素材工坊](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill) |
+| 从一张参考图反推提示词 | [Image to Prompt](https://github.com/HiAPIAI/hiapi-image-to-prompt-skill) |
+| 为即梦 Seedance 2.0 规划分镜和素材映射 | [Seedance 提示词导演](https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill) |
+| 用 Seedance 2.0 做创作者风格的 UGC 产品广告 | [Seedance 2.0 UGC 广告视频](https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill) |
+| 生成风格统一的产品图标套组 | [HIAPI 图标 Skill](https://github.com/HiAPIAI/hiapi-icon-skills) |
+| 写人物情绪特写的表演 prompt | [情绪特写 Prompt](https://github.com/HiAPIAI/hiapi-emotion-closeup) |
 | 为 UGC、时尚、食品或口播安装一个产品视频适配器 | [Product Video Skills](docs/product-video-skills.md) |
 | 一次安装真实感提示词与 Seedance 两个 Skill | [直接安装和归档迁移说明](./docs/realistic-video-workflow.md)（旧组合仓库：[hiapi-realistic-video-workflow](https://github.com/HiAPIAI/hiapi-realistic-video-workflow)） |
 | 让 Agent 在聊天里访问更多 HiAPI 模型 | [HiAPI Remote MCP 指南](https://www.hiapi.ai/docs/zh/for-ai/?utm_source=github&utm_medium=readme&utm_campaign=hiapi-skills) |
@@ -98,7 +108,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 
 如果你要一个稳定、明确、单模型的工作流，用 skill 更合适。如果你希望聊天 Agent 能发现和调用更多 HiAPI 工具，用 Remote MCP 更合适。MCP 端点是 `https://mcp.hiapi.ai/mcp`。
 
-如果是在写应用代码，直接调用 `/v1/tasks`：用 `POST https://api.hiapi.ai/v1/tasks` 提交任务，用 `GET https://api.hiapi.ai/v1/tasks/{taskId}` 查询状态，或注册 `callback.url` 接收带 `X-HiAPI-Timestamp` 和 `X-HiAPI-Signature` 的终态回调。
+如果是在写应用代码，直接调用 `/v1/tasks`：用 `POST https://api.hiapi.sh/v1/tasks` 提交任务，用 `GET https://api.hiapi.sh/v1/tasks/{taskId}` 查询状态，或注册 `callback.url` 接收带 `X-HiAPI-Timestamp` 和 `X-HiAPI-Signature` 的终态回调。
 
 ---
 
@@ -110,7 +120,7 @@ HiAPI 是为开发者打造的 AI API 平台：一个 API，所有 AI 模型。�
 | --- | --- | --- |
 | 是什么 | 本地 skill 目录，被 Agent 加载（Codex、Claude Code、OpenClaw 等） | 托管 MCP 端点：`https://mcp.hiapi.ai/mcp` |
 | 安装方式 | `git clone` 或 `openclaw skills add` 到 Agent 的 skills 目录 | 在 Agent 的 MCP 配置里加一段 JSON，不用 clone |
-| 网络路径 | 用户本机 → `api.hiapi.ai` 直连 | Agent → `mcp.hiapi.ai`（托管 MCP）→ `api.hiapi.ai` |
+| 网络路径 | 用户本机 → `api.hiapi.sh` 直连 | Agent → `mcp.hiapi.ai`（托管 MCP）→ `api.hiapi.sh` |
 | 适合 | 稳定、聚焦、单一模型的工作流——只生图，或只生视频 | 聊天 Agent 在一次会话里需要发现并调用多个 HiAPI 工具 |
 | 模型范围 | 一个生成 skill 对应一个模型家族（`gpt-image-2`、`seedance-2.5/*`、`seedance-2.0`、`happyhorse-1-0`），另有纯提示词 Skill | 暴露的所有 MCP 工具：`generate_image`、`generate_video`、`list_models` 等 |
 | 更新方式 | 仓库有新版本时你自己 pull | 托管模式，能力服务端更新 |
@@ -177,6 +187,21 @@ npx -y github:HiAPIAI/hiapi-brand-kit-skill -y
 
 # HiAPI Game Asset Studio
 npx -y github:HiAPIAI/hiapi-game-asset-studio-skill -y
+
+# Image to Prompt
+npx --yes --package=github:HiAPIAI/hiapi-image-to-prompt-skill hiapi-image-to-prompt-install --codex
+
+# Seedance Prompt Director (prompt-only)
+npx skills add HiAPIAI/hiapi-seedance-prompt-director-skill
+
+# Seedance 2.0 UGC Ad Video
+npx -y github:HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill -y
+
+# HIAPI Icon Skills
+npx -y github:HiAPIAI/hiapi-icon-skills -y --codex
+
+# Emotion Close-up Prompt（手动复制，见仓库 README）
+git clone https://github.com/HiAPIAI/hiapi-emotion-closeup.git ~/.codex/skills/emotion-closeup-prompt
 
 # Image-to-Video Director（通用 clone 安装）
 git clone https://github.com/HiAPIAI/hiapi-image-to-video-camera-motion-skill.git "${CODEX_HOME:-$HOME/.codex}/skills/image-to-video-director"
@@ -300,7 +325,7 @@ git clone https://github.com/HiAPIAI/hiapi-video-prompt-generator-skill.git "$AG
 
 ```bash
 export HIAPI_API_KEY="your_hiapi_api_key_here"
-export HIAPI_BASE_URL="https://api.hiapi.ai"
+export HIAPI_BASE_URL="https://api.hiapi.sh"
 ```
 
 每个单模型 skill 都包含 `scripts/check-config.mjs`，Agent 可以先检查 Key 和网络，再开始生成。
@@ -371,6 +396,11 @@ https://github.com/HiAPIAI/hiapi-happyhorse-1-0-video-skill
 - [HiAPI 手绘动画短片](https://github.com/HiAPIAI/hiapi-hand-painted-animation-skill)
 - [HiAPI 品牌套件](https://github.com/HiAPIAI/hiapi-brand-kit-skill)
 - [HiAPI 游戏素材工坊](https://github.com/HiAPIAI/hiapi-game-asset-studio-skill)
+- [HiAPI Image to Prompt](https://github.com/HiAPIAI/hiapi-image-to-prompt-skill)
+- [HiAPI Seedance 提示词导演](https://github.com/HiAPIAI/hiapi-seedance-prompt-director-skill)
+- [HiAPI Seedance 2.0 UGC 广告视频](https://github.com/HiAPIAI/hiapi-seedance-2-0-ugc-ad-video-skill)
+- [HIAPI 图标 Skill](https://github.com/HiAPIAI/hiapi-icon-skills)
+- [HiAPI 情绪特写 Prompt](https://github.com/HiAPIAI/hiapi-emotion-closeup)
 - [HiAPI Product Video Skills](https://github.com/HiAPIAI/hiapi-product-video-skills)
 - [Awesome GPT Image 2 Prompts](https://github.com/HiAPIAI/awesome-gpt-image-2-prompts)
 - [Awesome AI Video Prompts](https://github.com/HiAPIAI/awesome-ai-video-prompts)
